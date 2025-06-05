@@ -1,15 +1,44 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "../fonts/CormorantSC-Bold.ttf",
+      weight: "900",
+      style: "bold",
+    },
+    {
+      path: "../fonts/CormorantSC-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-cormorant", // für Tailwind optional
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const encoded = localFont({
+  src: [
+    {
+      path: "../fonts/EncodeSansExpanded-Thin.ttf",
+      weight: "200",
+      style: "thin",
+    },
+    {
+      path: "../fonts/EncodeSansExpanded-Regular.ttf",
+      weight: "400",
+      style: "regular",
+    },
+    {
+      path: "../fonts/EncodeSansExpanded-ExtraBold.ttf",
+      weight: "900",
+      style: "black",
+    },
+  ],
+  variable: "--font-encoded", // für Tailwind optional
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,9 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${cormorant.variable} ${encoded.variable} antialiased`}>
         {children}
       </body>
     </html>

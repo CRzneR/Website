@@ -11,11 +11,26 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --backgroundColor: #fef852;
+    --backgroundColorSecondary: #fffc94;
+    --textPrimaryColor: #2a2a2a;
+
+    --headlineBig: clamp(3rem, 10vw, 15rem);
+    --headlineSmall: clamp(1rem, 1.2vw, 6rem);
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.stroke-text {
+  -webkit-text-stroke: 1px #4b5563;
+  color: transparent;
+}
+
+.reveal-text {
+  line-height: var(--headlineBig);
+  filter: drop-shadow(0 0 0.06rem rgb(2, 2, 2));
 }

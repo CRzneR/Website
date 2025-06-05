@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        cormorant: ["var(--font-cormorant)", "serif"],
+        encoded: ["var(--font-encoded)", "serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
