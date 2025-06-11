@@ -24,7 +24,7 @@ const navItems = [
 const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm ">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+      <div className="max-w-6xl mx-auto px-4 flex items-center  h-16">
         {/* Logo */}
         <Link
           href="#home"
@@ -34,10 +34,12 @@ const NavBar = () => {
         </Link>
 
         {/* Navigation Items */}
-        <div className="flex space-x-4">
-          {navItems.map((item) => (
-            <NavItem key={item.href} {...item} />
-          ))}
+        <div className="flex mx-auto">
+          <div className="flex space-x-4">
+            {navItems.map((item) => (
+              <NavItem key={item.href} {...item} />
+            ))}
+          </div>
         </div>
       </div>
     </nav>

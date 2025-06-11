@@ -11,8 +11,8 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({
   heading = "Hi, I am Christoph\nDesigner & Developer",
   subheading = "FREELANCER",
-  description = `Ich habe Product Design studiert und interessiere mich für das
-Digitale Design. Also habe ich mir selbst Webentwicklung beigebracht
+  description = `Ich habe im Bereich Design studiert und und interessiere mich für alles
+Digitale. Ich mir selbst Webentwicklung beigebracht
 und bin in diesem Bereich auch zuhause.`,
 }) => {
   return (
@@ -22,7 +22,7 @@ und bin in diesem Bereich auch zuhause.`,
           {subheading}
         </h4>
 
-        <h1 className="font-encoded  font-black whitespace-pre-line text-4xl md:text-5xl lg:text-6xl text-[#372c77]">
+        <h1 className="font-bstyle text-bold regular whitespace-pre-line text-4xl md:text-5xl lg:text-9xl uppercase text-[#372c77]">
           {heading}
         </h1>
 

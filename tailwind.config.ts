@@ -11,6 +11,7 @@ export default {
       fontFamily: {
         cormorant: ["var(--font-cormorant)", "serif"],
         encoded: ["var(--font-encoded)", "serif"],
+        bstyle: ["var(--font-bstyle)", "serif"],
       },
       colors: {
         background: "var(--background)",

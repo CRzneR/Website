@@ -1,3 +1,5 @@
+"use client";
+
 // components/ScrollRevealSequence.tsx
 import React, { ReactNode, useState, useEffect } from "react";
 import { motion } from "framer-motion";

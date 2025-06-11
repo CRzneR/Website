@@ -1,13 +1,13 @@
 import CallToActionSection from "@/components/callToAction";
 
-import Gradientdiv from "@/components/Gradientdiv";
 import HeroSection from "@/components/heroSection";
 import NavBar from "@/components/navBar";
 import ProjectOverview from "@/components/Projects/projectOverview";
-import { Container } from "@/components/scrollytelling.tsx/container";
+import ScrollVideoSection from "@/components/scrollytelling.tsx/container";
 
 import Testimonials from "@/components/testimonials";
 import ThreeScene from "@/components/threeJs/ThreeScene";
+import ScalingDivGSAP from "@/components/scrollytelling.tsx/scaledDiv";
 
 export default function Home() {
   return (
@@ -17,32 +17,42 @@ export default function Home() {
       </nav>
       <main>
         <section>
-          <Gradientdiv
-            className="h-screen w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
-             bg-[length:200%] animate-gradient flex flex-row justify-center items-center gap-12 px-8"
-          >
+          <div className="h-screen w-full bg-[#e9e6fb] flex flex-row justify-center items-center gap-12 px-8">
             <div className="flex-grow-[2] basis-2/3 max-w-2xl w-full">
               <HeroSection />
             </div>
             <div className="flex-grow basis-1/3 max-w-md w-full">
               <ThreeScene />
             </div>
-          </Gradientdiv>
+          </div>
         </section>
-
         <section>
-          <Container />
+          <ScrollVideoSection
+            videoSrc="/video/DreamBefore.mp4"
+            sectionHeight="200vh"
+            videoHeight="80vh"
+            overlay1Content={
+              <div>
+                <h2 className="text-3xl font-bold mb-4">Unsere Story</h2>
+                <p>Entdecken Sie unsere einzigartige Geschichte</p>
+              </div>
+            }
+          />
         </section>
 
         <section>
           <ProjectOverview />
         </section>
+
+        <section>
+          <ScalingDivGSAP />
+        </section>
+
         <section>
           <Testimonials />
         </section>
       </main>
       <footer>
-        {" "}
         <section>
           <CallToActionSection />
         </section>
