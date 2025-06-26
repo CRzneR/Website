@@ -1,43 +1,83 @@
-import CallToActionSection from "@/components/callToAction";
-import TextReveal from "@/components/effects/textReveal";
+import CallToActionSection from "../components/callToAction";
 
-import Gradientdiv from "@/components/Gradientdiv";
-import HeroSection from "@/components/heroSection";
-import NavBar from "@/components/navBar";
-import ProjectOverview from "@/components/Projects/projectOverview";
+import NavBar from "../components/Top/navBar";
+import ProjectOverview from "../components/Projects/projectOverview";
+import ScrollVideoSection from "../components/scrollytelling.tsx/container";
+import Testimonials from "../components/testimonials";
 
-import Testimonials from "@/components/testimonials";
-import ThreeScene from "@/components/threeJs/ThreeScene";
+import HeroSection from "../components/Top/heroSection";
+import { ProjectCardList } from "../components/UxProjects/ProjectCardList";
+import Leistungen from "../components/UxProjects/Leistungen";
+
+const customHeadings = [
+  "USER EXPERIENCE ",
+  "INTERFACE DESIGN",
+  "DEVELOPMENT",
+  "STRATEGY",
+];
+
+const customStyles = {
+  fontSize: "3.5rem",
+  margin: "0 0 2rem 0",
+  fontFamily: "sans-serif",
+};
+
+const containerStyles = {
+  maxWidth: "900px",
+  padding: "3rem",
+};
 
 export default function Home() {
   return (
-    <div>
+    <div className=" ">
       <nav>
         <NavBar />
       </nav>
       <main>
-        <Gradientdiv
-          className="h-screen w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500
-     bg-[length:200%] animate-gradient flex flex-row justify-center items-center gap-12 px-8"
-        >
-          <div className="flex-grow-[2] basis-2/3 max-w-2xl w-full">
-            <HeroSection />
-          </div>
-          <div className="flex-grow basis-1/3 max-w-md w-full">
-            <ThreeScene />
-          </div>
-        </Gradientdiv>
+        {/* Hero Section mit Hintergrundbild */}
 
-        <TextReveal />
+        <section>
+          <HeroSection />
+        </section>
+
+        {/* Weitere Sections... */}
+        <section>
+          <ScrollVideoSection
+            videoSrc="/video/Dream1.mp4"
+            sectionHeight="200vh"
+            videoHeight="80vh"
+            overlay1Content={
+              <div>
+                <h2 className="text-3xl font-bold mb-4">This is my Story</h2>
+                <p>
+                  ICH BIN IN EINER DIGITALEN WELT AUFGEWACHSEN. UM DIESE MIT ZU
+                  GESTALTEN HABE ICH WEBENTWICKLUNG GELERNT UND KANN NUN MEINE
+                  DIENSTE ANBIETEN{" "}
+                </p>
+              </div>
+            }
+          />
+        </section>
+
+        <Leistungen
+          headings={customHeadings}
+          headingStyle={customStyles}
+          containerStyle={containerStyles}
+        />
+
         <section>
           <ProjectOverview />
         </section>
+
+        <main className="min-h-screen flex justify-center items-center bg-white">
+          <ProjectCardList />
+        </main>
+
         <section>
           <Testimonials />
         </section>
       </main>
       <footer>
-        {" "}
         <section>
           <CallToActionSection />
         </section>

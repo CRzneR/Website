@@ -29,8 +29,9 @@ function TextReveal() {
       scrollTrigger: {
         trigger: triggerRef.current,
         scrub: true,
-        start: "top center",
-        end: "bottom 85%",
+        markers: true,
+        start: "top 80%",
+        end: "bottom 95%",
       },
       color: "#2A2A2A",
       duration: 5,
@@ -43,17 +44,17 @@ function TextReveal() {
 
   return (
     <>
-      <div className="spacing-small"></div>
-      <div className="reveal">
-        <div ref={triggerRef}>
-          {text.split("").map((letter, index) => (
-            <span className="reveal-text" key={index} ref={setlettersRef}>
-              {letter}
-            </span>
-          ))}
-        </div>
+      <div ref={triggerRef}>
+        {text.split("").map((letter, index) => (
+          <span
+            className="text-6xl font-bold text-black"
+            key={index}
+            ref={setlettersRef}
+          >
+            {letter}
+          </span>
+        ))}
       </div>
-      <div className="spacing"></div>
     </>
   );
 }

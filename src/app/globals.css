@@ -2,15 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #cec9c9;
 
     --backgroundColor: #fef852;
     --backgroundColorSecondary: #fffc94;
@@ -20,10 +14,11 @@
     --headlineSmall: clamp(1rem, 1.2vw, 6rem);
   }
 }
+.element {
+  font-family: var(--font-bstyle);
+}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -32,30 +27,15 @@ body {
   color: transparent;
 }
 
-.reveal {
-  background: var(--backgroundColor);
-  padding-left: 30%;
-  padding-right: 10%;
-}
-
 .reveal-text {
-  font-weight: 800;
-  font-size: var(--headlineBig);
   line-height: var(--headlineBig);
-  color: var(--backgroundColor);
   filter: drop-shadow(0 0 0.06rem rgb(2, 2, 2));
 }
 
-.spacing-small {
-  height: 50vh;
+.opacity-100 {
+  opacity: 1;
 }
 
-.spacing {
-  height: 100vh;
-}
-
-@media screen and (max-width: 500px) {
-  .reveal {
-    padding-left: 10px;
-  }
+.opacity-30 {
+  opacity: 0.3;
 }
