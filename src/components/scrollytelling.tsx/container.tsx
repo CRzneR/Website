@@ -13,13 +13,16 @@ interface ScrollVideoSectionProps {
   overlay2Content?: React.ReactNode;
   sectionHeight?: string;
   videoHeight?: string;
+  stickyDistance?: number;
 }
 
 const ScrollVideoSection: React.FC<ScrollVideoSectionProps> = ({
   videoSrc,
   overlay1Content = (
     <>
-      <h2 className="text-2xl font-bold mb-4">Erster Inhalt</h2>
+      <h2 className="text-2xl font-bold mb-4 font-cormorant">
+        This is my story
+      </h2>
       <p>Dieser Inhalt erscheint und verschwindet beim Scrollen.</p>
     </>
   ),
@@ -31,6 +34,7 @@ const ScrollVideoSection: React.FC<ScrollVideoSectionProps> = ({
   ),
   sectionHeight = "300vh",
   videoHeight = "100vh",
+  stickyDistance = 200,
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -46,69 +50,184 @@ const ScrollVideoSection: React.FC<ScrollVideoSectionProps> = ({
     video.currentTime = 0;
 
     const ctx = gsap.context(() => {
-      // Video-Animation (scrub durch Scrollen)
+      // Video-Animation
       gsap.to(video, {
         currentTime: video.duration || 1,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: `+=${sectionHeight}`,
+          end: "bottom 80%",
           scrub: 1,
-          pin: videoContainerRef.current, // Video-Container wird gepinnt
-          pinSpacing: false, // Verhindert zusätzlichen Platzhalter
-          markers: false, // Debug-Hilfe
+          pin: videoContainerRef.current,
+          pinSpacing: false,
+          markers: true,
         },
       });
 
-      // Overlay-Animationen (unverändert)
+      // Overlay 1 - Links positioniert
       if (overlay1Ref.current) {
-        gsap
-          .timeline({
+        const overlay1 = overlay1Ref.current;
+
+        // Initiale Position links
+        gsap.set(overlay1, {
+          left: "10%",
+          top: "50%",
+          x: 0,
+          y: "-50%",
+        });
+
+        // Erscheinen
+        gsap.fromTo(
+          overlay1,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
             scrollTrigger: {
               trigger: sectionRef.current,
-              start: "15% center",
-              end: "80% center",
+              start: "30% center",
+              end: `+=${stickyDistance}`,
               scrub: 0.5,
+              onEnter: () => {
+                gsap.set(overlay1, {
+                  position: "fixed",
+                  left: "10%",
+                  top: "50%",
+                  x: 0,
+                  y: "-50%",
+                });
+              },
+              onLeaveBack: () => {
+                gsap.set(overlay1, {
+                  position: "absolute",
+                  left: "10%",
+                  top: "50%",
+                  x: 0,
+                  y: "-50%",
+                });
+              },
             },
-          })
-          .fromTo(
-            overlay1Ref.current,
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 0.5 }
-          )
-          .to(
-            overlay1Ref.current,
-            { opacity: 0, y: -50, duration: 0.5 },
-            "+=0.3"
-          );
+          }
+        );
+
+        // Verschwinden
+        gsap.to(overlay1, {
+          opacity: 0,
+          y: -50,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: `30% center+=${stickyDistance}`,
+            end: "90% center",
+            scrub: 0.5,
+            onLeave: () => {
+              gsap.set(overlay1, {
+                position: "absolute",
+                left: "10%",
+                top: "auto",
+                x: 0,
+                y: 0,
+              });
+            },
+            onEnterBack: () => {
+              gsap.set(overlay1, {
+                position: "fixed",
+                left: "10%",
+                top: "50%",
+                x: 0,
+                y: "-50%",
+              });
+            },
+          },
+        });
       }
 
+      // Overlay 2 - Links positioniert und erscheint nach Overlay 1
       if (overlay2Ref.current) {
-        gsap
-          .timeline({
+        const overlay2 = overlay2Ref.current;
+
+        // Initiale Position links (gleiche wie Overlay 1)
+        gsap.set(overlay2, {
+          left: "70%",
+          top: "50%",
+          x: 0,
+          y: "-50%",
+          opacity: 0,
+        });
+
+        // Erscheinen nach Overlay 1
+        gsap.fromTo(
+          overlay2,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
             scrollTrigger: {
               trigger: sectionRef.current,
-              start: "35% center",
-              end: "90% center",
+              start: "70% center", // Beginnt wenn Overlay 1 verschwunden ist
+              end: `+=${stickyDistance}`,
               scrub: 0.5,
+              onEnter: () => {
+                gsap.set(overlay2, {
+                  position: "fixed",
+                  left: "70%",
+                  top: "50%",
+                  x: 0,
+                  y: "-50%",
+                });
+              },
+              onLeaveBack: () => {
+                gsap.set(overlay2, {
+                  position: "absolute",
+                  left: "70%",
+                  top: "50%",
+                  x: 0,
+                  y: "-50%",
+                  opacity: 0,
+                });
+              },
             },
-          })
-          .fromTo(
-            overlay2Ref.current,
-            { opacity: 0, x: -50 },
-            { opacity: 1, x: 0, duration: 0.5 }
-          )
-          .to(
-            overlay2Ref.current,
-            { opacity: 0, x: 50, duration: 0.5 },
-            "+=0.3"
-          );
+          }
+        );
+
+        // Verschwinden
+        gsap.to(overlay2, {
+          opacity: 0,
+          y: -50,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: `70% center+=${stickyDistance}`,
+            end: "bottom center",
+            scrub: 0.5,
+            onLeave: () => {
+              gsap.set(overlay2, {
+                position: "absolute",
+                left: "70%",
+                top: "auto",
+                x: 0,
+                y: 0,
+              });
+            },
+            onEnterBack: () => {
+              gsap.set(overlay2, {
+                position: "fixed",
+                left: "70%",
+                top: "50%",
+                x: 0,
+                y: "-50%",
+              });
+            },
+          },
+        });
       }
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [stickyDistance]);
 
   return (
     <section
@@ -135,20 +254,22 @@ const ScrollVideoSection: React.FC<ScrollVideoSectionProps> = ({
         </video>
       </div>
 
-      {/* Overlay-Inhalte (unverändert) */}
+      {/* Overlay-Inhalte */}
       <div
-        className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-8 pointer-events-none px-4"
+        className="absolute top-0 left-0 w-full h-full pointer-events-none px-4"
         style={{ zIndex: 10 }}
       >
         <div
           ref={overlay1Ref}
-          className="bg-black bg-opacity-70 text-white p-6 md:p-8 rounded-lg max-w-md w-full mx-auto opacity-0 backdrop-blur-sm"
+          className="bg-black bg-opacity-70 text-white p-6 md:p-8 rounded-lg max-w-md w-full opacity-0 backdrop-blur-sm absolute"
+          style={{ left: "10%", top: "50%", transform: "translateY(-50%)" }}
         >
           {overlay1Content}
         </div>
         <div
           ref={overlay2Ref}
-          className="bg-white bg-opacity-90 text-black p-6 md:p-8 rounded-lg max-w-md w-full mx-auto opacity-0 backdrop-blur-sm"
+          className="bg-white bg-opacity-90 text-black p-6 md:p-8 rounded-lg max-w-md w-full opacity-0 backdrop-blur-sm absolute"
+          style={{ left: "10%", top: "50%", transform: "translateY(-50%)" }}
         >
           {overlay2Content}
         </div>

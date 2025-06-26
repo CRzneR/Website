@@ -1,97 +1,37 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const ProjectSite: React.FC = () => {
-  const boxRef = useRef<HTMLDivElement>(null);
-  const contentRef1 = useRef<HTMLDivElement>(null);
-  const contentRef2 = useRef<HTMLDivElement>(null);
+const Site = () => {
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const box = boxRef.current;
-    const content1 = contentRef1.current;
-    const content2 = contentRef2.current;
+    const handleScroll = () => {
+      // Berechne den Skalierungsfaktor basierend auf der Scroll-Position
+      const scrollY = window.scrollY || window.pageYOffset;
+      const newScale = 1 + Math.min(scrollY / 200, 2); // Maximal 3-fache Größe
+      setScale(newScale);
+    };
 
-    if (!box || !content1 || !content2) return;
-
-    // Skalieren des Containers beim Scrollen
-    gsap.to(box, {
-      scrollTrigger: {
-        trigger: box,
-        start: "top 70%",
-        end: "center top",
-        scrub: 1,
-      },
-      width: "100vw",
-      height: "100vw",
-    });
-
-    // Beide Inhalte initial verstecken
-    gsap.set([content1, content2], { autoAlpha: 0, y: 40 });
-
-    // Timeline für sequentielle Einblendung
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: box,
-        start: "top center",
-        toggleActions: "play none none none",
-        once: true,
-        markers: true,
-      },
-    });
-
-    tl.to(content1, {
-      autoAlpha: 1,
-      y: 0,
-      duration: 1,
-      ease: "power2.out",
-    }).to(
-      content2,
-      {
-        autoAlpha: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-      },
-      "+=0.3"
-    ); // Verzögerung von 0.3s nach content1
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <section className="h-[500vh] flex pt-[50vh] justify-center bg-white">
-      <div>
-        <div
-          ref={boxRef}
-          className="sticky bg-gray-800 h-[200px] rounded-md flex flex-col items-center justify-center text-white p-4"
-          style={{
-            width: 200,
-            top: "50%",
-            transform: "translateY(-50%)",
-          }}
-        >
-          <div ref={contentRef1}>
-            <h2 className="text-6xl font-black leading-tight mt-10">
-              Hallo Welt
-            </h2>
-            <p className="text-sm text-gray-300">
-              Dies ist animierter Inhalt, der erscheint, wenn er ins Bild kommt.
-            </p>
-          </div>
-
-          <div ref={contentRef2} className="mt-6">
-            <h3 className="text-3xl font-bold">Zweiter Block</h3>
-            <p className="text-sm text-gray-300">
-              Ich erscheine nach dem ersten Text mit etwas Verzögerung.
-            </p>
-          </div>
+    <div className="min-h-[150vh] p-8">
+      <div
+        className="w-40 h-40 bg-blue-500 rounded-lg mx-auto sticky top-1/2 transform -translate-y-1/2 transition-transform duration-300"
+        style={{
+          transform: `translateY(-50%) scale(${scale})`,
+        }}
+      >
+        {/* Optionaler Inhalt */}
+        <div className="flex items-center justify-center h-full text-white font-bold">
+          {scale.toFixed(1)}x
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default ProjectSite;
+export default Site;

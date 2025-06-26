@@ -1,52 +1,79 @@
-import CallToActionSection from "@/components/callToAction";
+import CallToActionSection from "../components/callToAction";
 
-import HeroSection from "@/components/heroSection";
-import NavBar from "@/components/navBar";
-import ProjectOverview from "@/components/Projects/projectOverview";
-import ScrollVideoSection from "@/components/scrollytelling.tsx/container";
+import NavBar from "../components/Top/navBar";
+import ProjectOverview from "../components/Projects/projectOverview";
+import ScrollVideoSection from "../components/scrollytelling.tsx/container";
+import Testimonials from "../components/testimonials";
 
-import Testimonials from "@/components/testimonials";
-import ThreeScene from "@/components/threeJs/ThreeScene";
-import ScalingDivGSAP from "@/components/scrollytelling.tsx/scaledDiv";
+import HeroSection from "../components/Top/heroSection";
+import ProjectSite from "../components/UxProjects/site";
+import Site from "../components/UxProjects/site";
+import { ProjectCardList } from "../components/UxProjects/ProjectCardList";
+import Leistungen from "../components/UxProjects/Leistungen";
+
+const customHeadings = [
+  "USER EXPERIENCE ",
+  "INTERFACE DESIGN",
+  "DEVELOPMENT",
+  "STRATEGY",
+];
+
+const customStyles = {
+  fontSize: "3.5rem",
+  margin: "0 0 2rem 0",
+  fontFamily: "sans-serif",
+};
+
+const containerStyles = {
+  maxWidth: "900px",
+  padding: "3rem",
+};
 
 export default function Home() {
   return (
-    <div>
+    <div className=" ">
       <nav>
         <NavBar />
       </nav>
       <main>
+        {/* Hero Section mit Hintergrundbild */}
+
         <section>
-          <div className="h-screen w-full bg-[#e9e6fb] flex flex-row justify-center items-center gap-12 px-8">
-            <div className="flex-grow-[2] basis-2/3 max-w-2xl w-full">
-              <HeroSection />
-            </div>
-            <div className="flex-grow basis-1/3 max-w-md w-full">
-              <ThreeScene />
-            </div>
-          </div>
+          <HeroSection />
         </section>
+
+        {/* Weitere Sections... */}
         <section>
           <ScrollVideoSection
-            videoSrc="/video/DreamBefore.mp4"
+            videoSrc="/video/Dream1.mp4"
             sectionHeight="200vh"
             videoHeight="80vh"
             overlay1Content={
               <div>
-                <h2 className="text-3xl font-bold mb-4">Unsere Story</h2>
-                <p>Entdecken Sie unsere einzigartige Geschichte</p>
+                <h2 className="text-3xl font-bold mb-4">This is my Story</h2>
+                <p>
+                  ICH BIN IN EINER DIGITALEN WELT AUFGEWACHSEN. UM DIESE MIT ZU
+                  GESTALTEN HABE ICH WEBENTWICKLUNG GELERNT UND KANN NUN MEINE
+                  DIENSTE ANBIETEN{" "}
+                </p>
               </div>
             }
           />
         </section>
 
+        <Leistungen
+          headings={customHeadings}
+          headingStyle={customStyles}
+          containerStyle={containerStyles}
+        />
+
         <section>
           <ProjectOverview />
         </section>
 
-        <section>
-          <ScalingDivGSAP />
-        </section>
+        <main className="min-h-screen flex justify-center items-center bg-white">
+          <ProjectCardList />
+        </main>
 
         <section>
           <Testimonials />

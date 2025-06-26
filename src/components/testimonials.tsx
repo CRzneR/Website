@@ -8,19 +8,9 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    text: "This project blew me away – amazing attention to detail and creativity!",
-    name: "Ash Ketchum",
+    text: "Working with Christoph was absolutely great. Not only did he handle his tasks with excellent professionalism, but he also went beyond his actual competencies to support me, which had a significant impact on the success of my project.",
+    name: "Nikolaos Dirbanis",
     image: "/image/ash.jpg",
-  },
-  {
-    text: "I never thought a board game remake could be this fun and nostalgic.",
-    name: "Misty",
-    image: "/image/misty.jpg",
-  },
-  {
-    text: "The perfect mix of design and passion. Highly recommended!",
-    name: "Brock",
-    image: "/image/brock.jpg",
   },
 ];
 
