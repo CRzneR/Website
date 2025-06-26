@@ -1,7 +1,6 @@
 export const Button = ({
   a,
   text,
-  className,
 }: {
   a?: string;
   text: React.ReactNode;
