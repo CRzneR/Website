@@ -26,7 +26,7 @@ const Leistungen: React.FC<ScrollHeadingsProps> = ({
       Boolean
     ) as HTMLHeadingElement[];
 
-    validHeadings.forEach((heading, index) => {
+    validHeadings.forEach((heading) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heading,

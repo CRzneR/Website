@@ -6,10 +6,9 @@ import ScrollVideoSection from "../components/scrollytelling.tsx/container";
 import Testimonials from "../components/testimonials";
 
 import HeroSection from "../components/Top/heroSection";
-import ProjectSite from "../components/UxProjects/site";
-import Site from "../components/UxProjects/site";
 import { ProjectCardList } from "../components/UxProjects/ProjectCardList";
 import Leistungen from "../components/UxProjects/Leistungen";
+import { Site } from "../components/Projects/ProjectSite.tsx/Site";
 
 const customHeadings = [
   "USER EXPERIENCE ",
@@ -74,6 +73,10 @@ export default function Home() {
         <main className="min-h-screen flex justify-center items-center bg-white">
           <ProjectCardList />
         </main>
+
+        <section>
+          <Site />
+        </section>
 
         <section>
           <Testimonials />

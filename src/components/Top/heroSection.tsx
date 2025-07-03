@@ -1,7 +1,5 @@
 // components/HeroSection.tsx
 
-import Image from "next/image";
-
 export default function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-white px-6 md:px-16 lg:px-32 py-20">

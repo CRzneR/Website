@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 const NavItem = ({ href, label }: { href: string; label: string }) => (

@@ -84,7 +84,7 @@ function ProjectOverview() {
             <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-8">
               I love gaming so i{" "}
               <span className="text-transparent stroke-text font-black">
-                "recreated"{" "}
+                &quot;recreated&quot;{" "}
               </span>
               an old board game
             </h2>
