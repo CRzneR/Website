@@ -8,6 +8,7 @@ import Testimonials from "../components/testimonials";
 import HeroSection from "../components/Top/heroSection";
 import { ProjectCardList } from "../components/UxProjects/ProjectCardList";
 import Leistungen from "../components/UxProjects/Leistungen";
+import { Site } from "../components/Projects/ProjectSite.tsx/Site";
 
 const customHeadings = [
   "USER EXPERIENCE ",
@@ -72,6 +73,10 @@ export default function Home() {
         <main className="min-h-screen flex justify-center items-center bg-white">
           <ProjectCardList />
         </main>
+
+        <section>
+          <Site />
+        </section>
 
         <section>
           <Testimonials />

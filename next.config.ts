@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  trailingSlash: false, // Standardwert
+  basePath: "", // Nur ändern, wenn Unterverzeichnis genutzt wird
+  assetPrefix: "", // Nur bei CDN nötig
 };
 
 export default nextConfig;
