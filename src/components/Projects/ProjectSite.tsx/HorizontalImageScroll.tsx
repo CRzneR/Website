@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +32,7 @@ const HorizontalImageScroll = () => {
         end: () => `+=${scrollDistance}`,
         pin: true,
         scrub: 1,
-        markers: false, // Zum Debuggen auf true setzen
+        markers: false,
         invalidateOnRefresh: true,
       },
     });
@@ -64,10 +65,13 @@ const HorizontalImageScroll = () => {
               key={index}
               className="relative h-[35vh] w-[50vh] flex-shrink-0"
             >
-              <img
+              <Image
                 src={src}
                 alt={`Bild ${index + 1}`}
-                className="w-full h-full object-cover  shadow-xl"
+                fill
+                className="object-cover shadow-xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
               />
             </div>
           ))}

@@ -12,8 +12,6 @@ import HorizontalImageScroll from "./HorizontalImageScroll";
 gsap.registerPlugin(ScrollTrigger);
 
 export function Site() {
-  const descriptionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Animationen für SplitText werden durch die Komponente selbst gehandelt
     return () => {
