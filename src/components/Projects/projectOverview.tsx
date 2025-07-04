@@ -1,10 +1,11 @@
 import { Button } from "../button";
 import FadeIn from "../effects/fadeIn";
 import SplitTextAnimation from "../effects/splitText";
+import Image from "next/image";
 
 function ProjectOverview() {
   return (
-    <section className="bg-[#e9e6fb]  px-4 pt-20">
+    <section className="bg-[#e9e6fb] px-4 pt-20">
       <div className="min-h-[50vh] p-8">
         <SplitTextAnimation
           text="My Projects"
@@ -99,11 +100,14 @@ function ProjectOverview() {
         </FadeIn>
         <FadeIn>
           <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className=" bg-white rounded-lg">
-              <img
+            <div className="bg-white rounded-lg relative aspect-square">
+              <Image
                 src="/image/pokemon.png"
-                alt="Abgerundetes Bild"
-                className="rounded-xl border-2 border-white relative z-1"
+                alt="Pokemon Board Game"
+                fill
+                className="rounded-xl border-2 border-white object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
               />
             </div>
           </div>
@@ -113,11 +117,14 @@ function ProjectOverview() {
       <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
           <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className=" bg-white rounded-lg">
-              <img
+            <div className="bg-white rounded-lg relative aspect-square">
+              <Image
                 src="/image/Rings.png"
-                alt="Abgerundetes Bild"
-                className="rounded-xl border-2 border-white relative z-1"
+                alt="3D Printed Rings"
+                fill
+                className="rounded-xl border-2 border-white object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
               />
             </div>
           </div>
@@ -171,11 +178,14 @@ function ProjectOverview() {
         </FadeIn>
         <FadeIn>
           <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className=" bg-white rounded-lg">
-              <img
+            <div className="bg-white rounded-lg relative aspect-square">
+              <Image
                 src="/image/ForChampions.png"
-                alt="Abgerundetes Bild"
-                className="rounded-xl border-2 border-white relative z-1"
+                alt="For Champions App"
+                fill
+                className="rounded-xl border-2 border-white object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
               />
             </div>
           </div>
