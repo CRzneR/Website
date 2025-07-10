@@ -6,7 +6,6 @@ import Testimonials from "../components/testimonials";
 
 import HeroSection from "../components/Top/heroSection";
 import { ProjectCardList } from "../components/UxProjects/ProjectCardList";
-import Leistungen from "../components/UxProjects/Leistungen";
 import { Site } from "../components/Projects/ProjectSite.tsx/Site";
 import Introduction from "../components/vorstellung/introduction";
 
