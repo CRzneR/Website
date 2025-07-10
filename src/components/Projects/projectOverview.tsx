@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function ProjectOverview() {
   return (
-    <section className="bg-[#e9e6fb] px-4 pt-20">
+    <section className="bg-[#CEC9C9] px-4 pt-20">
       <div className="min-h-[50vh] p-8">
         <SplitTextAnimation
           text="My Projects"
@@ -99,34 +99,32 @@ function ProjectOverview() {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className="bg-white rounded-lg relative aspect-square">
-              <Image
-                src="/image/pokemon.png"
-                alt="Pokemon Board Game"
-                fill
-                className="rounded-xl border-2 border-white object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-            </div>
+          <div className="relative w-full h-[400px] md:h-[500px]">
+            <Image
+              src="/image/pokemon.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
           </div>
         </FadeIn>
       </div>
 
       <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
-          <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className="bg-white rounded-lg relative aspect-square">
-              <Image
-                src="/image/Rings.png"
-                alt="3D Printed Rings"
-                fill
-                className="rounded-xl border-2 border-white object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-            </div>
+          <div className="relative w-full h-[400px] md:h-[500px]">
+            <Image
+              src="/image/Rings.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
           </div>
         </FadeIn>
         <FadeIn>
@@ -177,17 +175,16 @@ function ProjectOverview() {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className="bg-white rounded-lg relative aspect-square">
-              <Image
-                src="/image/ForChampions.png"
-                alt="For Champions App"
-                fill
-                className="rounded-xl border-2 border-white object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-            </div>
+          <div className="relative w-full h-[400px] md:h-[500px]">
+            <Image
+              src="/image/ForChampions.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
           </div>
         </FadeIn>
       </div>

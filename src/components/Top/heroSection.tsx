@@ -1,21 +1,32 @@
-// components/HeroSection.tsx
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white px-6 md:px-16 lg:px-32 py-20">
-      {/* Textbereich */}
-      <div className="text-center">
-        <h2 className="text-lg font-semibold text-black mb-2 font-cormorant">
-          Christoph Renz
-        </h2>
-        <h1 className="text-[150px] leading-none text-black mb-6 font-bstyle">
-          Developer <br />
-          Digital Designer
-        </h1>
-        <p className="text-xl font-bold text-gray-800 uppercase leading-relaxed tracking-wide max-w-2xl mx-auto mb-8">
-          Ich bin in einer digitalen Welt aufgewachsen. Um diese mit zu
-          gestalten habe ich Webentwicklung gelernt und kann nun meine Dienste
-          anbieten
+    <section className="relative h-screen bg-black text-white overflow-hidden">
+      {/* Background Outline C - Jetzt mit Next.js Image */}
+      <div className="absolute inset-0 flex justify-center items-center">
+        <Image
+          src="/image/logo.svg"
+          alt="Hintergrund-Logo"
+          width={500} // Maximale Größe für responsives Verhalten
+          height={500}
+        />
+      </div>
+
+      {/* Main Content */}
+      <div className="relative flex flex-col justify-center h-full px-8">
+        <div className="text-left  mx-auto">
+          <h1 className="text-6xl md:text-9xl font-bold text-gray-300 leading-tight">
+            DESIGNER
+          </h1>
+          <h1 className="pl-20 md:pl-60 text-6xl md:text-9xl font-bold text-gray-300 leading-tight">
+            AND DEVELOPER
+          </h1>
+        </div>
+        <p className=" md:mt-12 text-2xl md:text-4xl font-semibold text-center">
+          CHRISTOPH
+          <br />
+          RENZ
         </p>
       </div>
     </section>

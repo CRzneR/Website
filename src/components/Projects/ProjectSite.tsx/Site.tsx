@@ -5,8 +5,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitTextAnimation from "../../effects/splitText";
 import { Description } from "./compact";
-
-import HorizontalImageScroll from "./HorizontalImageScroll";
+import HorizontalScroll from "./HorizontalScroll";
 
 // GSAP Plugins registrieren
 gsap.registerPlugin(ScrollTrigger);
@@ -113,7 +112,7 @@ export function Site() {
 
       <Description />
 
-      <HorizontalImageScroll />
+      <HorizontalScroll />
     </div>
   );
 }

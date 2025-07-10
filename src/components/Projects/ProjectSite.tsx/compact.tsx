@@ -51,7 +51,7 @@ export function Description() {
   };
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="flex ">
       <div className="flex justify-between items-center px-[10%]">
         <Image
           src="/image/pokemon.png"

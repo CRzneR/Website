@@ -29,7 +29,12 @@ const NavBar = () => {
           href="#home"
           className="text-xl font-bold tracking-widest text-black"
         >
-          <Image src="/image/logo.png" alt="Logo" width={30} height={30} />
+          <Image
+            src="/image/logo_farbe.png"
+            alt="Logo"
+            width={30}
+            height={30}
+          />
         </Link>
 
         {/* Navigation Items */}
