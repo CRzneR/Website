@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HorizontalScroll from "./HorizontalScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,25 +52,37 @@ export function Description() {
   };
 
   return (
-    <div ref={containerRef} className="flex ">
-      <div className="flex justify-between items-center px-[10%]">
-        <Image
-          src="/image/pokemon.png"
-          alt="Image description"
-          width={400}
-          height={400}
-        />
+    <div className="relative w-full">
+      {/* Hauptinhalt */}
+      <div ref={containerRef} className="flex px-20 z-20 pb-[100vh]">
+        {" "}
+        {/* pb für Platz am Ende */}
+        <div>
+          <Image
+            src="/image/lifasTitelbild.png"
+            alt="Lifas Plattform"
+            width={400}
+            height={400}
+            className="object-contain"
+          />
+        </div>
+        <div ref={descriptionRef} className="w-[400px] pl-20">
+          Lifas ist eine Plattform, auf der Privatpersonen Werbeflächen, die
+          sich in ihrem Besitz befinden, online zur Verfügung stellen können.
+          Unternehmen haben die Möglichkeit, diese Werbeflächen bei ihnen zu
+          mieten. Das Modell zielt besonders auf lokale Unternehmen ab, die für
+          ihre Angebote werben möchten.
+        </div>
+        <div className="text-3xl pl-40">
+          <p ref={(el) => addToRefs(el, 0)}>Research</p>
+          <p ref={(el) => addToRefs(el, 1)}>Architektur</p>
+          <p ref={(el) => addToRefs(el, 2)}>Prototyping</p>
+        </div>
       </div>
-      <div ref={descriptionRef} className="w-[400px]">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui itaque
-        tenetur obcaecati alias officiis pariatur error nulla unde aliquid ad
-        blanditiis libero labore aperiam tempore, perspiciatis placeat repellat
-        architecto omnis.
-      </div>
-      <div className="text-3xl">
-        <p ref={(el) => addToRefs(el, 0)}>Überschrift 1</p>
-        <p ref={(el) => addToRefs(el, 1)}>Überschrift 2</p>
-        <p ref={(el) => addToRefs(el, 2)}>Überschrift 3</p>
+
+      {/* HorizontalScroll ganz unten */}
+      <div className="sticky bottom-0 left-0  z-10">
+        <HorizontalScroll />
       </div>
     </div>
   );

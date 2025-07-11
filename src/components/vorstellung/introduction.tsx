@@ -76,7 +76,7 @@ const Introduction: React.FC = () => {
             }}
             scrollTrigger={{
               start: "top 10%",
-              markers: true,
+              markers: false,
             }}
           />
           <SplitTextAnimation

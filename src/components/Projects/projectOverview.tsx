@@ -79,9 +79,9 @@ function ProjectOverview() {
           }}
         />
       </div>
-      <div className="max-w-6xl w-full min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
+      <div className="max-w-6xl w-full  grid md:grid-cols-2 gap-8 items-center justify-center mx-auto">
         <FadeIn>
-          <div className="relative space-y-6">
+          <div className="relative space-y-4">
             <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-8">
               I love gaming so i{" "}
               <span className="text-transparent stroke-text font-black">
@@ -151,7 +151,7 @@ function ProjectOverview() {
         </FadeIn>
       </div>
 
-      <div className="max-w-6xl w-full min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
+      <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
           <div className="relative space-y-6">
             <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-tight">

@@ -13,7 +13,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["45%", "-50%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["37%", "-65%"]);
 
   return (
     <section ref={targetRef} className="relative h-[300vh] ">
@@ -39,7 +39,7 @@ const Card = ({ card }: CardProps) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[300px] w-[450px] md:w-[450px] lg:w-[450px] overflow-hidden"
+      className="group relative h-[300px] w-[475px]  overflow-hidden"
     >
       <div
         style={{
@@ -47,7 +47,7 @@ const Card = ({ card }: CardProps) => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+        className="absolute inset-0 z-0 transition-transform duration-300 "
       ></div>
     </div>
   );
@@ -57,35 +57,35 @@ export default XScrollComp;
 
 const cards = [
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild1.png",
     id: 1,
   },
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild2.png",
     id: 2,
   },
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild3.png",
     id: 3,
   },
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild4.png",
     id: 4,
   },
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild5.png",
     id: 5,
   },
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild6.png",
     id: 6,
   },
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild7.png",
     id: 7,
   },
   {
-    url: "/image/pokemon.png",
+    url: "/image/lifas/Bild8.png",
     id: 8,
   },
 ];

@@ -8,6 +8,7 @@ import HeroSection from "../components/Top/heroSection";
 import { ProjectCardList } from "../components/UxProjects/ProjectCardList";
 import { Site } from "../components/Projects/ProjectSite.tsx/Site";
 import Introduction from "../components/vorstellung/introduction";
+import CookieConsentBanner from "../components/CookieCOnsentBanner";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
         <NavBar />
       </nav>
       <main>
-        {/* Hero Section mit Hintergrundbild */}
+        <CookieConsentBanner />
 
         <section>
           <HeroSection />

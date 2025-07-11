@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitTextAnimation from "../../effects/splitText";
-import { Description } from "./compact";
+import { Description } from "./description";
 import HorizontalScroll from "./HorizontalScroll";
 
 // GSAP Plugins registrieren
@@ -20,12 +20,12 @@ export function Site() {
   }, []);
 
   return (
-    <div>
+    <div className="bg-[#CEC9C9]">
       <div className="h-screen p-[10%]">
         {/* Erste Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
-            text="This is a"
+            text="Webseite für "
             tag="h2"
             className="text-black font-semibold text-8xl uppercase"
             charClass="inline-block"
@@ -47,7 +47,7 @@ export function Site() {
         {/* Zweite Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
-            text="User Experience"
+            text="einen Onlinemarkt"
             tag="h2"
             className="text-black text-8xl font-semibold uppercase"
             charClass="inline-block"
@@ -69,7 +69,7 @@ export function Site() {
         {/* Dritte Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
-            text="Project about"
+            text="für Werbeflächen"
             tag="h2"
             className="text-black font-semibold text-8xl uppercase"
             charClass="inline-block"
@@ -91,7 +91,7 @@ export function Site() {
         {/* Vierte Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
-            text="my Skills i have"
+            text="für vermietung"
             tag="h2"
             className="text-black font-semibold text-8xl uppercase"
             charClass="inline-block"
@@ -111,8 +111,6 @@ export function Site() {
       </div>
 
       <Description />
-
-      <HorizontalScroll />
     </div>
   );
 }
