@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitTextAnimation from "../../effects/splitText";
 import { Description } from "./description";
-import HorizontalScroll from "./HorizontalScroll";
 
 // GSAP Plugins registrieren
 gsap.registerPlugin(ScrollTrigger);
