@@ -46,7 +46,7 @@ const CallToActionSection: React.FC = () => {
   const [hovered, setHovered] = useState<"right" | null>(null);
 
   return (
-    <div className="bg-[#e9e6fb] pt-[15%]">
+    <div className=" pt-[5%]">
       {/* Main Section */}
       <div className="flex max-w-6xl mx-auto gap-6 transition-all duration-300">
         {/* Left: Project Call */}
@@ -96,11 +96,10 @@ const CallToActionSection: React.FC = () => {
       <div className="mt-12 pb-4 flex flex-col items-center gap-4">
         <SocialMediaIcons />
 
-        <div className="flex flex-wrap gap-6 text-sm font-medium text-black">
+        <div className="mt-10 flex flex-wrap gap-6 text-sm font-medium text-black">
           <a href="#">Privacy Policy</a>
           <a href="#">Cookie Policy</a>
           <a href="#">Impressum</a>
-          <a href="#">Terms</a>
         </div>
       </div>
     </div>

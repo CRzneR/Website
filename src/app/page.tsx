@@ -12,7 +12,7 @@ import CookieConsentBanner from "../components/CookieCOnsentBanner";
 
 export default function Home() {
   return (
-    <div className=" ">
+    <div>
       <nav>
         <NavBar />
       </nav>

@@ -18,6 +18,7 @@ const Leistungen: React.FC<ScrollHeadingsProps> = ({
   containerStyle = {},
 }) => {
   const headingsRef = useRef<(HTMLHeadingElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window === "undefined" || !headingsRef.current.length) return;
@@ -26,31 +27,55 @@ const Leistungen: React.FC<ScrollHeadingsProps> = ({
       Boolean
     ) as HTMLHeadingElement[];
 
-    validHeadings.forEach((heading) => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heading,
-          start: "top 70%",
-          end: "top 50%",
-          scrub: 0.5,
-          markers: false,
-        },
-      });
-
-      tl.fromTo(
-        heading,
-        { color: "#808080" },
-        { color: "#000000", duration: 0.5 }
-      ).to(heading, { color: "#808080", duration: 0.5 });
+    // Master Timeline
+    const masterTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 55%",
+        end: "top 30%",
+        scrub: 2,
+        markers: false,
+      },
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    // Animations-Phasen für alle Überschriften
+    validHeadings.forEach((heading, index) => {
+      // Phase 1: Einblenden auf 70%
+      masterTL.fromTo(
+        heading,
+        { opacity: 0 },
+        { opacity: 0.5, duration: 0.8 },
+        index * 0.3
+      );
+
+      // Phase 2: Auf 100% hervorheben
+      masterTL.to(
+        heading,
+        { opacity: 1, duration: 0.6 },
+        `+=${0.2 + index * 0.1}`
+      );
+
+      // Phase 3: Zurück auf 80%
+      masterTL.to(heading, { opacity: 0.5, duration: 0.9 }, `+=0.1`);
+    });
+
+    // Phase 4: Alle gemeinsam ausblenden
+    masterTL.to(
+      validHeadings,
+      {
+        opacity: 0,
+        duration: 1,
+        stagger: 0.1,
+      },
+      ">0.5" // 0.5s nach der letzten Einzelanimation
+    );
+
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, [headings]);
 
   return (
     <div
+      ref={containerRef}
       style={{
         padding: "2rem",
         maxWidth: "800px",
@@ -65,10 +90,10 @@ const Leistungen: React.FC<ScrollHeadingsProps> = ({
             headingsRef.current[index] = el;
           }}
           style={{
-            fontSize: "4rem",
+            fontSize: "2rem",
             fontWeight: 700,
             margin: "0 0 1rem 0",
-            color: "#808080",
+            opacity: 0,
             lineHeight: "1.0",
             ...headingStyle,
           }}

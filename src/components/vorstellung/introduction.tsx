@@ -4,6 +4,14 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitTextAnimation from "../effects/splitText";
+import Leistungen from "../UxProjects/Leistungen";
+
+const services = [
+  "Interface Design",
+  "User Experience Design",
+  "Frontend Development",
+  "Digitale Strategie",
+];
 
 // GSAP Plugins registrieren
 gsap.registerPlugin(ScrollTrigger);
@@ -18,11 +26,11 @@ const Introduction: React.FC = () => {
     // Sticky-Effekt für das gelbe Div
     ScrollTrigger.create({
       trigger: containerRef.current,
-      start: "top top",
+      start: "top 50px",
       end: "+=200%",
       pin: yellowDivRef.current,
       pinSpacing: false,
-      markers: true, // Zum Debuggen, später auf false setzen
+      markers: false,
     });
 
     return () => {
@@ -31,7 +39,7 @@ const Introduction: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-black min-h-[300vh]">
+    <div ref={containerRef} className="relative bg-black min-h-[300vh]">
       <div
         ref={yellowDivRef}
         className="bg-[#F5FC7B] rounded-[3rem] p-8 relative w-full max-w-[95%] h-[700px] mx-auto"
@@ -49,7 +57,7 @@ const Introduction: React.FC = () => {
         </div>
 
         {/* Person image */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-24 z-20">
+        <div className="absolute left-1/2 transform -translate-x-1/2  z-20">
           <Image
             src="/image/CR_gross.png"
             alt="Christoph Renz"
@@ -76,6 +84,7 @@ const Introduction: React.FC = () => {
             }}
             scrollTrigger={{
               start: "top 10%",
+              end: "+=470",
               markers: false,
             }}
           />
@@ -93,6 +102,7 @@ const Introduction: React.FC = () => {
             }}
             scrollTrigger={{
               start: "top 10%",
+              end: "+=470",
               markers: false,
             }}
           />
@@ -110,6 +120,7 @@ const Introduction: React.FC = () => {
             }}
             scrollTrigger={{
               start: "top 10%",
+              end: "+=470",
               markers: false,
             }}
           />
@@ -119,14 +130,10 @@ const Introduction: React.FC = () => {
             <div className="w-6 h-6 rounded-full bg-black"></div>
           </div>
         </div>
-
-        {/* Right skills */}
-        <div className="absolute bottom-32 right-8 text-right text-[#1D2E11] font-bold text-lg space-y-1 z-10">
-          <p>USER EXPERIENCE</p>
-          <p>USER INTERFACE</p>
-          <p>DEVELOPMENT</p>
-          <p className="text-black font-extrabold">STRATEGIE</p>
-        </div>
+      </div>
+      {/* Right skills */}
+      <div className="absolute bottom-0 right-8 text-right text-[#1D2E11] font-bold text-2xl space-y-1 z-10">
+        <Leistungen headings={services} />
       </div>
     </div>
   );
