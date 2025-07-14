@@ -18,18 +18,16 @@ const testimonials: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-white py-16 px-6">
+    <section className=" bg-black py-32 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-12">
-          What people say
-        </h2>
+        <h2 className="text-4xl font-bold text-white mb-12">What people say</h2>
 
         {testimonials.map((t, index) => (
           <div
             key={index}
             className="flex flex-col items-center text-center space-y-4 max-w-md mx-auto "
           >
-            <p className="text-lg text-gray-600 italic">“{t.text}”</p>
+            <p className="text-lg text-white italic">“{t.text}”</p>
             <Image
               src={t.image}
               alt={t.name}
@@ -38,8 +36,8 @@ const Testimonials = () => {
               className="rounded-full border-2 border-purple-500"
             />
             <div>
-              <p className="text-sm font-semibold text-gray-800">{t.name}</p>
-              <p className="text-sm text-gray-500">{t.position}</p>
+              <p className="text-sm font-semibold text-white">{t.name}</p>
+              <p className="text-sm text-gray-300">{t.position}</p>
             </div>
           </div>
         ))}

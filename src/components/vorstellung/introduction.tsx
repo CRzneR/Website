@@ -42,18 +42,21 @@ const Introduction: React.FC = () => {
     <div ref={containerRef} className="relative bg-black min-h-[300vh]">
       <div
         ref={yellowDivRef}
-        className="bg-[#F5FC7B] rounded-[3rem] p-8 relative w-full max-w-[95%] h-[700px] mx-auto"
+        className="bg-[#F5FC7B] rounded-[3rem] p-8 relative w-full max-w-[95%] h-[700px] mx-auto bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/image/background.png')",
+        }}
       >
         {/* Zentrierte Überschrift */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center z-10 w-full">
-          <h1
-            className="font-bold text-black"
+          <h2
+            className="font-[--font-rocGrotesk] font-[800] text-[#1D2E11]"
             style={{
               fontSize: "clamp(3rem, 10vw, 9rem)",
             }}
           >
             CHRISTOPH RENZ
-          </h1>
+          </h2>
         </div>
 
         {/* Person image */}
@@ -72,63 +75,63 @@ const Introduction: React.FC = () => {
         <div className="absolute bottom-1/2 left-8 max-w-md text-black ">
           <SplitTextAnimation
             text="I CREATE STUNNING DIGITAL"
-            tag="h1"
+            tag="h4"
             className="text-[#1D2E11] text-2xl"
             charClass="inline-block"
             animation={{
               y: 100,
               opacity: 0,
-              duration: 0.8,
+              duration: 0.6,
               stagger: 0.03,
               ease: "power3.out",
             }}
             scrollTrigger={{
               start: "top 10%",
-              end: "+=470",
+              end: "+=1400",
               markers: false,
             }}
           />
           <SplitTextAnimation
             text="EXPERIENCES FOR CUSTOMERS"
-            tag="h1"
+            tag="h4"
             className="text-[#1D2E11] text-2xl"
             charClass="inline-block"
             animation={{
               y: 100,
               opacity: 0,
-              duration: 0.8,
+              duration: 0.6,
               stagger: 0.03,
               ease: "power3.out",
             }}
             scrollTrigger={{
               start: "top 10%",
-              end: "+=470",
+              end: "+=1400",
               markers: false,
             }}
           />
           <SplitTextAnimation
             text="WITH A FOCUS ON UX"
-            tag="h1"
+            tag="h4"
             className="text-[#1D2E11] text-2xl"
             charClass="inline-block"
             animation={{
               y: 100,
               opacity: 0,
-              duration: 0.8,
+              duration: 0.6,
               stagger: 0.03,
               ease: "power3.out",
             }}
             scrollTrigger={{
               start: "top 10%",
-              end: "+=470",
+              end: "+=1400",
               markers: false,
             }}
           />
-          <div className="flex gap-3 mt-4">
+          {/* <div className="flex gap-3 mt-4">
             <div className="w-6 h-6 rounded-full bg-black"></div>
             <div className="w-6 h-6 rounded-full bg-black"></div>
             <div className="w-6 h-6 rounded-full bg-black"></div>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Right skills */}

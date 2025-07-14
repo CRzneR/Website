@@ -5,12 +5,12 @@ import Image from "next/image";
 
 function ProjectOverview() {
   return (
-    <section className="bg-[#CEC9C9] px-4 pt-20">
+    <section className="bg-black px-4 pt-20">
       <div className="min-h-[50vh] p-8">
         <SplitTextAnimation
           text="My Projects"
           tag="h1"
-          className="text-[#DDE944] text-2xl"
+          className="text-[#F5FC7B] text-2xl"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -28,7 +28,7 @@ function ProjectOverview() {
         <SplitTextAnimation
           text="Some of my"
           tag="h1"
-          className="text-8xl font-bold mb-2 text-gray-700 uppercase"
+          className="text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -46,7 +46,7 @@ function ProjectOverview() {
         <SplitTextAnimation
           text="projects i love"
           tag="h1"
-          className="text-8xl font-bold mb-2 text-gray-700 uppercase"
+          className="text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -64,7 +64,7 @@ function ProjectOverview() {
         <SplitTextAnimation
           text="this"
           tag="h1"
-          className="text-8xl font-bold mb-2 text-gray-700 uppercase"
+          className="text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -82,14 +82,17 @@ function ProjectOverview() {
       <div className="max-w-6xl w-full  grid md:grid-cols-2 gap-8 items-center justify-center mx-auto">
         <FadeIn>
           <div className="relative space-y-4">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-8">
+            <h2 className="text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
               I love gaming so i{" "}
-              <span className="text-transparent stroke-text font-black">
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
                 &quot;recreated&quot;{" "}
               </span>
               an old board game
             </h2>
-            <p className="text-xl text-gray-600 font-bold pb-4">
+            <p className="text-xl text-[#CEC9C9] font-bold pb-4">
               and of course i used pokemon for that
             </p>
             <Button
@@ -129,7 +132,7 @@ function ProjectOverview() {
         </FadeIn>
         <FadeIn>
           <div className="relative space-y-6">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-tight">
+            <h2 className="text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-tight">
               <span className="text-transparent stroke-text font-black">
                 CAD{" "}
               </span>
@@ -139,7 +142,7 @@ function ProjectOverview() {
               </span>
               are part of my life
             </h2>
-            <p className="text-xl text-gray-600 font-bold pb-4">
+            <p className="text-xl text-[#CEC9C9] font-bold pb-4">
               I love creating my ideas and bring them to reality
             </p>
             <Button
@@ -154,7 +157,7 @@ function ProjectOverview() {
       <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
           <div className="relative space-y-6">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-tight">
+            <h2 className="text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-tight">
               Competitions are not{" "}
               <span className="text-transparent stroke-text font-black">
                 just{" "}
@@ -164,7 +167,7 @@ function ProjectOverview() {
                 fun
               </span>
             </h2>
-            <p className="text-xl text-gray-600 font-bold pb-4">
+            <p className="text-xl text-[#CEC9C9] font-bold pb-4">
               they also show you your skills compared to competitors
             </p>
             <Button

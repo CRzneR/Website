@@ -98,7 +98,13 @@ const CookieConsentBanner: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 z-50">
-      <p>This website uses cookies</p>
+      <p>
+        Um unsere Website für Sie optimal zu gestalten und fortlaufend
+        verbessern zu können, verwenden wir Cookies. Einige sind technisch
+        notwendig, während andere uns helfen, unser Angebot zu optimieren. Sie
+        können selbst entscheiden, welche Kategorien Sie zulassen möchten.
+        Weitere Informationen finden Sie in unserer Datenschutzerklärung.
+      </p>
       <div className="mt-4">
         <button
           className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-2"

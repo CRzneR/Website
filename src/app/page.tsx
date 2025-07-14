@@ -29,7 +29,7 @@ export default function Home() {
           <ProjectOverview />
         </section>
 
-        <main className="min-h-screen flex justify-center items-center bg-white">
+        <main className="min-h-screen flex justify-center items-center bg-black">
           <ProjectCardList />
         </main>
 

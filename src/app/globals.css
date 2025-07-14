@@ -4,7 +4,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #cec9c9;
+    --primary: #cec9c9;
 
     --backgroundColor: #fef852;
     --backgroundColorSecondary: #fffc94;
@@ -38,4 +38,10 @@ body {
 
 .opacity-30 {
   opacity: 0.3;
+}
+
+.stroke-text {
+  -webkit-text-stroke-width: 2px; /* Standard-Strichstärke */
+  -webkit-text-stroke-color: #cec9c9; /* Farbe des Strokes */
+  paint-order: stroke fill; /* Wichtig für korrekte Darstellung */
 }

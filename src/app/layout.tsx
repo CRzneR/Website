@@ -42,6 +42,23 @@ const encoded = localFont({
   display: "swap",
 });
 
+const rocGrotesk = localFont({
+  src: [
+    {
+      path: "../fonts/RocGrotesk_Bold.otf",
+      weight: "400",
+      style: "regular",
+    },
+    {
+      path: "../fonts/RocGrotesk_Heavy.otf",
+      weight: "900",
+      style: "bold",
+    },
+  ],
+  variable: "--font-rocGrotesk", // für Tailwind optional
+  display: "swap",
+});
+
 const panther = localFont({
   src: [
     {
@@ -75,7 +92,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${encoded.variable}  ${bstyle.variable} ${panther.variable}  antialiased`}
+        className={`${cormorant.variable} ${encoded.variable}  ${bstyle.variable} ${panther.variable}  ${rocGrotesk.variable} antialiased`}
       >
         {children}
         <Analytics />

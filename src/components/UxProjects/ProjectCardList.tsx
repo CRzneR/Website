@@ -37,9 +37,9 @@ export const ProjectCardList = () => {
           scrollTrigger: {
             trigger: card,
             start: "top bottom",
-            end: "center 80%", // Früheres Ende
+            end: "center 80%",
             scrub: true,
-            // markers: true,
+            markers: false,
           },
           duration: 1,
         }
@@ -48,7 +48,7 @@ export const ProjectCardList = () => {
   }, []);
 
   return (
-    <div className="flex gap-6 justify-center items-center">
+    <div className="flex gap-6 justify-center items-center ">
       <div ref={(el) => addToRefs(el, 0)}>
         <ProjectCard title="LIFAS" subtitle="Online Marketplace" />
       </div>
