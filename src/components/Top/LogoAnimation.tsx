@@ -1,7 +1,13 @@
 "use client";
 
-import Script from "next/script";
 import { useEffect } from "react";
+
+// Erweiterung für Window
+declare global {
+  interface Window {
+    anime: any;
+  }
+}
 
 export default function LogoAnimation() {
   useEffect(() => {
@@ -10,9 +16,9 @@ export default function LogoAnimation() {
         const paths = document.querySelectorAll(".logo-path");
 
         paths.forEach((path, index) => {
-          const pathLength = path.getTotalLength();
-          path.style.strokeDasharray = pathLength;
-          path.style.strokeDashoffset = pathLength;
+          const pathLength = (path as SVGPathElement).getTotalLength();
+          (path as SVGPathElement).style.strokeDasharray = `${pathLength}`;
+          (path as SVGPathElement).style.strokeDashoffset = `${pathLength}`;
 
           window.anime({
             targets: path,
@@ -34,11 +40,11 @@ export default function LogoAnimation() {
   return (
     <>
       {/* Anime.js & Tailwind via CDN */}
-      <Script
+      <script
+        async
         src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
-        strategy="beforeInteractive"
       />
-      <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" />
+      <script async src="https://cdn.tailwindcss.com" />
 
       <div className="flex justify-center items-center h-screen m-0 ">
         <div className="relative">
