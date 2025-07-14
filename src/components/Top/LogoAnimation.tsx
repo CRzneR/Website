@@ -5,7 +5,7 @@ import { useEffect } from "react";
 // Erweiterung für Window
 declare global {
   interface Window {
-    anime: any;
+    anime: (params: Record<string, unknown>) => void;
   }
 }
 
