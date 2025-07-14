@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { useEffect } from "react";
 
 export default function LogoAnimation() {
@@ -33,8 +34,11 @@ export default function LogoAnimation() {
   return (
     <>
       {/* Anime.js & Tailwind via CDN */}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" />
-      <script src="https://cdn.tailwindcss.com" />
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+        strategy="beforeInteractive"
+      />
+      <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" />
 
       <div className="flex justify-center items-center h-screen m-0 ">
         <div className="relative">
