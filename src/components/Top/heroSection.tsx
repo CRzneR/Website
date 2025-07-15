@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import HeadingEffect from "./HeadingEffect";
 import LogoAnimation from "./LogoAnimation";
-import { Button } from "../button";
 
 export default function HeroSection() {
   const pRef = useRef<HTMLParagraphElement>(null);

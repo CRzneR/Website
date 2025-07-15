@@ -4,15 +4,6 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const NavItem = ({ href, label }: { href: string; label: string }) => (
-  <Link
-    href={href}
-    className="px-4 py-2 text-sm font-medium text-black/80 hover:text-purple-700 transition-colors"
-  >
-    {label}
-  </Link>
-);
-
 const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm ">
