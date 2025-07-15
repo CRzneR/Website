@@ -13,17 +13,10 @@ const NavItem = ({ href, label }: { href: string; label: string }) => (
   </Link>
 );
 
-const navItems = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "Über Mich" },
-  { href: "#portfolio", label: "Portfolio" },
-  { href: "#contact", label: "Kontakt" },
-];
-
 const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-sm ">
-      <div className="max-w-6xl mx-auto px-4 flex items-center  h-16">
+      <div className="max-w-6xl mx-auto  flex items-center  h-16 ">
         {/* Logo */}
         <Link
           href="#home"
@@ -37,14 +30,9 @@ const NavBar = () => {
           />
         </Link>
 
-        {/* Navigation Items */}
-        <div className="flex mx-auto">
-          <div className="flex space-x-4">
-            {navItems.map((item) => (
-              <NavItem key={item.href} {...item} />
-            ))}
-          </div>
-        </div>
+        <p className="text-[#CEC9C9] ml-auto hover:underline hover:cursor-pointer">
+          contact me
+        </p>
       </div>
     </nav>
   );

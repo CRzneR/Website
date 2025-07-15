@@ -5,26 +5,20 @@ import Image from "next/image";
 type ProjectCardProps = {
   title: string;
   subtitle: string;
-  logoIndex?: number;
+  logo?: string;
 };
-
-const logos = [
-  "/image/lifas/LifasLogo.png",
-  "/image/VertLogo.png",
-  "/image/lifas/Bild3.png",
-];
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   subtitle,
-  logoIndex = 0,
+  logo,
 }) => {
-  // Sicherstellen, dass der Index innerhalb des Arrays liegt
-  const safeLogoIndex = logoIndex % logos.length;
-  const logoPath = logos[safeLogoIndex];
+  // Default-Logo falls keins angegeben wurde
+  const defaultLogo = "/image/default-logo.png";
+  const logoPath = logo || defaultLogo;
 
   return (
-    <div className="bg-gray-300 w-64 h-80 p-4 flex flex-col justify-end  overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-gray-300 w-64 h-80 p-4 flex flex-col justify-end rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="flex flex-col h-full">
         <div className="flex-grow flex items-center justify-center">
           <div className="relative w-32 h-32">
@@ -34,6 +28,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               fill
               className="object-contain"
               quality={100}
+              priority={false}
             />
           </div>
         </div>

@@ -47,14 +47,8 @@ const Introduction: React.FC = () => {
           backgroundImage: "url('/image/background.png')",
         }}
       >
-        {/* Zentrierte Überschrift */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 text-center z-10 w-full">
-          <h2
-            className="font-[--font-rocGrotesk] font-[800] text-[#1D2E11]"
-            style={{
-              fontSize: "clamp(3rem, 10vw, 9rem)",
-            }}
-          >
+        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 text-center z-10 w-full">
+          <h2 className="font-grotesk font-[400] text-[#1D2E11] text-[clamp(12rem,18vw,24rem)]">
             CHRISTOPH RENZ
           </h2>
         </div>
@@ -72,7 +66,7 @@ const Introduction: React.FC = () => {
         </div>
 
         {/* Left text + dots */}
-        <div className="absolute bottom-1/2 left-8 max-w-md text-black ">
+        <div className="absolute bottom-[45%] left-8 max-w-md text-black ">
           <SplitTextAnimation
             text="I CREATE STUNNING DIGITAL"
             tag="h4"

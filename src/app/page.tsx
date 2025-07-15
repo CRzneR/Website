@@ -29,9 +29,17 @@ export default function Home() {
           <ProjectOverview />
         </section>
 
-        <main className="min-h-screen flex justify-center items-center bg-black">
+        <section className="min-h-screen flex justify-center items-center bg-black">
           <ProjectCardList />
-        </main>
+        </section>
+
+        <section>
+          <Site />
+        </section>
+
+        <section className="min-h-screen flex justify-center items-center bg-black">
+          <ProjectCardList />
+        </section>
 
         <section>
           <Site />
@@ -42,9 +50,7 @@ export default function Home() {
         </section>
       </main>
       <footer>
-        <section>
-          <CallToActionSection />
-        </section>
+        <CallToActionSection />
       </footer>
     </div>
   );

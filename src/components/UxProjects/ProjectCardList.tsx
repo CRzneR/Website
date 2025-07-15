@@ -50,15 +50,24 @@ export const ProjectCardList = () => {
   return (
     <div className="flex gap-6 justify-center items-center ">
       <div ref={(el) => addToRefs(el, 0)}>
-        <ProjectCard title="LIFAS" subtitle="Online Marketplace" />
+        <ProjectCard
+          title="Vert City"
+          subtitle="Service Application"
+          logo="/path/to/custom-logo.png"
+        />
       </div>
       <div ref={(el) => addToRefs(el, 1)}>
-        <ProjectCard title="Verte City" subtitle="Service Application" />
+        <ProjectCard
+          title="Vert City"
+          subtitle="Service Application"
+          logo="/path/to/custom-logo.png"
+        />
       </div>
       <div ref={(el) => addToRefs(el, 2)}>
         <ProjectCard
-          title="Titel of the project"
-          subtitle="Now it´s your turn"
+          title="Vert City"
+          subtitle="Service Application"
+          logo="/path/to/custom-logo.png"
         />
       </div>
     </div>
