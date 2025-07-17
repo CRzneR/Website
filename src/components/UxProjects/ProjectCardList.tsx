@@ -1,13 +1,12 @@
 "use client";
 
-// components/ProjectCardList.tsx
 import React, { useRef } from "react";
 import { ProjectCard } from "./ProjectCard";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 export const ProjectCardList = () => {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -19,55 +18,56 @@ export const ProjectCardList = () => {
   };
 
   useGSAP(() => {
-    cardsRef.current.forEach((card, index) => {
-      if (!card) return;
+    const firstCard = cardsRef.current[0];
+    if (!firstCard) return;
 
-      // Unterschiedliche Startpositionen
-      const fromY = 100 + index * 50; // 100, 150, 200
+    const content = firstCard.querySelector(".content");
 
-      // Gleiche Endposition für alle Cards
-      const toY = -30;
-
-      gsap.fromTo(
-        card,
-        { y: fromY, opacity: 0.8 },
-        {
-          y: toY,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom",
-            end: "center 80%",
-            scrub: true,
-            markers: false,
-          },
-          duration: 1,
-        }
-      );
+    // Timeline für Card + Inhalt
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: firstCard,
+        start: "center center",
+        end: "bottom  80%",
+        toggleActions: "play reverse play reverse",
+        markers: true,
+      },
     });
+
+    // Skaliere die Card
+    tl.to(firstCard, {
+      scale: 6,
+      transformOrigin: "center center",
+      ease: "power1.out",
+    });
+
+    // Verstecke den Inhalt parallel
+    if (content) {
+      tl.to(
+        content,
+        {
+          opacity: 0,
+          ease: "power1.out",
+        },
+        "<" // startet gleichzeitig mit der Skalierung
+      );
+    }
   }, []);
 
   return (
-    <div className="flex gap-6 justify-center items-center ">
+    <div className="flex gap-6 justify-center items-center">
       <div ref={(el) => addToRefs(el, 0)}>
         <ProjectCard
-          title="Vert City"
-          subtitle="Service Application"
-          logo="/path/to/custom-logo.png"
+          title="Lifas"
+          subtitle="Online Marketplace"
+          logo="/image/lifas/LifasLogo.png"
         />
       </div>
       <div ref={(el) => addToRefs(el, 1)}>
         <ProjectCard
           title="Vert City"
           subtitle="Service Application"
-          logo="/path/to/custom-logo.png"
-        />
-      </div>
-      <div ref={(el) => addToRefs(el, 2)}>
-        <ProjectCard
-          title="Vert City"
-          subtitle="Service Application"
-          logo="/path/to/custom-logo.png"
+          logo="/image/vert/VertLogo.svg"
         />
       </div>
     </div>

@@ -18,10 +18,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const logoPath = logo || defaultLogo;
 
   return (
-    <div className="bg-gray-300 w-64 h-80 p-4 flex flex-col justify-end rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-[#CEC9C9] w-[350px] h-[450px] p-4 flex flex-col justify-end overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="flex flex-col h-full">
         <div className="flex-grow flex items-center justify-center">
-          <div className="relative w-32 h-32">
+          <div className="relative w-40 h-40">
             <Image
               src={logoPath}
               alt={`${title} logo`}

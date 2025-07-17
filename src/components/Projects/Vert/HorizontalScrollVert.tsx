@@ -13,7 +13,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["37%", "-65%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["37%", "-76%"]);
 
   return (
     <section ref={targetRef} className="relative h-[300vh] ">
@@ -57,35 +57,48 @@ export default XScrollComp;
 
 const cards = [
   {
-    url: "/image/lifas/Bild1.png",
+    url: "/image/vert/Bild1.png",
     id: 1,
   },
   {
-    url: "/image/lifas/Bild2.png",
+    url: "/image/vert/Vert2.png",
     id: 2,
   },
   {
-    url: "/image/lifas/Bild3.png",
+    url: "/image/vert/Vert3.png",
     id: 3,
   },
   {
-    url: "/image/lifas/Bild4.png",
+    url: "/image/vert/Vert4.png",
     id: 4,
   },
   {
-    url: "/image/lifas/Bild5.png",
+    url: "/image/vert/Vert5.png",
     id: 5,
   },
   {
-    url: "/image/lifas/Bild6.png",
+    url: "/image/vert/Vert6.png",
     id: 6,
   },
   {
-    url: "/image/lifas/Bild7.png",
+    url: "/image/vert/Vert7.png",
     id: 7,
   },
   {
-    url: "/image/lifas/Bild8.png",
+    url: "/image/vert/Vert8.png",
     id: 8,
+  },
+
+  {
+    url: "/image/vert/Vert10.png",
+    id: 10,
+  },
+  {
+    url: "/image/vert/Vert11.png",
+    id: 11,
+  },
+  {
+    url: "/image/vert/Vert12.png",
+    id: 12,
   },
 ];

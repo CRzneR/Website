@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitTextAnimation from "../../effects/splitText";
-import { Description } from "./description";
+import { DescriptionVert } from "./descriptionVert";
 
 // GSAP Plugins registrieren
 gsap.registerPlugin(ScrollTrigger);
 
-export function Site() {
+export function SiteVert() {
   useEffect(() => {
     // Animationen für SplitText werden durch die Komponente selbst gehandelt
     return () => {
@@ -24,7 +24,7 @@ export function Site() {
         {/* Erste Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
-            text="Webseite für "
+            text="Moderne digitale "
             tag="h2"
             className="text-black font-semibold text-8xl uppercase"
             charClass="inline-block"
@@ -46,7 +46,7 @@ export function Site() {
         {/* Zweite Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
-            text="einen Onlinemarkt"
+            text="online Services"
             tag="h2"
             className="text-black text-8xl font-semibold uppercase"
             charClass="inline-block"
@@ -68,7 +68,7 @@ export function Site() {
         {/* Dritte Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
-            text="für Werbeflächen"
+            text="für eine "
             tag="h2"
             className="text-black font-semibold text-8xl uppercase"
             charClass="inline-block"
@@ -85,12 +85,11 @@ export function Site() {
             }}
           />
         </div>
-        <br />
 
         {/* Vierte Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
-            text="für vermietung"
+            text="grüne Stadt"
             tag="h2"
             className="text-black font-semibold text-8xl uppercase"
             charClass="inline-block"
@@ -109,7 +108,7 @@ export function Site() {
         </div>
       </div>
 
-      <Description />
+      <DescriptionVert />
     </div>
   );
 }

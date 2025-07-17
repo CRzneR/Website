@@ -24,7 +24,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen bg-black text-white overflow-hidden">
+    <section className="relative h-screen bg-black text-white overflow-hidden ">
       <div className="absolute inset-0 flex justify-center items-center">
         <LogoAnimation />
       </div>

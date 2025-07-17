@@ -55,7 +55,7 @@ const CallToActionSection: React.FC = () => {
           onMouseLeave={() => setHovered(null)}
           className={`
             transition-all duration-300 rounded-lg p-8 flex flex-col justify-between shadow-lg
-            bg-[#F5FC7B] text-white
+            bg-[#CEC9C9] text-white
             ${hovered === "right" ? "basis-1/3" : "basis-2/3"}
           `}
         >
@@ -67,7 +67,7 @@ const CallToActionSection: React.FC = () => {
               Contact me!
             </h2>
           </div>
-          <button className="mt-auto border-2 border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-purple-600 transition font-semibold w-fit">
+          <button className="mt-auto border-2 border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-[#F1FA9C] transition font-semibold w-fit">
             Write a Mail
           </button>
         </div>
