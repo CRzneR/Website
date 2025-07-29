@@ -56,17 +56,17 @@ export default function HeadingEffect() {
   }, []);
 
   return (
-    <div className="relative flex flex-col justify-center h-full px-8 overflow-hidden">
-      <div className="text-left mx-auto relative z-10">
+    <div className="relative flex flex-col justify-center h-full px-4 sm:px-6 md:px-8 overflow-hidden">
+      <div className="text-left mx-auto relative z-10 w-full max-w-screen-xl">
         <h1
           ref={designerRef}
-          className="text-6xl md:text-9xl font-bold text-gray-300 leading-tight"
+          className="text-7xl  lg:text-8xl xl:text-9xl font-bold text-gray-300 leading-tight break-words"
         >
           DESIGNER
         </h1>
         <h1
           ref={developerRef}
-          className="pl-20 md:pl-60 text-6xl md:text-9xl font-bold text-gray-300 leading-tight"
+          className="md:pl-20 lg:pl-40 xl:pl-60 text-7xl  lg:text-8xl xl:text-9xl font-bold text-gray-300 leading-tight break-words"
         >
           AND DEVELOPER
         </h1>

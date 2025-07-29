@@ -47,20 +47,20 @@ const Introduction: React.FC = () => {
           backgroundImage: "url('/image/background.png')",
         }}
       >
-        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 text-center z-10 w-full">
-          <h2 className="font-grotesk font-[400] text-[#1D2E11] text-[clamp(12rem,18vw,24rem)]">
+        <div className="absolute  xl:-top-12 left-1/2 transform -translate-x-1/2 text-center z-10 w-full">
+          <h2 className="font-grotesk font-[400] text-[#1D2E11] text-[clamp(7rem,18vw,24rem)]">
             CHRISTOPH RENZ
           </h2>
         </div>
 
         {/* Person image */}
-        <div className="absolute left-1/2 transform -translate-x-1/2  z-20">
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 z-20 w-[80%]  sm:w-[60%] md:w-[500px]">
           <Image
             src="/image/CR_gross.png"
             alt="Christoph Renz"
             width={500}
             height={600}
-            className="object-contain"
+            className="w-full h-auto object-contain"
             priority
           />
         </div>
@@ -121,11 +121,6 @@ const Introduction: React.FC = () => {
               markers: false,
             }}
           />
-          {/* <div className="flex gap-3 mt-4">
-            <div className="w-6 h-6 rounded-full bg-black"></div>
-            <div className="w-6 h-6 rounded-full bg-black"></div>
-            <div className="w-6 h-6 rounded-full bg-black"></div>
-          </div> */}
         </div>
       </div>
       {/* Right skills */}

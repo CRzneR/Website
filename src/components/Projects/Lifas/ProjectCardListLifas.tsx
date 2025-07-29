@@ -1,14 +1,15 @@
 "use client";
 
 import React, { useRef } from "react";
-import { ProjectCard } from "./ProjectCard";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { ProjectCard } from "../../UxProjects/ProjectCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const ProjectCardListLifas = () => {
+export const ProjectCardList = () => {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const addToRefs = (el: HTMLDivElement | null, index: number) => {
@@ -28,7 +29,7 @@ export const ProjectCardListLifas = () => {
       scrollTrigger: {
         trigger: firstCard,
         start: "center center",
-        end: "bottom  +1000px",
+        end: "bottom  80%",
         toggleActions: "play reverse play reverse",
         markers: false,
       },

@@ -9,8 +9,8 @@ function ProjectOverview() {
       <div className="min-h-[50vh] p-8">
         <SplitTextAnimation
           text="My Projects"
-          tag="h1"
-          className="text-[#F5FC7B] text-2xl"
+          tag="h3"
+          className="text-[#F5FC7B] text-2xl sm:text-xl"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -27,8 +27,8 @@ function ProjectOverview() {
         <br />
         <SplitTextAnimation
           text="Some of my"
-          tag="h1"
-          className="text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
+          tag="h3"
+          className="text-6xl  md:text-7xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -45,8 +45,8 @@ function ProjectOverview() {
         <br />
         <SplitTextAnimation
           text="projects i love"
-          tag="h1"
-          className="text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
+          tag="h3"
+          className="text-6xl  md:text-7xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -63,8 +63,8 @@ function ProjectOverview() {
         <br />
         <SplitTextAnimation
           text="this"
-          tag="h1"
-          className="text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
+          tag="h3"
+          className="text-6xl  md:text-7xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -95,10 +95,7 @@ function ProjectOverview() {
             <p className="text-xl text-[#CEC9C9] font-bold pb-4">
               and of course i used pokemon for that
             </p>
-            <Button
-              a="https://crzner.github.io/FastFive/"
-              text="Play FastFive"
-            />
+            <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
           </div>
         </FadeIn>
         <FadeIn>

@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useRef } from "react";
-import { ProjectCard } from "./ProjectCard";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { ProjectCard } from "../../UxProjects/ProjectCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const ProjectCardListLifas = () => {
+export const ProjectCardListVert = () => {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const addToRefs = (el: HTMLDivElement | null, index: number) => {
@@ -18,44 +18,35 @@ export const ProjectCardListLifas = () => {
   };
 
   useGSAP(() => {
-    const firstCard = cardsRef.current[0];
-    if (!firstCard) return;
-
-    const content = firstCard.querySelector(".content");
-
-    // Timeline für Card + Inhalt
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: firstCard,
-        start: "center center",
-        end: "bottom  +1000px",
-        toggleActions: "play reverse play reverse",
-        markers: false,
-      },
-    });
-
-    // Skaliere die Card
-    tl.to(firstCard, {
-      scale: 6,
-      transformOrigin: "center center",
-      ease: "power1.out",
-    });
-
-    // Verstecke den Inhalt parallel
-    if (content) {
-      tl.to(
-        content,
-        {
-          opacity: 0,
-          ease: "power1.out",
+    // Animation NUR für die zweite Karte (Vert City)
+    const secondCard = cardsRef.current[1];
+    if (secondCard) {
+      const secondContent = secondCard.querySelector(".content");
+      const tlSecond = gsap.timeline({
+        scrollTrigger: {
+          trigger: secondCard,
+          start: "center center",
+          end: "bottom 80%",
+          toggleActions: "play reverse play reverse",
+          markers: false,
         },
-        "<" // startet gleichzeitig mit der Skalierung
-      );
+      });
+
+      tlSecond.to(secondCard, {
+        scale: 6,
+        transformOrigin: "center center",
+        ease: "power1.out",
+      });
+
+      if (secondContent) {
+        tlSecond.to(secondContent, { opacity: 0, ease: "power1.out" }, "<");
+      }
     }
   }, []);
 
   return (
     <div className="flex gap-6 justify-center items-center">
+      {/* Linke Karte (Lifas) – OHNE Animation */}
       <div ref={(el) => addToRefs(el, 0)}>
         <ProjectCard
           title="Lifas"
@@ -63,6 +54,8 @@ export const ProjectCardListLifas = () => {
           logo="/image/lifas/LifasLogo.png"
         />
       </div>
+
+      {/* Rechte Karte (Vert City) – MIT Animation */}
       <div ref={(el) => addToRefs(el, 1)}>
         <ProjectCard
           title="Vert City"

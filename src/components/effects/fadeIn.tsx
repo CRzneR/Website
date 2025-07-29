@@ -4,15 +4,6 @@
 import { motion, HTMLMotionProps } from "framer-motion";
 import { PropsWithChildren } from "react";
 
-/**
- * Reusable fade-in-up effect.
- * --------------------------------------------------
- * - y-Versatz: 48 px3
- * - Opacity: 0 → 1
- * - Ease-Kurve: easeInOut
- * - Dauer: 0.75 s
- * - Läuft genau einmal pro Viewport-Eintritt
- */
 const FadeIn = ({
   children,
   ...rest
