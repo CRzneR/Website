@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function ProjectOverview() {
   return (
-    <section className="bg-black px-4 pt-20 ">
+    <section className="bg-[#151515] px-4 pt-20 ">
       <div className="min-h-[50vh] p-8">
         <SplitTextAnimation
           text="My Projects"

@@ -46,7 +46,7 @@ export default function LogoAnimation() {
       />
       <script async src="https://cdn.tailwindcss.com" />
 
-      <div className="flex justify-center items-center xl:h-screen m-0 ">
+      <div className="flex justify-center items-center h-[90%] xl:h-screen m-0 ">
         <div className="relative">
           <svg viewBox="0 0 491 563" className="w-[500px] h-[500px] text-white">
             {/* First Path */}

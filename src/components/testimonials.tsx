@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
 
 const Testimonials = () => {
   return (
-    <section className=" bg-black py-32 px-6">
+    <section className=" bg-[#151515] py-32 px-6">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-white mb-12">What people say</h2>
 

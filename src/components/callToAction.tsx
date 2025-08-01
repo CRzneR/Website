@@ -46,7 +46,7 @@ const CallToActionSection: React.FC = () => {
   const [hovered, setHovered] = useState<"right" | null>(null);
 
   return (
-    <div className=" pt-[5%] bg-black">
+    <div className=" pt-[5%] bg-[#151515]">
       {/* Main Section */}
       <div className="flex max-w-6xl mx-auto gap-6 transition-all duration-300">
         {/* Left: Project Call */}
@@ -67,7 +67,7 @@ const CallToActionSection: React.FC = () => {
               Contact me!
             </h2>
           </div>
-          <button className="mt-auto border-2 border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-[#F1FA9C] transition font-semibold w-fit">
+          <button className="mt-auto border-2 border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-black transition font-semibold w-fit">
             Write a Mail
           </button>
         </div>

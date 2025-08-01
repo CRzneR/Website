@@ -30,20 +30,20 @@ export default function Home() {
         </section>
 
         {/* ProjectCardList mit niedrigerem z-index */}
-        <section className="min-h-screen flex justify-center items-center bg-black relative z-0">
+        <section className="hidden md:block min-h-screen flex justify-center items-center bg-[#151515] relative z-0">
           <ProjectCardListLifas />
         </section>
 
         {/* Andere Sektionen mit höherem z-index, falls nötig */}
-        <section className="relative z-10">
+        <section className="hidden md:block relative z-10">
           <SiteLifas />
         </section>
 
-        <section className="min-h-screen flex justify-center items-center bg-black relative z-0">
+        <section className="hidden md:block min-h-screen flex justify-center items-center bg-black relative z-0">
           <ProjectCardListVert />
         </section>
 
-        <section className="relative z-10">
+        <section className="relative z-10 hidden md:block">
           <SiteVert />
         </section>
 

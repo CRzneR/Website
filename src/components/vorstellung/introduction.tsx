@@ -39,7 +39,7 @@ const Introduction: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative bg-black min-h-[300vh]">
+    <div ref={containerRef} className="relative bg-[#151515] min-h-[300vh]">
       <div
         ref={yellowDivRef}
         className="bg-[#F5FC7B] rounded-[3rem] p-8 relative w-full max-w-[95%] h-[700px] mx-auto bg-cover bg-center"
@@ -48,7 +48,7 @@ const Introduction: React.FC = () => {
         }}
       >
         <div className="absolute  xl:-top-12 left-1/2 transform -translate-x-1/2 text-center z-10 w-full">
-          <h2 className="font-grotesk font-[400] text-[#1D2E11] text-[clamp(7rem,18vw,24rem)]">
+          <h2 className="font-grotesk font-[400] text-[#1D2E11] text-[clamp(4rem,18vw,24rem)]">
             CHRISTOPH RENZ
           </h2>
         </div>
@@ -70,7 +70,7 @@ const Introduction: React.FC = () => {
           <SplitTextAnimation
             text="I CREATE STUNNING DIGITAL"
             tag="h4"
-            className="text-[#1D2E11] text-2xl"
+            className="text-[#1D2E11] font-semibold text-xl xl:text-2xl"
             charClass="inline-block"
             animation={{
               y: 100,
@@ -88,7 +88,7 @@ const Introduction: React.FC = () => {
           <SplitTextAnimation
             text="EXPERIENCES FOR CUSTOMERS"
             tag="h4"
-            className="text-[#1D2E11] text-2xl"
+            className="text-[#1D2E11] font-semibold text-xl xl:text-2xl"
             charClass="inline-block"
             animation={{
               y: 100,

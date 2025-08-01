@@ -97,8 +97,8 @@ const CookieConsentBanner: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 z-50">
-      <p>
+    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 sm:p-6 text-sm sm:text-base z-50">
+      <p className="max-w-5xl mx-auto">
         Um unsere Website für Sie optimal zu gestalten und fortlaufend
         verbessern zu können, verwenden wir Cookies. Einige sind technisch
         notwendig, während andere uns helfen, unser Angebot zu optimieren. Sie
