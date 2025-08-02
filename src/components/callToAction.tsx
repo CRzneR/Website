@@ -7,8 +7,7 @@ const SocialMediaIcons: React.FC = () => {
   const [hovered, setHovered] = useState<string | null>(null);
 
   // Definiere Farben für Normal und Hover
-  const iconColor = (name: string) =>
-    hovered === name ? "#E1306C" /* Beispiel: Instagram Pink */ : "#000";
+  const iconColor = (name: string) => (hovered === name ? "#ffff00" : "#fff");
 
   return (
     <div className="flex gap-6">
@@ -60,8 +59,10 @@ const CallToActionSection: React.FC = () => {
           `}
         >
           <div>
-            <p className="text-lg font-medium mb-2 ">Now it´s your turn</p>
-            <h2 className="text-4xl font-bold leading-tight mb-6">
+            <p className=" text-md md:text-lg font-medium mb-2 ">
+              Now it´s your turn
+            </p>
+            <h2 className="text-xl md:text-4xl font-bold leading-tight mb-6">
               You like that?
               <br />
               Contact me!
@@ -83,8 +84,10 @@ const CallToActionSection: React.FC = () => {
           `}
         >
           <div>
-            <p className="text-lg font-medium mb-2">Not enought?</p>
-            <h2 className="text-3xl font-bold mb-6">See more of me</h2>
+            <p className="text-md md:text-lg font-medium mb-2">Not enought?</p>
+            <h2 className="text-xl md:text-4xl font-bold mb-6">
+              See more of me
+            </h2>
           </div>
           <button className="mt-auto border-2 border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-black transition font-semibold w-fit">
             More content

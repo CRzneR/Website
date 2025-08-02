@@ -32,9 +32,9 @@ export default function Home() {
         </section>
 
         {/* spacer */}
-        <div className="h-[500px]"></div>
+        <div className="hidden md:block h-[500px]"></div>
 
-        <section className="hidden md:block">
+        <section className="hidden md:block ">
           <ScalingCardVert />
         </section>
 
