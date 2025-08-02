@@ -66,7 +66,7 @@ const Introduction: React.FC = () => {
         </div>
 
         {/* Left text + dots */}
-        <div className="absolute bottom-[45%] left-8 max-w-md text-black ">
+        <div className="absolute bottom-[60%] xl:bottom-[45%] left-8 max-w-md text-black ">
           <SplitTextAnimation
             text="I CREATE STUNNING DIGITAL"
             tag="h4"
@@ -106,7 +106,7 @@ const Introduction: React.FC = () => {
           <SplitTextAnimation
             text="WITH A FOCUS ON UX"
             tag="h4"
-            className="text-[#1D2E11] text-2xl"
+            className="text-[#1D2E11] font-semibold text-xl xl:text-2xl"
             charClass="inline-block"
             animation={{
               y: 100,

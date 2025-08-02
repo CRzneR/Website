@@ -46,9 +46,12 @@ export default function LogoAnimation() {
       />
       <script async src="https://cdn.tailwindcss.com" />
 
-      <div className="flex justify-center items-center h-[90%] xl:h-screen m-0 ">
+      <div className="flex justify-center items-center h-screen m-0 ">
         <div className="relative">
-          <svg viewBox="0 0 491 563" className="w-[500px] h-[500px] text-white">
+          <svg
+            viewBox="0 0 491 563"
+            className=" w-[300px] h-[300px] xl:w-[500px] xl:h-[500px] text-white"
+          >
             {/* First Path */}
             <path
               id="path1"
@@ -74,6 +77,12 @@ export default function LogoAnimation() {
           stroke-dashoffset: 1000;
           fill: none;
           stroke-width: 2;
+        }
+
+        @media (max-width: 860px) {
+          .logo-path {
+            stroke-width: 2;
+          }
         }
       `}</style>
     </>

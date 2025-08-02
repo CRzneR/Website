@@ -90,7 +90,7 @@ const Leistungen: React.FC<ScrollHeadingsProps> = ({
             headingsRef.current[index] = el;
           }}
           style={{
-            fontSize: "2rem",
+            fontSize: "clamp(1.5rem, 4vw, 2rem)",
             fontWeight: 700,
             margin: "0 0 1rem 0",
             opacity: 0,

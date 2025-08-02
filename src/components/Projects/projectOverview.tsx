@@ -6,7 +6,7 @@ import Image from "next/image";
 function ProjectOverview() {
   return (
     <section className="bg-[#151515] px-4 pt-20 ">
-      <div className="min-h-[50vh] p-8">
+      <div className="min-h-[35vh] xl:min-h-[50vh] xl:p-8">
         <SplitTextAnimation
           text="My Projects"
           tag="h3"
@@ -28,7 +28,7 @@ function ProjectOverview() {
         <SplitTextAnimation
           text="Some of my"
           tag="h3"
-          className="text-6xl  md:text-7xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
+          className="text-4xl  lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -46,7 +46,7 @@ function ProjectOverview() {
         <SplitTextAnimation
           text="projects i love"
           tag="h3"
-          className="text-6xl  md:text-7xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
+          className="text-4xl  lg:text-8xl  font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -64,7 +64,7 @@ function ProjectOverview() {
         <SplitTextAnimation
           text="this"
           tag="h3"
-          className="text-6xl  md:text-7xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
+          className="text-4xl  lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -82,7 +82,7 @@ function ProjectOverview() {
       <div className="max-w-6xl w-full  grid md:grid-cols-2 gap-8 items-center justify-center mx-auto">
         <FadeIn>
           <div className="relative space-y-4">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
+            <h2 className=" text-3xl xl:text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
               I love gaming so i{" "}
               <span
                 className="text-transparent stroke-text font-black"
@@ -99,7 +99,7 @@ function ProjectOverview() {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="relative w-full h-[400px] md:h-[500px]">
+          <div className="relative w-full h-[200px] xl:h-[500px]">
             <Image
               src="/image/pokemon.png"
               alt="3D Printed Rings"
@@ -115,7 +115,7 @@ function ProjectOverview() {
 
       <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
-          <div className="relative w-full h-[400px] md:h-[500px]">
+          <div className="hidden lg:block relative h-[200px] xl:h-[500px]">
             <Image
               src="/image/Rings.png"
               alt="3D Printed Rings"
@@ -149,11 +149,24 @@ function ProjectOverview() {
             />
           </div>
         </FadeIn>
+        <FadeIn>
+          <div className="block lg:hidden relative h-[200px] xl:h-[500px]">
+            <Image
+              src="/image/Rings.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
+          </div>
+        </FadeIn>
       </div>
 
       <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
-          <div className="relative space-y-6">
+          <div className="relative space-y-6 pt-8 xl:pt-0">
             <h2 className="text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-tight">
               Competitions are not{" "}
               <span className="text-transparent stroke-text font-black">
@@ -175,7 +188,7 @@ function ProjectOverview() {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="relative w-full h-[400px] md:h-[500px]">
+          <div className="relative w-full h-[200px] xl:h-[500px]">
             <Image
               src="/image/ForChampions.png"
               alt="3D Printed Rings"
