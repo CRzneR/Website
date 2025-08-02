@@ -5,8 +5,6 @@ import Testimonials from "../components/testimonials";
 import HeroSection from "../components/Top/heroSection";
 import Introduction from "../components/vorstellung/introduction";
 import CookieConsentBanner from "../components/CookieCOnsentBanner";
-import { SiteVert } from "../components/Projects/Vert/SiteVert";
-import { ProjectCardListVert } from "../components/Projects/Vert/ProjectCardListVert";
 import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
 import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
 
@@ -29,12 +27,16 @@ export default function Home() {
           <ProjectOverview />
         </section>
 
-        <ScalingCardLifas />
+        <section className="hidden md:block">
+          <ScalingCardLifas />
+        </section>
 
         {/* spacer */}
         <div className="h-[500px]"></div>
 
-        <ScalingCardVert />
+        <section className="hidden md:block">
+          <ScalingCardVert />
+        </section>
 
         <section className="relative z-10">
           <Testimonials />

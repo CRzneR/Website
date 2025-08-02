@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ProjectCardListLifas } from "../../UxProjects/ProjectCardList";
 import { SiteLifas } from "./SiteLifas";
 import { ProjectCard } from "../../UxProjects/ProjectCard";
 
