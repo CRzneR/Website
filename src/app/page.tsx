@@ -5,10 +5,10 @@ import Testimonials from "../components/testimonials";
 import HeroSection from "../components/Top/heroSection";
 import Introduction from "../components/vorstellung/introduction";
 import CookieConsentBanner from "../components/CookieCOnsentBanner";
-import { SiteLifas } from "../components/Projects/Lifas/SiteLifas";
 import { SiteVert } from "../components/Projects/Vert/SiteVert";
-import { ProjectCardListLifas } from "../components/UxProjects/ProjectCardList";
 import { ProjectCardListVert } from "../components/Projects/Vert/ProjectCardListVert";
+import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
+import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
 
 export default function Home() {
   return (
@@ -29,23 +29,12 @@ export default function Home() {
           <ProjectOverview />
         </section>
 
-        {/* ProjectCardList mit niedrigerem z-index */}
-        <section className="hidden md:block min-h-screen flex justify-center items-center bg-[#151515] relative z-0">
-          <ProjectCardListLifas />
-        </section>
+        <ScalingCardLifas />
 
-        {/* Andere Sektionen mit höherem z-index, falls nötig */}
-        <section className="hidden md:block relative z-10">
-          <SiteLifas />
-        </section>
+        {/* spacer */}
+        <div className="h-[500px]"></div>
 
-        <section className="hidden md:block min-h-screen flex justify-center items-center bg-black relative z-0">
-          <ProjectCardListVert />
-        </section>
-
-        <section className="relative z-10 hidden md:block">
-          <SiteVert />
-        </section>
+        <ScalingCardVert />
 
         <section className="relative z-10">
           <Testimonials />
