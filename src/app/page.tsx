@@ -7,6 +7,7 @@ import Introduction from "../components/vorstellung/introduction";
 import CookieConsentBanner from "../components/CookieCOnsentBanner";
 import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
 import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
+import CallToActionMobile from "../components/CallToActionMobile";
 
 export default function Home() {
   return (
@@ -43,8 +44,11 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="relative z-20">
+      <footer className="relative z-20 hidden md:block">
         <CallToActionSection />
+      </footer>
+      <footer className="relative z-20 block md:hidden">
+        <CallToActionMobile />
       </footer>
     </div>
   );

@@ -74,6 +74,7 @@ const CallToActionSection: React.FC = () => {
         </div>
 
         {/* Right: Careers */}
+
         <div
           onMouseEnter={() => setHovered("right")}
           onMouseLeave={() => setHovered(null)}

@@ -24,7 +24,7 @@ const Testimonials = () => {
         <SplitTextAnimation
           text="Testimonials"
           tag="h3"
-          className="text-[#F5FC7B] text-2xl sm:text-xl"
+          className="text-[#F5FC7B] text-md sm:text-xl"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -42,7 +42,7 @@ const Testimonials = () => {
         <SplitTextAnimation
           text="What people say"
           tag="h3"
-          className="text-4xl  lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
+          className="text-3xl  lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
