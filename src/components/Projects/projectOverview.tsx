@@ -1,15 +1,16 @@
 import { Button } from "../button";
 import FadeIn from "../effects/fadeIn";
 import SplitTextAnimation from "../effects/splitText";
+import Image from "next/image";
 
 function ProjectOverview() {
   return (
-    <section className="bg-[#e9e6fb]  px-4 pt-20">
-      <div className="min-h-[50vh] p-8">
+    <section className="bg-[#151515] px-4 pt-20 ">
+      <div className="min-h-[35vh] xl:min-h-[50vh] xl:p-8">
         <SplitTextAnimation
           text="My Projects"
-          tag="h1"
-          className="text-[#DDE944] text-2xl"
+          tag="h4"
+          className="text-[#F5FC7B] text-xl sm:text-xl"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -26,8 +27,8 @@ function ProjectOverview() {
         <br />
         <SplitTextAnimation
           text="Some of my"
-          tag="h1"
-          className="text-8xl font-bold mb-2 text-gray-700 uppercase"
+          tag="h3"
+          className="text-4xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -44,8 +45,8 @@ function ProjectOverview() {
         <br />
         <SplitTextAnimation
           text="projects i love"
-          tag="h1"
-          className="text-8xl font-bold mb-2 text-gray-700 uppercase"
+          tag="h3"
+          className="text-4xl  lg:text-8xl  font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -62,8 +63,8 @@ function ProjectOverview() {
         <br />
         <SplitTextAnimation
           text="this"
-          tag="h1"
-          className="text-8xl font-bold mb-2 text-gray-700 uppercase"
+          tag="h3"
+          className="text-4xl  lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
             y: 100,
@@ -78,53 +79,57 @@ function ProjectOverview() {
           }}
         />
       </div>
-      <div className="max-w-6xl w-full min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
+      <div className="max-w-6xl w-full  grid md:grid-cols-2 gap-8 items-center justify-center mx-auto">
         <FadeIn>
-          <div className="relative space-y-6">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-8">
+          <div className="relative space-y-4">
+            <h2 className=" text-2xl xl:text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
               I love gaming so i{" "}
-              <span className="text-transparent stroke-text font-black">
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
                 &quot;recreated&quot;{" "}
               </span>
               an old board game
             </h2>
-            <p className="text-xl text-gray-600 font-bold pb-4">
+            <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               and of course i used pokemon for that
             </p>
-            <Button
-              a="https://crzner.github.io/FastFive/"
-              text="Play FastFive"
-            />
+            <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className=" bg-white rounded-lg">
-              <img
-                src="/image/pokemon.png"
-                alt="Abgerundetes Bild"
-                className="rounded-xl border-2 border-white relative z-1"
-              />
-            </div>
+          <div className="relative w-full h-[200px] xl:h-[500px]">
+            <Image
+              src="/image/pokemon.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
           </div>
         </FadeIn>
       </div>
 
       <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
-          <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className=" bg-white rounded-lg">
-              <img
-                src="/image/Rings.png"
-                alt="Abgerundetes Bild"
-                className="rounded-xl border-2 border-white relative z-1"
-              />
-            </div>
+          <div className="hidden lg:block relative h-[200px] xl:h-[500px]">
+            <Image
+              src="/image/Rings.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
           </div>
         </FadeIn>
         <FadeIn>
           <div className="relative space-y-6">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-tight">
+            <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
               <span className="text-transparent stroke-text font-black">
                 CAD{" "}
               </span>
@@ -134,22 +139,35 @@ function ProjectOverview() {
               </span>
               are part of my life
             </h2>
-            <p className="text-xl text-gray-600 font-bold pb-4">
+            <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               I love creating my ideas and bring them to reality
             </p>
             <Button
-              a="https://rings-2yys7o7o0-crzners-projects.vercel.app"
+              a="https://rings-nu.vercel.app"
               text="Visit site"
               className="mt-6"
             />
           </div>
         </FadeIn>
+        <FadeIn>
+          <div className="block lg:hidden relative h-[200px] xl:h-[500px]">
+            <Image
+              src="/image/Rings.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
+          </div>
+        </FadeIn>
       </div>
 
-      <div className="max-w-6xl w-full min-h-screen grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
+      <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
         <FadeIn>
-          <div className="relative space-y-6">
-            <h2 className="text-4xl uppercase md:text-5xl font-bold text-gray-700 leading-tight">
+          <div className="relative space-y-6 pt-8 xl:pt-0">
+            <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
               Competitions are not{" "}
               <span className="text-transparent stroke-text font-black">
                 just{" "}
@@ -159,7 +177,7 @@ function ProjectOverview() {
                 fun
               </span>
             </h2>
-            <p className="text-xl text-gray-600 font-bold pb-4">
+            <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               they also show you your skills compared to competitors
             </p>
             <Button
@@ -170,14 +188,16 @@ function ProjectOverview() {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="inline-block border-2 border-white p-2 rounded-xl">
-            <div className=" bg-white rounded-lg">
-              <img
-                src="/image/ForChampions.png"
-                alt="Abgerundetes Bild"
-                className="rounded-xl border-2 border-white relative z-1"
-              />
-            </div>
+          <div className="relative w-full h-[200px] xl:h-[500px]">
+            <Image
+              src="/image/ForChampions.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
           </div>
         </FadeIn>
       </div>

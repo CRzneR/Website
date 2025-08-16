@@ -1,22 +1,42 @@
-// components/HeroSection.tsx
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import HeadingEffect from "./HeadingEffect";
+import LogoAnimation from "./LogoAnimation";
 
 export default function HeroSection() {
+  const pRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (!pRef.current) return;
+
+    gsap.fromTo(
+      pRef.current,
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 1.5,
+        delay: 4.5,
+        ease: "power2.out",
+      }
+    );
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white px-6 md:px-16 lg:px-32 py-20">
-      {/* Textbereich */}
-      <div className="text-center">
-        <h2 className="text-lg font-semibold text-black mb-2 font-cormorant">
-          Christoph Renz
-        </h2>
-        <h1 className="text-[150px] leading-none text-black mb-6 font-bstyle">
-          Developer <br />
-          Digital Designer
-        </h1>
-        <p className="text-xl font-bold text-gray-800 uppercase leading-relaxed tracking-wide max-w-2xl mx-auto mb-8">
-          Ich bin in einer digitalen Welt aufgewachsen. Um diese mit zu
-          gestalten habe ich Webentwicklung gelernt und kann nun meine Dienste
-          anbieten
-        </p>
+    <section className="relative h-screen bg-[#151515] text-white overflow-hidden ">
+      <div className="absolute inset-0 flex justify-center items-center">
+        <LogoAnimation />
+      </div>
+      <div className="relative flex flex-col justify-center h-full px-8">
+        <div className="text-left mx-auto">
+          <HeadingEffect />
+          <div className="absolute bottom-0 left-0 w-full text-center pb-8">
+            <p ref={pRef} style={{ opacity: 0 }}>
+              scroll to explore <span>&darr;</span>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
