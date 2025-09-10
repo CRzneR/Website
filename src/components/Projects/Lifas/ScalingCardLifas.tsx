@@ -6,55 +6,60 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteLifas } from "./SiteLifas";
 import { ProjectCard } from "../../UxProjects/ProjectCard";
 
-// GSAP Plugin registrieren
+// Plugin registrieren
 gsap.registerPlugin(ScrollTrigger);
 
 const ScalingCardLifas = () => {
-  const scaleBoxRef = useRef(null);
+  const scaleBoxRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const scaleBox = scaleBoxRef.current;
 
     const animation = gsap.to(scaleBox, {
-      scaleX: 8, // Skaliert nur horizontal
-      scaleY: 5, // Skaliert nur vertikal
+      scaleX: 8,
+      scaleY: 8,
       scrollTrigger: {
         trigger: scaleBox,
-        start: "top top", // Startet beim oberen Rand des Elements
-        end: "=+2000", // Endet beim unteren Rand des Viewports
-        scrub: true, // Sanfter Übergang beim Scrollen
-        markers: false, // Debug-Marker anzeigen
-        toggleActions: "play reverse play reverse",
+        start: "top top",
+        end: "+=2000",
+        scrub: true,
+        markers: false,
       },
     });
 
-    // Cleanup-Funktion
     return () => {
-      animation.scrollTrigger?.kill(); // ScrollTrigger beenden
-      animation.kill(); // GSAP-Animation beenden
+      animation.scrollTrigger?.kill();
+      animation.kill();
     };
-  }, []); // Leeres Array bedeutet, dass dieser Effekt nur einmal beim Mounten ausgeführt wird
+  }, []);
 
   return (
     <div className="h-[650vh] relative bg-[#151515]">
       {/* spacer */}
-      <div className="h-[7%]"></div>
+      <div className="h-[7%]" />
 
+      {/* nur Hintergrund wird gescaled */}
       <div
         ref={scaleBoxRef}
-        className="sticky top-[20%] h-[400px] w-[350px] bg-[#CEC9C9] mx-auto  flex items-center justify-center "
+        className="sticky top-[20%] h-[400px] w-[350px] mx-auto flex items-center justify-center"
       >
-        <ProjectCard
-          title="Lifas"
-          subtitle="Online Marketplace"
-          logo="/image/lifas/LifasLogo.png"
-        />
+        {/* Hintergrund separat */}
+        <div className="absolute inset-0 bg-[#CEC9C9]" />
+
+        {/* Inhalt bleibt gleich */}
+        <div className="relative z-10">
+          <ProjectCard
+            title="Lifas"
+            subtitle="Online Marketplace"
+            logo="/image/lifas/LifasLogo.png"
+          />
+        </div>
       </div>
 
       {/* spacer */}
-      <div className="h-[14%]"></div>
+      <div className="h-[14%]" />
 
-      <section className=" relative z-10 mb-20">
+      <section className="relative z-10 mb-20">
         <SiteLifas />
       </section>
     </div>

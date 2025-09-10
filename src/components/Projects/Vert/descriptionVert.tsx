@@ -54,8 +54,8 @@ export function DescriptionVert() {
       <div ref={containerRef} className="flex px-20 z-20 pb-[100vh]">
         <div>
           <Image
-            src="/image/vert/VertLogo.png"
-            alt="Vert Logo"
+            src="/image/vert/VertTitel.png"
+            alt="Bild von einem Laptop mit der Vertania City Webseite"
             width={400}
             height={400}
             className="object-contain"

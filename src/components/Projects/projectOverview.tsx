@@ -143,7 +143,7 @@ function ProjectOverview() {
               I love creating my ideas and bring them to reality
             </p>
             <Button
-              a="https://rings-crzners-projects.vercel.app"
+              a="https://rings-nu.vercel.app"
               text="Visit site"
               className="mt-6"
             />

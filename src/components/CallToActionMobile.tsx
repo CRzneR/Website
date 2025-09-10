@@ -57,12 +57,16 @@ const CallToActionSection: React.FC = () => {
             You like that?
           </h2>
         </div>
-        <button
+        <a
+          href="mailto:kontakt@christophrenz.de"
           className="border-2 border-white rounded-full px-6 py-2 text-white 
-                     hover:bg-white hover:text-black transition font-semibold w-fit"
+             hover:bg-white hover:text-black transition font-semibold w-fit
+             mix-blend-difference hover:underline"
+          aria-label="Kontakt per E-Mail (kontakt@christophrenz.de)"
+          title="E-Mail an kontakt@christophrenz.de senden"
         >
-          Write a Mail
-        </button>
+          Write a mail
+        </a>
       </div>
 
       {/* Footer */}

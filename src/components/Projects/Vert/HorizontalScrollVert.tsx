@@ -57,7 +57,7 @@ export default XScrollComp;
 
 const cards = [
   {
-    url: "/image/vert/Bild1.png",
+    url: "/image/vert/Vert1.png",
     id: 1,
   },
   {
