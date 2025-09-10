@@ -17,7 +17,7 @@ const ScalingCardVert = () => {
 
     const animation = gsap.to(scaleBox1, {
       scaleX: 8, // Skaliert nur horizontal
-      scaleY: 5, // Skaliert nur vertikal
+      scaleY: 8, // Skaliert nur vertikal
       scrollTrigger: {
         trigger: scaleBox1,
         start: "top top", // Startet beim oberen Rand des Elements
@@ -46,7 +46,7 @@ const ScalingCardVert = () => {
         <ProjectCard
           title="Vert City"
           subtitle="Online Marketplace"
-          logo="/image/vert/VertLogo.png"
+          logo="/image/vert/VertLogo.svg"
         />
       </div>
 
