@@ -181,7 +181,7 @@ function ProjectOverview() {
               they also show you your skills compared to competitors
             </p>
             <Button
-              a="https://crzner.github.io/ForChampions/"
+              a="https://forchampions.onrender.com"
               text="go to the app"
               className="mt-6"
             />
