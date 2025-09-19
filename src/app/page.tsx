@@ -9,6 +9,7 @@ import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
 import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
 import CallToActionMobile from "../components/CallToActionMobile";
 import Certificates from "../components/Certificates";
+import UeberschiftUX from "../components/UxProjects/Ueberschrift";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <section>
           <ProjectOverview />
         </section>
+        <UeberschiftUX />
 
         <section className="hidden md:block">
           <ScalingCardLifas />

@@ -16,8 +16,8 @@ const ScalingCardVert = () => {
     const scaleBox1 = scaleBoxRef1.current;
 
     const animation = gsap.to(scaleBox1, {
-      scaleX: 8, // Skaliert nur horizontal
-      scaleY: 8, // Skaliert nur vertikal
+      scaleX: 7, // Skaliert nur horizontal
+      scaleY: 7, // Skaliert nur vertikal
       scrollTrigger: {
         trigger: scaleBox1,
         start: "top top", // Startet beim oberen Rand des Elements
