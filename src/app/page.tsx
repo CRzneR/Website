@@ -29,9 +29,9 @@ export default function Home() {
         <section>
           <ProjectOverview />
         </section>
-        <UeberschiftUX />
 
         <section className="hidden md:block">
+          <UeberschiftUX />
           <ScalingCardLifas />
         </section>
 
@@ -42,9 +42,9 @@ export default function Home() {
           <ScalingCardVert />
         </section>
 
-        <section>
+        {/* <section>
           <Certificates />
-        </section>
+        </section> */}
 
         <section className="relative z-10">
           <Testimonials />
