@@ -97,11 +97,17 @@ export default function RootLayout({
       >
         {children}
         <Analytics />
-        <footer className="mt-8 p-4 border-t text-center text-sm space-x-4">
-          <Link href="/impressum" className="text-blue-600 underline">
+        <footer className=" p-6 bg-[#151515] text-gray-300 text-center text-sm space-x-6 border-t border-gray-700">
+          <Link
+            href="/impressum"
+            className="text-gray-300 hover:text-blue-400 transition-colors"
+          >
             Impressum
           </Link>
-          <Link href="/datenschutz" className="text-blue-600 underline">
+          <Link
+            href="/datenschutz"
+            className="text-gray-300 hover:text-blue-400 transition-colors"
+          >
             Datenschutz
           </Link>
         </footer>
