@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import Link from "next/link";
 
 const cormorant = localFont({
   src: [
@@ -96,6 +97,14 @@ export default function RootLayout({
       >
         {children}
         <Analytics />
+        <footer className="mt-8 p-4 border-t text-center text-sm space-x-4">
+          <Link href="/impressum" className="text-blue-600 underline">
+            Impressum
+          </Link>
+          <Link href="/datenschutz" className="text-blue-600 underline">
+            Datenschutz
+          </Link>
+        </footer>
       </body>
     </html>
   );
