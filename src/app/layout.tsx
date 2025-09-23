@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
+import SmoothScroll from "../components/SmoothScroll";
 
 const cormorant = localFont({
   src: [
@@ -95,6 +96,7 @@ export default function RootLayout({
       <body
         className={`${cormorant.variable} ${encoded.variable}  ${bstyle.variable} ${panther.variable}  ${rocGrotesk.variable} antialiased`}
       >
+        <SmoothScroll />
         {children}
         <Analytics />
         <footer className=" p-6 bg-[#151515] text-gray-300 text-center text-sm space-x-6 border-t border-gray-700">
