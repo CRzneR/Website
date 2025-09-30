@@ -82,7 +82,7 @@ function ProjectOverview() {
       <div className="max-w-6xl w-full  grid md:grid-cols-2 gap-8 items-center justify-center mx-auto">
         <FadeIn>
           <div className="relative space-y-4">
-            <h2 className=" text-2xl xl:text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
+            <h2 className="text-2xl xl:text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
               I love gaming so i{" "}
               <span
                 className="text-transparent stroke-text font-black"
@@ -129,12 +129,18 @@ function ProjectOverview() {
         </FadeIn>
         <FadeIn>
           <div className="relative space-y-6">
-            <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-              <span className="text-transparent stroke-text font-black">
+            <h2 className="text-2xl xl:text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
                 CAD{" "}
               </span>
               and{" "}
-              <span className="text-transparent stroke-text font-black">
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
                 3D-printing{" "}
               </span>
               are part of my life
@@ -169,11 +175,17 @@ function ProjectOverview() {
           <div className="relative space-y-6 pt-8 xl:pt-0">
             <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
               Competitions are not{" "}
-              <span className="text-transparent stroke-text font-black">
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
                 just{" "}
               </span>
               for{" "}
-              <span className="text-transparent stroke-text font-black">
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
                 fun
               </span>
             </h2>

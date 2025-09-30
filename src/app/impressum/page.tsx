@@ -9,9 +9,11 @@ export default function ImpressumPage() {
       <p className="leading-relaxed">
         Christoph Renz
         <br />
-        Herzogstandstraße
+        WeWork
         <br />
-        81539 München
+        Neuturmstraße 7
+        <br />
+        80331 München
       </p>
 
       <h2 className="text-2xl font-semibold mt-10 mb-3">Kontakt</h2>

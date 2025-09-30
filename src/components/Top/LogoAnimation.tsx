@@ -23,7 +23,7 @@ export default function LogoAnimation() {
           window.anime({
             targets: path,
             strokeDashoffset: [pathLength, 0],
-            duration: 3000,
+            duration: 2000,
             delay: index * 500,
             easing: "easeInOutSine",
             loop: false,

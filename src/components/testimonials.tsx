@@ -20,15 +20,9 @@ const testimonials: Testimonial[] = [
   },
   {
     text: "Great collaboration and amazing results – Christoph truly goes above and beyond expectations.",
-    name: "Sarah Johnson",
-    position: "Crypto Fund Manager",
-    image: "/image/Sarah.jpg",
-  },
-  {
-    text: "Great collaboration and amazing results – Christoph truly goes above and beyond expectations.",
-    name: "Sarah Johnson",
-    position: "Crypto Fund Manager",
-    image: "/image/Sarah.jpg",
+    name: "Lisa Müller",
+    position: "Product Designer",
+    image: "/image/Lisa.jpg",
   },
 ];
 
