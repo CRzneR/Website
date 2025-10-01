@@ -117,8 +117,8 @@ export const metadata: Metadata = {
 
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/image/favicon-16x16.png",
-    apple: "/imgage/apple-touch-icon.png",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
   },
   metadataBase: new URL("https://www.christophrentz.de"),
 };
