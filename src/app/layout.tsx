@@ -86,6 +86,9 @@ export const metadata: Metadata = {
   title: "Christoph Renz – Design & Development",
   description:
     "Ich entwickle und gestalte moderne Webseiten für Unternehmen und Selbstständige. Fokus auf Design, Performance und Nutzererlebnis.",
+  verification: {
+    google: "8XBJOc_cPn_uQaHRCj3HqA", // 👈 Code hier einsetzen
+  },
   keywords: [
     "Webdesign",
     "Webentwicklung",
