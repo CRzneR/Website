@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     title: "Christoph Renz – Design & Development",
     description:
       "Moderne Webseiten, maßgeschneidertes Design & professionelle Entwicklung.",
-    url: "https://christophrenz.de",
+    url: "https://www.christophrentz.de",
     siteName: "Christoph Renz",
     images: [
       {
@@ -120,7 +120,7 @@ export const metadata: Metadata = {
     shortcut: "/image/favicon-16x16.png",
     apple: "/imgage/apple-touch-icon.png",
   },
-  metadataBase: new URL("https://christophrenz.de"),
+  metadataBase: new URL("https://www.christophrentz.de"),
 };
 
 export default function RootLayout({
