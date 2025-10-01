@@ -13,6 +13,7 @@
     "@storefront-ui/react": "^2.7.1",
     "@studio-freight/lenis": "^1.0.42",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0",
     "animejs": "^4.0.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.15.0",
