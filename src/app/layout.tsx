@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   description:
     "Ich entwickle und gestalte moderne Webseiten für Unternehmen und Selbstständige. Fokus auf Design, Performance und Nutzererlebnis.",
   verification: {
-    google: "8XBJOc_cPn_uQaHRCj3HqA", // 👈 Code hier einsetzen
+    google: "8XBJOc_cPn_uQaHRCj3HqA-MwhW_zxEgBiR0PC9ImgA",
   },
   keywords: [
     "Webdesign",
