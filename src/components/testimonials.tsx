@@ -16,13 +16,13 @@ const testimonials: Testimonial[] = [
     text: "Working with Christoph was absolutely great. Not only did he handle his tasks with excellent professionalism, but he also went beyond his actual competencies to support me, which had a significant impact on the success of my project.",
     name: "Nikolaos Dirbanis",
     position: "Founder Conscious Finance",
-    image: "/image/Niko.jpg",
+    image: "/image/niko.jpg",
   },
   {
     text: "Great collaboration and amazing results – Christoph truly goes above and beyond expectations.",
     name: "Lisa Müller",
     position: "Product Designer",
-    image: "/image/Lisa.jpg",
+    image: "/image/lisa.png",
   },
 ];
 
