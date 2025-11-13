@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Link from "next/link";
 import SmoothScroll from "../components/SmoothScroll";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const cormorant = localFont({
   src: [
@@ -102,9 +103,8 @@ export const metadata: Metadata = {
   publisher: "Christoph Renz",
   openGraph: {
     title: "Christoph Renz – Design & Development",
-    description:
-      "Moderne Webseiten, maßgeschneidertes Design & professionelle Entwicklung.",
-    url: "https://www.christophrentz.de",
+    description: "Moderne Webseiten, maßgeschneidertes Design & professionelle Entwicklung.",
+    url: "https://www.christophrenz.de",
     siteName: "Christoph Renz",
     images: [
       {
@@ -112,6 +112,12 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Preview-Bild der Website",
+      },
+      {
+        url: "/Logo.png",
+        width: 512,
+        height: 512,
+        alt: "Christoph Renz Logo",
       },
     ],
     locale: "de_DE",
@@ -123,7 +129,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
-  metadataBase: new URL("https://www.christophrentz.de"),
+  metadataBase: new URL("https://www.christophrenz.de"),
 };
 
 export default function RootLayout({
@@ -132,25 +138,47 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body
         className={`${cormorant.variable} ${encoded.variable} ${bstyle.variable} ${panther.variable} ${rocGrotesk.variable} antialiased`}
       >
+        <Script
+          id="person-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Christoph Renz",
+              url: "https://www.christophrenz.de",
+              image: "https://www.christophrenz.de/christoph-renz.png",
+              jobTitle: "Webdesigner & Webentwickler",
+              sameAs: ["https://www.linkedin.com/in/christoph-renz-806822388/"],
+            }),
+          }}
+        />
+        <Script
+          id="organization-jsonld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Christoph Renz – Design & Development",
+              url: "https://www.christophrenz.de",
+              logo: "https://www.christophrenz.de/Logo.png",
+            }),
+          }}
+        />
         <SmoothScroll />
         {children}
         <SpeedInsights />
         <Analytics />
         <footer className="p-6 bg-[#151515] text-gray-300 text-center text-sm space-x-6 border-t border-gray-700">
-          <Link
-            href="/impressum"
-            className="text-gray-300 hover:text-blue-400 transition-colors"
-          >
+          <Link href="/impressum" className="text-gray-300 hover:text-blue-400 transition-colors">
             Impressum
           </Link>
-          <Link
-            href="/datenschutz"
-            className="text-gray-300 hover:text-blue-400 transition-colors"
-          >
+          <Link href="/datenschutz" className="text-gray-300 hover:text-blue-400 transition-colors">
             Datenschutz
           </Link>
         </footer>
