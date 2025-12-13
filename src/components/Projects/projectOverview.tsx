@@ -130,23 +130,14 @@ function ProjectOverview() {
         <FadeIn>
           <div className="relative space-y-6">
             <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-              <span className="text-transparent stroke-text font-black">
-                CAD{" "}
-              </span>
-              and{" "}
-              <span className="text-transparent stroke-text font-black">
-                3D-printing{" "}
-              </span>
+              <span className="text-transparent stroke-text font-black">CAD </span>
+              and <span className="text-transparent stroke-text font-black">3D-printing </span>
               are part of my life
             </h2>
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               I love creating my ideas and bring them to reality
             </p>
-            <Button
-              a="https://rings-nu.vercel.app"
-              text="Visit site"
-              className="mt-6"
-            />
+            <Button a="https://rings-nu.vercel.app" text="Visit site" className="mt-6" />
           </div>
         </FadeIn>
         <FadeIn>
@@ -169,13 +160,8 @@ function ProjectOverview() {
           <div className="relative space-y-6 pt-8 xl:pt-0">
             <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
               Competitions are not{" "}
-              <span className="text-transparent stroke-text font-black">
-                just{" "}
-              </span>
-              for{" "}
-              <span className="text-transparent stroke-text font-black">
-                fun
-              </span>
+              <span className="text-transparent stroke-text font-black">just </span>
+              for <span className="text-transparent stroke-text font-black">fun</span>
             </h2>
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               they also show you your skills compared to competitors
@@ -191,6 +177,48 @@ function ProjectOverview() {
           <div className="relative w-full h-[200px] xl:h-[500px]">
             <Image
               src="/image/ForChampions.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
+          </div>
+        </FadeIn>
+      </div>
+
+      <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
+        <FadeIn>
+          <div className="hidden lg:block relative h-[200px] xl:h-[500px]">
+            <Image
+              src="/image/Rings.png"
+              alt="Haushaltsbuch App"
+              fill
+              className="object-contain rounded-xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={90}
+              priority
+            />
+          </div>
+        </FadeIn>
+        <FadeIn>
+          <div className="relative space-y-6">
+            <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
+              Track your
+              <span className="text-transparent stroke-text font-black">expanses </span>
+              for full control of your budget
+            </h2>
+            <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
+              Control your spending habits and save more money
+            </p>
+            <Button a="https://moneta-frontend.vercel.app/" text="Visit site" className="mt-6" />
+          </div>
+        </FadeIn>
+        <FadeIn>
+          <div className="block lg:hidden relative h-[200px] xl:h-[500px]">
+            <Image
+              src="/image/Rings.png"
               alt="3D Printed Rings"
               fill
               className="object-contain rounded-xl"
