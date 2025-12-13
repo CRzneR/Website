@@ -192,7 +192,7 @@ function ProjectOverview() {
         <FadeIn>
           <div className="hidden lg:block relative h-[200px] xl:h-[500px]">
             <Image
-              src="/image/Rings.png"
+              src="/image/Moneta.png"
               alt="Haushaltsbuch App"
               fill
               className="object-contain rounded-xl"
@@ -218,7 +218,7 @@ function ProjectOverview() {
         <FadeIn>
           <div className="block lg:hidden relative h-[200px] xl:h-[500px]">
             <Image
-              src="/image/Rings.png"
+              src="/image/Moneta.png"
               alt="3D Printed Rings"
               fill
               className="object-contain rounded-xl"
