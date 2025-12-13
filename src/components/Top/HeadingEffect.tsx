@@ -25,7 +25,7 @@ export default function HeadingEffect() {
 
     const tl = gsap.timeline({
       defaults: { ease: "power3.out" },
-      delay: 3, // ⏳ Verzögerung in Sekunden
+      delay: 4, // ⏳ Verzögerung in Sekunden
     });
 
     tl.to(

@@ -16,8 +16,8 @@ const ScalingCardLifas = () => {
     const scaleBox = scaleBoxRef.current;
 
     const animation = gsap.to(scaleBox, {
-      scaleX: 6,
-      scaleY: 6,
+      scaleX: 8,
+      scaleY: 8,
       scrollTrigger: {
         trigger: scaleBox,
         start: "top top",

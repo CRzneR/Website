@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React, { useState } from "react";
 import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
@@ -77,9 +76,7 @@ const CallToActionSection: React.FC = () => {
         <div className="mt-10 flex flex-wrap gap-6 text-sm font-medium text-white">
           <a href="#">Privacy Policy</a>
           <a href="#">Cookie Policy</a>
-          <Link href="/impressum" className="text-blue-600 underline">
-            Impressum
-          </Link>
+          <a href="#">Impressum</a>
         </div>
       </div>
     </div>

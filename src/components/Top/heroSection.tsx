@@ -17,7 +17,7 @@ export default function HeroSection() {
       {
         opacity: 1,
         duration: 1.5,
-        delay: 0.5,
+        delay: 4.5,
         ease: "power2.out",
       }
     );

@@ -99,6 +99,12 @@ const CallToActionSection: React.FC = () => {
       {/* Footer */}
       <div className="mt-12 pb-4 flex flex-col items-center gap-4">
         <SocialMediaIcons />
+
+        <div className="mt-10 flex flex-wrap gap-6 text-sm font-medium text-white">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Impressum</a>
+        </div>
       </div>
     </div>
   );

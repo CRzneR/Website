@@ -8,8 +8,7 @@ import CookieConsentBanner from "../components/CookieCOnsentBanner";
 import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
 import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
 import CallToActionMobile from "../components/CallToActionMobile";
-// import Certificates from "../components/Certificates";
-import UeberschiftUX from "../components/UxProjects/Ueberschrift";
+import Certificates from "../components/Certificates";
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
         </section>
 
         <section className="hidden md:block">
-          <UeberschiftUX />
           <ScalingCardLifas />
         </section>
 
@@ -42,9 +40,9 @@ export default function Home() {
           <ScalingCardVert />
         </section>
 
-        {/* <section>
+        <section>
           <Certificates />
-        </section> */}
+        </section>
 
         <section className="relative z-10">
           <Testimonials />
