@@ -130,8 +130,19 @@ function ProjectOverview() {
         <FadeIn>
           <div className="relative space-y-6">
             <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-              <span className="text-transparent stroke-text font-black">CAD </span>
-              and <span className="text-transparent stroke-text font-black">3D-printing </span>
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
+                CAD{" "}
+              </span>
+              and{" "}
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
+                3D-printing{" "}
+              </span>
               are part of my life
             </h2>
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
@@ -159,9 +170,20 @@ function ProjectOverview() {
         <FadeIn>
           <div className="relative space-y-6 pt-8 xl:pt-0">
             <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-              Competitions are not{" "}
-              <span className="text-transparent stroke-text font-black">just </span>
-              for <span className="text-transparent stroke-text font-black">fun</span>
+              Competitions are{" "}
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
+                not{" "}
+              </span>
+              just for{" "}
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
+                fun{" "}
+              </span>
             </h2>
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               they also show you your skills compared to competitors
@@ -205,14 +227,19 @@ function ProjectOverview() {
         <FadeIn>
           <div className="relative space-y-6">
             <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-              Track your
-              <span className="text-transparent stroke-text font-black">expanses </span>
+              Track your{" "}
+              <span
+                className="text-transparent stroke-text font-black"
+                style={{ WebkitTextStrokeWidth: "1px" }}
+              >
+                expanses{" "}
+              </span>
               for full control of your budget
             </h2>
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               Control your spending habits and save more money
             </p>
-            <Button a="https://moneta-frontend.vercel.app/" text="Visit site" className="mt-6" />
+            <Button a="https://moneta-frontend.vercel.app/" text="Test the app" className="mt-6" />
           </div>
         </FadeIn>
         <FadeIn>
