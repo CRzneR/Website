@@ -79,7 +79,7 @@ function ProjectOverview() {
           }}
         />
       </div>
-      <div className="max-w-6xl w-full  grid md:grid-cols-2 gap-8 items-center justify-center mx-auto">
+      <div className="max-w-6xl w-full  grid md:grid-cols-2 gap-8 items-center justify-center mx-auto mb-20 sm:mb-0">
         <FadeIn>
           <div className="relative space-y-4">
             <h2 className=" text-2xl xl:text-4xl uppercase md:text-5xl font-bold text-[#CEC9C9] leading-8">
@@ -113,7 +113,7 @@ function ProjectOverview() {
         </FadeIn>
       </div>
 
-      <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
+      <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto mb-20 sm:mb-0">
         <FadeIn>
           <div className="hidden lg:block relative h-[200px] xl:h-[500px]">
             <Image
@@ -166,7 +166,7 @@ function ProjectOverview() {
         </FadeIn>
       </div>
 
-      <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto">
+      <div className="max-w-6xl w-full h-[50%] grid md:grid-cols-2 gap-12 items-center justify-center mx-auto mb-20 sm:mb-0">
         <FadeIn>
           <div className="relative space-y-6 pt-8 xl:pt-0">
             <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
