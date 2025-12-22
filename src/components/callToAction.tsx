@@ -21,7 +21,7 @@ const SocialMediaIcons: React.FC = () => {
       </a>
 
       <a
-        href="https://www.linkedin.com/in/christoph-renz-806822388/"
+        href="#"
         aria-label="LinkedIn"
         onMouseEnter={() => setHovered("linkedin")}
         onMouseLeave={() => setHovered(null)}
@@ -63,18 +63,18 @@ const CallToActionSection: React.FC = () => {
             <h2 className="text-xl md:text-4xl font-bold leading-tight mb-6">
               You like that?
               <br />
-              <a
-                href="mailto:kontakt@christophrenz.de"
-                className="mix-blend-difference hover:underline text-white"
-                aria-label="Kontakt per E-Mail (kontakt@christophrenz.de)"
-                title="E-Mail an kontakt@christophrenz.de senden"
-              >
-                Contact me!
-              </a>
+              Contact me!
             </h2>
           </div>
           <button className="mt-auto border-2 border-white rounded-full px-6 py-2 text-white hover:bg-white hover:text-black transition font-semibold w-fit">
-            Write a Mail
+            <a
+              href="mailto:kontakt@christophrenz.de"
+              className="mix-blend-difference hover:underline text-white"
+              aria-label="Kontakt per E-Mail (kontakt@christophrenz.de)"
+              title="E-Mail an kontakt@christophrenz.de senden"
+            >
+              Write a mail
+            </a>
           </button>
         </div>
 
