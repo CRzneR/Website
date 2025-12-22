@@ -188,11 +188,7 @@ function ProjectOverview() {
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               they also show you your skills compared to competitors
             </p>
-            <Button
-              a="https://crzner.github.io/ForChampions/"
-              text="go to the app"
-              className="mt-6"
-            />
+            <Button a="https://champs-front.vercel.app" text="go to the app" className="mt-6" />
           </div>
         </FadeIn>
         <FadeIn>
@@ -239,7 +235,7 @@ function ProjectOverview() {
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               Control your spending habits and save more money
             </p>
-            <Button a="https://champs-front.vercel.app" text="Test the app" className="mt-6" />
+            <Button a="https://moneta-frontend.vercel.app" text="Test the app" className="mt-6" />
           </div>
         </FadeIn>
         <FadeIn>
