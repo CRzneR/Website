@@ -1,12 +1,12 @@
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/CormorantSC-Bold.ttf","weight":"900","style":"bold"},{"path":"../fonts/CormorantSC-Regular.ttf","weight":"400","style":"normal"}],"variable":"--font-cormorant","display":"swap"}],"variableName":"cormorant"} ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/CormorantSC-Bold.ttf","weight":"900","style":"normal"},{"path":"../fonts/CormorantSC-Regular.ttf","weight":"400","style":"normal"}],"variable":"--font-cormorant","display":"swap"}],"variableName":"cormorant"} ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @font-face {
 font-family: 'cormorant';
 src: url(/_next/static/media/fa90c58d034f504e-s.p.ttf) format('truetype');
 font-display: swap;
 font-weight: 900;
-font-style: bold;
+font-style: normal;
 }
 
 @font-face {
@@ -16,19 +16,19 @@ font-display: swap;
 font-weight: 400;
 font-style: normal;
 }@font-face {font-family: 'cormorant Fallback';src: local("Arial");ascent-override: 90.12%;descent-override: 27.99%;line-gap-override: 0.00%;size-adjust: 102.53%
-}.__className_4daa16 {font-family: 'cormorant', 'cormorant Fallback'
-}.__variable_4daa16 {--font-cormorant: 'cormorant', 'cormorant Fallback'
+}.__className_b929c5 {font-family: 'cormorant', 'cormorant Fallback'
+}.__variable_b929c5 {--font-cormorant: 'cormorant', 'cormorant Fallback'
 }
 
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/EncodeSansExpanded-Thin.ttf","weight":"200","style":"thin"},{"path":"../fonts/EncodeSansExpanded-Regular.ttf","weight":"400","style":"regular"},{"path":"../fonts/EncodeSansExpanded-ExtraBold.ttf","weight":"900","style":"black"}],"variable":"--font-encoded","display":"swap"}],"variableName":"encoded"} ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/EncodeSansExpanded-Thin.ttf","weight":"200","style":"normal"},{"path":"../fonts/EncodeSansExpanded-Regular.ttf","weight":"400","style":"normal"},{"path":"../fonts/EncodeSansExpanded-ExtraBold.ttf","weight":"900","style":"normal"}],"variable":"--font-encoded","display":"swap"}],"variableName":"encoded"} ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @font-face {
 font-family: 'encoded';
 src: url(/_next/static/media/213b3eabdd79b00b-s.p.ttf) format('truetype');
 font-display: swap;
 font-weight: 200;
-font-style: thin;
+font-style: normal;
 }
 
 @font-face {
@@ -36,7 +36,7 @@ font-family: 'encoded';
 src: url(/_next/static/media/83f58bf9a367fa51-s.p.ttf) format('truetype');
 font-display: swap;
 font-weight: 400;
-font-style: regular;
+font-style: normal;
 }
 
 @font-face {
@@ -44,21 +44,21 @@ font-family: 'encoded';
 src: url(/_next/static/media/21802b42d65f3a2b-s.p.ttf) format('truetype');
 font-display: swap;
 font-weight: 900;
-font-style: black;
+font-style: normal;
 }@font-face {font-family: 'encoded Fallback';src: local("Arial");ascent-override: 90.46%;descent-override: 19.32%;line-gap-override: 0.00%;size-adjust: 113.86%
-}.__className_901c36 {font-family: 'encoded', 'encoded Fallback'
-}.__variable_901c36 {--font-encoded: 'encoded', 'encoded Fallback'
+}.__className_4e53d3 {font-family: 'encoded', 'encoded Fallback'
+}.__variable_4e53d3 {--font-encoded: 'encoded', 'encoded Fallback'
 }
 
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/RocGrotesk_Bold.otf","weight":"400","style":"regular"},{"path":"../fonts/RocGrotesk_Heavy.otf","weight":"900","style":"bold"}],"variable":"--font-rocGrotesk","display":"swap"}],"variableName":"rocGrotesk"} ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/RocGrotesk_Bold.otf","weight":"400","style":"normal"},{"path":"../fonts/RocGrotesk_Heavy.otf","weight":"900","style":"normal"}],"variable":"--font-rocGrotesk","display":"swap"}],"variableName":"rocGrotesk"} ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @font-face {
 font-family: 'rocGrotesk';
 src: url(/_next/static/media/1fbdf81028748747-s.p.otf) format('opentype');
 font-display: swap;
 font-weight: 400;
-font-style: regular;
+font-style: normal;
 }
 
 @font-face {
@@ -66,38 +66,38 @@ font-family: 'rocGrotesk';
 src: url(/_next/static/media/a0a8d04a809c9e21-s.p.otf) format('opentype');
 font-display: swap;
 font-weight: 900;
-font-style: bold;
+font-style: normal;
 }@font-face {font-family: 'rocGrotesk Fallback';src: local("Arial");ascent-override: 127.76%;descent-override: 40.34%;line-gap-override: 73.97%;size-adjust: 59.49%
-}.__className_f74cbd {font-family: 'rocGrotesk', 'rocGrotesk Fallback'
-}.__variable_f74cbd {--font-rocGrotesk: 'rocGrotesk', 'rocGrotesk Fallback'
+}.__className_dbeac9 {font-family: 'rocGrotesk', 'rocGrotesk Fallback'
+}.__variable_dbeac9 {--font-rocGrotesk: 'rocGrotesk', 'rocGrotesk Fallback'
 }
 
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/panther.ttf","weight":"400","style":"regular"}],"variable":"--font-panther","display":"swap"}],"variableName":"panther"} ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":[{"path":"../fonts/panther.ttf","weight":"400","style":"normal"}],"variable":"--font-panther","display":"swap"}],"variableName":"panther"} ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @font-face {
 font-family: 'panther';
 src: url(/_next/static/media/5301cc2b4404062b-s.p.ttf) format('truetype');
 font-display: swap;
 font-weight: 400;
-font-style: regular;
+font-style: normal;
 }@font-face {font-family: 'panther Fallback';src: local("Arial");ascent-override: 251.19%;descent-override: 55.01%;line-gap-override: 0.00%;size-adjust: 34.36%
-}.__className_0f7398 {font-family: 'panther', 'panther Fallback';font-weight: 400;font-style: regular
-}.__variable_0f7398 {--font-panther: 'panther', 'panther Fallback'
+}.__className_5b5d72 {font-family: 'panther', 'panther Fallback';font-weight: 400;font-style: normal
+}.__variable_5b5d72 {--font-panther: 'panther', 'panther Fallback'
 }
 
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":"../fonts/BStyle-B.ttf","weight":"800","style":"bold","variable":"--font-bstyle","display":"swap"}],"variableName":"bstyle"} ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[14].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src/app/layout.tsx","import":"","arguments":[{"src":"../fonts/BStyle-B.ttf","weight":"800","style":"normal","variable":"--font-bstyle","display":"swap"}],"variableName":"bstyle"} ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 @font-face {
 font-family: 'bstyle';
 src: url(/_next/static/media/e96686b66a379aa2-s.p.ttf) format('truetype');
 font-display: swap;
 font-weight: 800;
-font-style: bold;
+font-style: normal;
 }@font-face {font-family: 'bstyle Fallback';src: local("Arial");ascent-override: 139.25%;descent-override: 34.61%;line-gap-override: 12.02%;size-adjust: 61.55%
-}.__className_a1a345 {font-family: 'bstyle', 'bstyle Fallback';font-weight: 800;font-style: bold
-}.__variable_a1a345 {--font-bstyle: 'bstyle', 'bstyle Fallback'
+}.__className_2c21e0 {font-family: 'bstyle', 'bstyle Fallback';font-weight: 800;font-style: normal
+}.__variable_2c21e0 {--font-bstyle: 'bstyle', 'bstyle Fallback'
 }
 
 /*!*****************************************************************************************************************************************************************************************************************************************************************!*\
@@ -769,9 +769,6 @@ video {
 }
 .mt-auto {
   margin-top: auto;
-}
-.mb-16 {
-  margin-bottom: 4rem;
 }
 .block {
   display: block;
@@ -1566,14 +1563,6 @@ body {
 
 @media (min-width: 640px) {
 
-  .sm\:mb-10 {
-    margin-bottom: 2.5rem;
-  }
-
-  .sm\:mb-20 {
-    margin-bottom: 5rem;
-  }
-
   .sm\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1606,10 +1595,6 @@ body {
 
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
-  }
-
-  .md\:mb-20 {
-    margin-bottom: 5rem;
   }
 
   .md\:block {

@@ -51,7 +51,6 @@ const siteName = "Christoph Renz";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
-  // ✅ Tippfehler korrigiert + starke Keywords
   title: `${siteName} – Webentwickler & Frontend Developer (Next.js, React)`,
   description:
     "Portfolio und Blog von Christoph Renz – Webentwickler & Frontend Developer für moderne Websites und Web-Apps mit Next.js, React, Tailwind CSS und TypeScript.",
