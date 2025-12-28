@@ -51,7 +51,7 @@ const siteName = "Christoph Renz";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: `${siteName} – Webentwickler & Frontend Developer (Next.js, React)`,
+  title: `${siteName} – Webentwickler & Frontend Developer`,
   description:
     "Portfolio und Blog von Christoph Renz – Webentwickler & Frontend Developer für moderne Websites und Web-Apps mit Next.js, React, Tailwind CSS und TypeScript.",
 
@@ -87,18 +87,6 @@ export const metadata: Metadata = {
         alt: `${siteName} – Portfolio`,
       },
     ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteName} – Webentwickler & Frontend Developer`,
-    description:
-      "Portfolio und Blog: moderne Web- und App-Entwicklung mit Next.js, React und Tailwind CSS.",
-    images: ["/og.jpg"],
-  },
-
-  icons: {
-    icon: "/favicon.ico",
   },
 
   keywords: [
