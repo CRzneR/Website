@@ -95,17 +95,12 @@ export const metadata: Metadata = {
     description:
       "Portfolio und Blog: moderne Web- und App-Entwicklung mit Next.js, React und Tailwind CSS.",
     images: ["/og.jpg"],
-    // optional, falls du einen Handle hast:
-    // creator: "@deinhandle",
   },
 
   icons: {
     icon: "/favicon.ico",
-    // optional:
-    // apple: "/apple-touch-icon.png",
   },
 
-  // optional, meist okay:
   keywords: [
     "Christoph Renz",
     "Webentwickler",
@@ -127,7 +122,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    // ✅ deutsch, wenn deine Seite deutsch ist
     <html lang="de">
       <body
         className={`${cormorant.variable} ${encoded.variable} ${bstyle.variable} ${panther.variable} ${rocGrotesk.variable} antialiased`}
