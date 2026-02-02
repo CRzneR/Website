@@ -16,18 +16,18 @@ const testimonials: Testimonial[] = [
     text: "Working with Christoph was absolutely great. Not only did he handle his tasks with excellent professionalism, but he also went beyond his actual competencies to support me, which had a significant impact on the success of my project.",
     name: "Nikolaos Dirbanis",
     position: "Founder Conscious Finance",
-    image: "/image/Niko.jpg",
+    image: "/image/niko.jpg",
   },
   {
     text: "Great collaboration and amazing results – Christoph truly goes above and beyond expectations.",
     name: "Sarah Johnson",
-    position: "Crypto Fund Manager",
-    image: "/image/Sarah.jpg",
+    position: "Product Designer",
+    image: "/image/lisa.png",
   },
   {
-    text: "Great collaboration and amazing results – Christoph truly goes above and beyond expectations.",
-    name: "Sarah Johnson",
-    position: "Crypto Fund Manager",
+    text: "The work was very pleasant. Christoph kept coming up with new, individual suggestions that were very helpful. This resulted in excellent outcomes.",
+    name: "Stefania",
+    position: "Wedding Planner",
     image: "/image/Sarah.jpg",
   },
 ];
@@ -72,7 +72,6 @@ const Testimonials = () => {
           }}
         />
 
-        {/* Marquee mit Framer Motion */}
         <motion.div
           className="flex gap-8"
           initial={{ x: "100%" }}

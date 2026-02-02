@@ -103,9 +103,9 @@ const CallToActionSection: React.FC = () => {
         <SocialMediaIcons />
 
         <div className="mt-10 flex flex-wrap gap-6 text-sm font-medium text-white">
-          <a href="#">Privacy Policy</a>
+          <a href="datenschutz">Privacy Policy</a>
           <a href="#">Cookie Policy</a>
-          <a href="#">Impressum</a>
+          <a href="impressum">Impressum</a>
         </div>
       </div>
     </div>
