@@ -148,11 +148,7 @@ function ProjectOverview() {
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               I love creating my ideas and bring them to reality
             </p>
-            <Button
-              a="https://rings-nu.vercel.app"
-              text="Visit site"
-              className="mt-6"
-            />
+            <Button a="https://rings-nu.vercel.app" text="Visit site" className="mt-6" />
           </div>
         </FadeIn>
         <FadeIn>
@@ -192,11 +188,7 @@ function ProjectOverview() {
             <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
               they also show you your skills compared to competitors
             </p>
-            <Button
-              a="https://forchampions.onrender.com"
-              text="go to the app"
-              className="mt-6"
-            />
+            <Button a="https://forchampions.onrender.com" text="go to the app" className="mt-6" />
           </div>
         </FadeIn>
         <FadeIn>
