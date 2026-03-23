@@ -3,78 +3,112 @@ import Link from "next/link";
 export default function DatenschutzPage() {
   return (
     <main className="min-h-screen bg-[#151515] text-white p-8">
-      <h1 className="text-3xl font-bold mb-6">Datenschutzerklärung</h1>
+    <section className="space-y-6 text-gray-300 leading-relaxed">
+      
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">1. Allgemeine Hinweise</h2>
+        <p>
+          Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. In dieser Datenschutzerklärung informiere ich Sie darüber, welche Daten auf meiner Website erhoben und wie diese verwendet werden.
+        </p>
+      </div>
 
-      <p className="mb-4">
-        Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst.
-        Personenbezogene Daten werden vertraulich und entsprechend der
-        gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung
-        behandelt.
-      </p>
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">2. Verantwortliche Stelle</h2>
+        <p>
+          [Christoph Renz] <br/>
+          [Herzogstandstraße, 81539 München ] <br/>
+          [kontakt@christophrenz.de]
+        </p>
+      </div>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-3">1. Verantwortlicher</h2>
-      <p className="leading-relaxed">
-        Christoph Renz
-        <br />
-        Herzogstandstraße
-        <br />
-        81539 München
-        <br />
-        E-Mail:{" "}
-        <a
-          href="mailto:kontakt@christophrenz.de"
-          className="text-blue-400 hover:underline"
-        >
-          kontakt@christophrenz.de
-        </a>
-      </p>
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">3. Erhebung und Speicherung personenbezogener Daten</h2>
+        <p>
+          Beim Besuch dieser Website werden automatisch Informationen durch den Hosting-Provider erfasst:
+        </p>
+        <ul className="list-disc list-inside mt-2 space-y-1">
+          <li>IP-Adresse</li>
+          <li>Datum und Uhrzeit der Anfrage</li>
+          <li>Browsertyp und Version</li>
+          <li>Betriebssystem</li>
+          <li>Referrer-URL</li>
+        </ul>
+        <p className="mt-2">
+          Diese Daten dienen der Sicherstellung eines störungsfreien Betriebs der Website und werden nicht dazu verwendet, Rückschlüsse auf Ihre Person zu ziehen.
+        </p>
+      </div>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-3">
-        2. Erhebung und Speicherung personenbezogener Daten
-      </h2>
-      <p>
-        Beim Besuch unserer Website werden automatisch Daten durch den Webserver
-        erfasst (sog. Server-Logfiles). Diese beinhalten z. B.:
-      </p>
-      <ul className="list-disc list-inside mb-4">
-        <li>Browsertyp und Browserversion</li>
-        <li>verwendetes Betriebssystem</li>
-        <li>Referrer-URL</li>
-        <li>Hostname des zugreifenden Rechners</li>
-        <li>Uhrzeit der Serveranfrage</li>
-        <li>IP-Adresse</li>
-      </ul>
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">4. Hosting und Tracking durch Vercel</h2>
+        <p>
+          Diese Website wird bei Vercel Inc. gehostet. Beim Aufruf der Website werden automatisch Daten erfasst und verarbeitet.
+        </p>
+        <p className="mt-2">
+          Zusätzlich nutze ich Vercel Analytics zur Analyse des Nutzerverhaltens:
+        </p>
+        <ul className="list-disc list-inside mt-2 space-y-1">
+          <li>Besuchte Seiten</li>
+          <li>Verweildauer</li>
+          <li>Herkunft des Besuchers</li>
+          <li>Geräte- und Browserinformationen</li>
+        </ul>
+        <p className="mt-2">
+          Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO.
+        </p>
+        <p className="mt-2">
+          Mehr Infos:
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" className="text-blue-400 underline">
+            https://vercel.com/legal/privacy-policy
+          </a>
+        </p>
+      </div>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-3">3. Kontaktaufnahme</h2>
-      <p>
-        Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zur
-        Bearbeitung der Anfrage gespeichert. Diese Daten geben wir nicht ohne
-        Ihre Einwilligung weiter.
-      </p>
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">5. Verwendung von Cookies</h2>
+        <p>
+          Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden.
+        </p>
+        <ul className="list-disc list-inside mt-2 space-y-1">
+          <li>Technisch notwendige Cookies</li>
+          <li>Analyse-Cookies</li>
+        </ul>
+        <p className="mt-2">
+          Sie können Ihre Cookie-Einstellungen jederzeit über Ihren Browser anpassen oder Cookies löschen.
+        </p>
+      </div>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-3">
-        4. Rechte der betroffenen Personen
-      </h2>
-      <p>
-        Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung
-        der Verarbeitung, Widerspruch und Datenübertragbarkeit gemäß den
-        Artikeln 15–21 DSGVO. Zur Ausübung dieser Rechte genügt eine formlose
-        E-Mail an{" "}
-        <a
-          href="mailto:kontakt@christophrenz.de"
-          className="text-blue-400 hover:underline"
-        >
-          kontakt@christophrenz.de
-        </a>
-        .
-      </p>
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">6. Ihre Rechte</h2>
+        <ul className="list-disc list-inside space-y-1">
+          <li>Auskunft (Art. 15 DSGVO)</li>
+          <li>Berichtigung (Art. 16 DSGVO)</li>
+          <li>Löschung (Art. 17 DSGVO)</li>
+          <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Widerspruch (Art. 21 DSGVO)</li>
+          <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+        </ul>
+      </div>
 
-      <h2 className="text-2xl font-semibold mt-10 mb-3">5. Beschwerderecht</h2>
-      <p>
-        Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu
-        beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer
-        personenbezogenen Daten rechtswidrig erfolgt.
-      </p>
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">7. Widerruf Ihrer Einwilligung</h2>
+        <p>
+          Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Eine formlose Mitteilung per E-Mail reicht aus.
+        </p>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">8. Beschwerderecht</h2>
+        <p>
+          Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.
+        </p>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-semibold text-white mb-2">9. Aktualität und Änderung</h2>
+        <p>
+          Diese Datenschutzerklärung ist aktuell gültig und wird bei Bedarf angepasst.
+        </p>
+      </div>
 
       {/* Zurück-Button */}
       <div className="mt-12">
@@ -85,6 +119,7 @@ export default function DatenschutzPage() {
           ← Zurück zur Startseite
         </Link>
       </div>
+    </section>
     </main>
   );
 }

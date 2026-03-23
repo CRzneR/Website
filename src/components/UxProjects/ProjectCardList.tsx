@@ -36,7 +36,7 @@ export const ProjectCardListLifas = () => {
 
     // Skaliere die Card
     tl.to(firstCard, {
-      scale: 6,
+      scale: 2,
       transformOrigin: "center center",
       ease: "power1.out",
     });
