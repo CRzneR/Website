@@ -3,21 +3,29 @@
 import React from "react";
 import Cookies from "js-cookie";
 
+type CookieTypes = {
+  necessary: boolean;
+  analytics: boolean;
+  marketing: boolean;
+};
+
 const CookieConsentBanner: React.FC = () => {
   const [cookieConsent, setCookieConsent] = React.useState<string | null>(null);
   const [showModal, setShowModal] = React.useState<boolean>(false);
-  const [cookieTypes, setCookieTypes] = React.useState<{
-    [key: string]: boolean;
-  }>({
+  const [cookieTypes, setCookieTypes] = React.useState<CookieTypes>({
     necessary: true,
     analytics: false,
     marketing: false,
   });
 
-  const getCookiePreferences = () => {
+  const getCookiePreferences = (): CookieTypes | null => {
     const preferencesStr = Cookies.get("cookiePreferences");
     if (preferencesStr) {
-      return JSON.parse(preferencesStr);
+      try {
+        return JSON.parse(preferencesStr);
+      } catch {
+        return null;
+      }
     }
     return null;
   };
@@ -26,62 +34,61 @@ const CookieConsentBanner: React.FC = () => {
     const consent = Cookies.get("cookieConsent");
     const preferences = getCookiePreferences();
 
-    if (consent === "denied") {
-      setCookieConsent("denied");
-      setCookieTypes({
-        necessary: false,
-        analytics: false,
-        marketing: false,
-      });
-    } else if (preferences) {
-      const allDisabled = Object.values(preferences).every((value) => !value);
-      if (allDisabled) {
-        setCookieConsent("denied");
-      } else {
-        setCookieConsent("accepted");
-      }
+    if (preferences) {
+      setCookieTypes(preferences);
+      const allDisabled = Object.values(preferences).every((v) => !v);
+      setCookieConsent(allDisabled ? "denied" : "accepted");
     } else {
       setCookieConsent(consent || null);
     }
   }, []);
 
   const handleAccept = () => {
+    const preferences: CookieTypes = {
+      necessary: true,
+      analytics: true,
+      marketing: false,
+    };
+
     Cookies.set("cookieConsent", "accepted");
+    Cookies.set("cookiePreferences", JSON.stringify(preferences));
+
+    setCookieTypes(preferences);
     setCookieConsent("accepted");
-    console.log("User accepted cookies");
-    console.log("User-Agent:", window.navigator.userAgent);
-    console.log("User Language:", window.navigator.language);
-    console.log("User Preferences:", Cookies.get("userPreferences"));
-    console.log("Session ID:", Cookies.get("sessionId"));
   };
 
   const handleDeny = () => {
-    Cookies.set("cookieConsent", "denied");
-    setCookieConsent("denied");
-    Cookies.remove("cookiePreferences");
-    setCookieTypes({
+    const preferences: CookieTypes = {
       necessary: false,
       analytics: false,
       marketing: false,
-    });
+    };
+
+    Cookies.set("cookieConsent", "denied");
+    Cookies.set("cookiePreferences", JSON.stringify(preferences));
+
+    setCookieTypes(preferences);
+    setCookieConsent("denied");
   };
 
   const handleManage = () => {
     setShowModal(true);
   };
 
-  const handleCookieTypeChange = (type: string) => {
-    setCookieTypes((prevTypes) => ({
-      ...prevTypes,
-      [type]: !prevTypes[type],
+  const handleCookieTypeChange = (type: keyof CookieTypes) => {
+    if (type === "necessary") return;
+
+    setCookieTypes((prev) => ({
+      ...prev,
+      [type]: !prev[type],
     }));
   };
 
   const handleSavePreferences = () => {
-    const preferences = JSON.stringify(cookieTypes);
-    Cookies.set("cookiePreferences", preferences);
+    Cookies.set("cookiePreferences", JSON.stringify(cookieTypes));
 
-    const allDisabled = Object.values(cookieTypes).every((value) => !value);
+    const allDisabled = Object.values(cookieTypes).every((v) => !v);
+
     if (allDisabled) {
       Cookies.set("cookieConsent", "denied");
       setCookieConsent("denied");
@@ -89,6 +96,7 @@ const CookieConsentBanner: React.FC = () => {
       Cookies.set("cookieConsent", "accepted");
       setCookieConsent("accepted");
     }
+
     setShowModal(false);
   };
 
@@ -97,99 +105,83 @@ const CookieConsentBanner: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 sm:p-6 text-sm sm:text-base z-50">
+    <div className="fixed bottom-0 left-0 w-full bg-gray-900 text-white p-4 sm:p-6 text-sm sm:text-base z-50">
       <p className="max-w-5xl mx-auto">
-        Um unsere Website für Sie optimal zu gestalten und fortlaufend
-        verbessern zu können, verwenden wir Cookies. Einige sind technisch
-        notwendig, während andere uns helfen, unser Angebot zu optimieren. Sie
-        können selbst entscheiden, welche Kategorien Sie zulassen möchten.
-        Weitere Informationen finden Sie in unserer Datenschutzerklärung.
+        Diese Website verwendet Cookies. Einige sind technisch notwendig,
+        während andere uns helfen, die Website zu verbessern. Sie können selbst
+        entscheiden, welche Kategorien Sie zulassen möchten. Weitere
+        Informationen finden Sie in der Datenschutzerklärung.
       </p>
-      <div className="mt-4">
+
+      <div className="mt-4 flex flex-wrap gap-2 justify-center">
         <button
-          className="bg-green-400 hover:bg-green-600 text-white px-4 py-2 rounded mr-2"
+          className="bg-green-500 hover:bg-green-600 px-4 py-2 rounded"
           onClick={handleAccept}
         >
-          Accept
+          Alle akzeptieren
         </button>
+
         <button
-          className="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded mr-2"
+          className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded"
           onClick={handleDeny}
         >
-          Deny
+          Ablehnen
         </button>
+
         <button
-          className="bg-blue-400 hover:bg-blue-600 text-white px-4 py-2 rounded"
+          className="bg-gray-700 hover:bg-gray-800 px-4 py-2 rounded"
           onClick={handleManage}
         >
-          Manage Preferences
+          Einstellungen
         </button>
       </div>
+
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded shadow-lg w-96">
-            <h2 className="text-lg font-bold mb-4">Cookie Preferences</h2>
-            <div className="mb-4">
-              <div className="flex items-center mb-2">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h2 className="text-lg font-semibold mb-4">
+              Cookie-Einstellungen
+            </h2>
+
+            <div className="space-y-3 mb-4">
+              <label className="flex items-center gap-2">
+                <input type="checkbox" checked disabled />
+                Notwendige Cookies
+              </label>
+
+              <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  id="necessary"
-                  checked={cookieTypes.necessary}
-                  onChange={() => handleCookieTypeChange("necessary")}
-                  disabled
-                  className="mr-2"
-                />
-                <label
-                  htmlFor="necessary"
-                  className="text-blue-500 hover:underline cursor-pointer"
-                >
-                  Necessary Cookies
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
-                <input
-                  type="checkbox"
-                  id="analytics"
                   checked={cookieTypes.analytics}
                   onChange={() => handleCookieTypeChange("analytics")}
-                  className="mr-2"
                 />
-                <label
-                  htmlFor="analytics"
-                  className="text-blue-500 hover:underline cursor-pointer"
-                >
-                  Analytics Cookies
-                </label>
-              </div>
-              <div className="flex items-center mb-2">
+                Analytics Cookies
+              </label>
+
+              <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
-                  id="marketing"
                   checked={cookieTypes.marketing}
                   onChange={() => handleCookieTypeChange("marketing")}
-                  className="mr-2"
                 />
-                <label
-                  htmlFor="marketing"
-                  className="text-blue-500 hover:underline cursor-pointer"
-                >
-                  Marketing Cookies
-                </label>
-              </div>
-              <div className="flex justify-end gap-2">
-                <button
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-                  onClick={handleSavePreferences}
-                >
-                  Save Preferences
-                </button>
-                <button
-                  className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
-                  onClick={() => setShowModal(false)}
-                >
-                  Cancel
-                </button>
-              </div>
+                Marketing Cookies
+              </label>
+            </div>
+
+            <div className="flex justify-end gap-2">
+              <button
+                className="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded"
+                onClick={() => setShowModal(false)}
+              >
+                Abbrechen
+              </button>
+
+              <button
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+                onClick={handleSavePreferences}
+              >
+                Speichern
+              </button>
             </div>
           </div>
         </div>
