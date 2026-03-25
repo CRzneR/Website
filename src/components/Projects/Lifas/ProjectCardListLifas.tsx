@@ -37,7 +37,7 @@ export const ProjectCardList = () => {
 
     // Skaliere die Card
     tl.to(firstCard, {
-      scale: 6,
+      scale: 8,
       transformOrigin: "center center",
       ease: "power1.out",
     });

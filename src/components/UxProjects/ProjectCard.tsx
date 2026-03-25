@@ -13,7 +13,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   subtitle,
   logo,
 }) => {
-  // Default-Logo falls keins angegeben wurde
+
   const defaultLogo = "/image/default-logo.png";
   const logoPath = logo || defaultLogo;
 

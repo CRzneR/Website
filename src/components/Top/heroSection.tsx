@@ -44,10 +44,10 @@ export default function HeroSection() {
       </div>
 
       <div className="relative flex flex-col justify-center h-full">
-        <div className="text-left mx-auto">
+        <div className=" mx-auto">
           <HeadingEffect />
 
-          <div ref={textRef} className="text-center text-[#828282] text-3xl opacity-0">
+          <div ref={textRef} className="text-center text-[#828282] text-2xl sm:text-3xl opacity-0 pt-8 sm:pt-0">
             <h2>Designing the experiences around them.</h2>
             <h2>Developing modern websites & web apps.</h2>
           </div>

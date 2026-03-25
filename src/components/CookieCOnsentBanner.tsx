@@ -107,19 +107,19 @@ const CookieConsentBanner: React.FC = () => {
       </p>
       <div className="mt-4">
         <button
-          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mr-2"
+          className="bg-green-400 hover:bg-green-600 text-white px-4 py-2 rounded mr-2"
           onClick={handleAccept}
         >
           Accept
         </button>
         <button
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mr-2"
+          className="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded mr-2"
           onClick={handleDeny}
         >
           Deny
         </button>
         <button
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+          className="bg-blue-400 hover:bg-blue-600 text-white px-4 py-2 rounded"
           onClick={handleManage}
         >
           Manage Preferences

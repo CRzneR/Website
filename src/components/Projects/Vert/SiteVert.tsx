@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function SiteVert() {
   useEffect(() => {
-    // Animationen für SplitText werden durch die Komponente selbst gehandelt
     return () => {
       // Cleanup
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -21,12 +20,11 @@ export function SiteVert() {
   return (
     <div className="bg-[#CEC9C9]">
       <div className="h-screen p-[10%]">
-        {/* Erste Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
             text="Moderne digitale "
             tag="h2"
-            className="text-black font-semibold text-8xl uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,
@@ -43,12 +41,11 @@ export function SiteVert() {
         </div>
         <br />
 
-        {/* Zweite Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
             text="online Services"
             tag="h2"
-            className="text-black text-8xl font-semibold uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,
@@ -65,12 +62,11 @@ export function SiteVert() {
         </div>
         <br />
 
-        {/* Dritte Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
             text="für eine "
             tag="h2"
-            className="text-black font-semibold text-8xl uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,
@@ -86,12 +82,11 @@ export function SiteVert() {
           />
         </div>
 
-        {/* Vierte Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
             text="grüne Stadt"
             tag="h2"
-            className="text-black font-semibold text-8xl uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,

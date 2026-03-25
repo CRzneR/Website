@@ -6,12 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitTextAnimation from "../../effects/splitText";
 import { DescriptionLifas } from "./descriptionLifas";
 
-// GSAP Plugins registrieren
 gsap.registerPlugin(ScrollTrigger);
 
 export function SiteLifas() {
   useEffect(() => {
-    // Animationen für SplitText werden durch die Komponente selbst gehandelt
     return () => {
       // Cleanup
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -21,12 +19,11 @@ export function SiteLifas() {
   return (
     <div className="bg-[#CEC9C9]">
       <div className="h-screen p-[10%]">
-        {/* Erste Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
             text="Webseite für "
             tag="h2"
-            className="text-black font-semibold text-8xl uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,
@@ -43,12 +40,11 @@ export function SiteLifas() {
         </div>
         <br />
 
-        {/* Zweite Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
             text="einen Onlinemarkt"
             tag="h2"
-            className="text-black text-8xl font-semibold uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,
@@ -65,12 +61,11 @@ export function SiteLifas() {
         </div>
         <br />
 
-        {/* Dritte Zeile - linksbündig */}
         <div className="ml-0">
           <SplitTextAnimation
             text="für Werbeflächen"
             tag="h2"
-            className="text-black font-semibold text-8xl uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,
@@ -87,12 +82,11 @@ export function SiteLifas() {
         </div>
         <br />
 
-        {/* Vierte Zeile - eingerückt */}
         <div className="ml-24">
           <SplitTextAnimation
             text="zur vermietung"
             tag="h2"
-            className="text-black font-semibold text-8xl uppercase"
+            className="text-black font-semibold text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl uppercase"
             charClass="inline-block"
             animation={{
               y: 100,
