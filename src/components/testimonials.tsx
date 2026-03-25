@@ -38,7 +38,6 @@ const Testimonials = () => {
       <div className="max-w-6xl mx-auto text-center">
         <SplitTextAnimation
           text="Testimonials"
-          tag="h3"
           className="text-[#F5FC7B] text-md sm:text-xl"
           charClass="inline-block"
           animation={{
@@ -56,7 +55,6 @@ const Testimonials = () => {
         <br />
         <SplitTextAnimation
           text="What people say"
-          tag="h3"
           className="text-3xl lg:text-8xl font-bold mb-12 text-[#CEC9C9] uppercase"
           charClass="inline-block"
           animation={{
@@ -79,14 +77,14 @@ const Testimonials = () => {
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 25, // Geschwindigkeit (höher = langsamer)
+            duration: 28, // Geschwindigkeit (höher = langsamer)
             ease: "linear",
           }}
         >
           {testimonials.concat(testimonials).map((t, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center space-y-6 min-w-[350px] border border-white-700 rounded-lg p-8 bg-black/40 my-12"
+              className="flex flex-col items-center text-center space-y-6 min-w-[350px] border border-white-700 rounded-lg p-8  my-12"
             >
               <p className="text-lg text-white italic">“{t.text}”</p>
               <div className="flex items-center gap-4">

@@ -48,8 +48,8 @@ export default function HeroSection() {
           <HeadingEffect />
 
           <div ref={textRef} className="text-center text-[#828282] text-2xl sm:text-3xl opacity-0 pt-8 sm:pt-0">
-            <h2>Designing the experiences around them.</h2>
             <h2>Developing modern websites & web apps.</h2>
+            <h2>Designing the experiences around them.</h2>
           </div>
 
           <div className="absolute bottom-0 left-0 w-full text-center text-[#D9D9D9] pb-8">
