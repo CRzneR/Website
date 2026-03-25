@@ -18,7 +18,7 @@ export default function DatenschutzPage() {
         <h2 className="font-medium text-lg mb-2">2. Verantwortlicher</h2>
         <p className="text-sm leading-relaxed">
           Christoph Renz<br />
-          Herzogstandstraße 27<br />
+          Herzogstandstraße 34<br />
           81539 München<br />
           Deutschland<br /><br />
           E-Mail: <a href="mailto:kontakt@christophrenz.de" className="text-blue-600 hover:underline">kontakt@christophrenz.de</a>
@@ -94,6 +94,15 @@ export default function DatenschutzPage() {
           Diese Datenschutzerklärung ist aktuell gültig (Stand: 2026).
         </p>
       </section>
+            {/* Zurück-Button */}
+      <div className="mt-12 flex justify-center">
+        <Link
+          href="/"
+          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition"
+        >
+          ← Zurück zur Startseite
+        </Link>
+      </div>
 
     </div>
   </main>
