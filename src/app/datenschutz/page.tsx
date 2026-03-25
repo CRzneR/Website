@@ -2,124 +2,100 @@ import Link from "next/link";
 
 export default function DatenschutzPage() {
   return (
-    <main className="min-h-screen bg-[#151515] text-white p-8">
-    <section className="space-y-6 text-gray-300 leading-relaxed">
-      
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">1. Allgemeine Hinweise</h2>
-        <p>
-          Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. In dieser Datenschutzerklärung informiere ich Sie darüber, welche Daten auf meiner Website erhoben und wie diese verwendet werden.
-        </p>
-      </div>
+  <main className="max-w-3xl mx-auto px-6 py-10">
+    <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-10">
 
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">2. Verantwortliche Stelle</h2>
-        <p>
-          [Christoph Renz] <br/>
-          [Herzogstandstraße, 81539 München ] <br/>
-          [kontakt@christophrenz.de]
-        </p>
-      </div>
+      <h1 className="text-2xl md:text-3xl font-semibold mb-6">Datenschutzerklärung</h1>
 
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">3. Erhebung und Speicherung personenbezogener Daten</h2>
-        <p>
-          Beim Besuch dieser Website werden automatisch Informationen durch den Hosting-Provider erfasst:
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">1. Allgemeine Hinweise</h2>
+        <p className="text-sm leading-relaxed">
+          Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. Ich behandle Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
         </p>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>IP-Adresse</li>
-          <li>Datum und Uhrzeit der Anfrage</li>
-          <li>Browsertyp und Version</li>
-          <li>Betriebssystem</li>
-          <li>Referrer-URL</li>
-        </ul>
-        <p className="mt-2">
-          Diese Daten dienen der Sicherstellung eines störungsfreien Betriebs der Website und werden nicht dazu verwendet, Rückschlüsse auf Ihre Person zu ziehen.
-        </p>
-      </div>
+      </section>
 
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">4. Hosting und Tracking durch Vercel</h2>
-        <p>
-          Diese Website wird bei Vercel Inc. gehostet. Beim Aufruf der Website werden automatisch Daten erfasst und verarbeitet.
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">2. Verantwortlicher</h2>
+        <p className="text-sm leading-relaxed">
+          Christoph Renz<br />
+          Herzogstandstraße 27<br />
+          81539 München<br />
+          Deutschland<br /><br />
+          E-Mail: <a href="mailto:kontakt@christophrenz.de" className="text-blue-600 hover:underline">kontakt@christophrenz.de</a>
         </p>
-        <p className="mt-2">
-          Zusätzlich nutze ich Vercel Analytics zur Analyse des Nutzerverhaltens:
-        </p>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Besuchte Seiten</li>
-          <li>Verweildauer</li>
-          <li>Herkunft des Besuchers</li>
-          <li>Geräte- und Browserinformationen</li>
-        </ul>
-        <p className="mt-2">
-          Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO.
-        </p>
-        <p className="mt-2">
-          Mehr Infos:
-          <a href="https://vercel.com/legal/privacy-policy" target="_blank" className="text-blue-400 underline">
-            https://vercel.com/legal/privacy-policy
-          </a>
-        </p>
-      </div>
+      </section>
 
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">5. Verwendung von Cookies</h2>
-        <p>
-          Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden.
-        </p>
-        <ul className="list-disc list-inside mt-2 space-y-1">
-          <li>Technisch notwendige Cookies</li>
-          <li>Analyse-Cookies</li>
-        </ul>
-        <p className="mt-2">
-          Sie können Ihre Cookie-Einstellungen jederzeit über Ihren Browser anpassen oder Cookies löschen.
-        </p>
-      </div>
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">3. Erhebung und Speicherung personenbezogener Daten</h2>
 
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">6. Ihre Rechte</h2>
-        <ul className="list-disc list-inside space-y-1">
-          <li>Auskunft (Art. 15 DSGVO)</li>
-          <li>Berichtigung (Art. 16 DSGVO)</li>
-          <li>Löschung (Art. 17 DSGVO)</li>
-          <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-          <li>Widerspruch (Art. 21 DSGVO)</li>
-          <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
-        </ul>
-      </div>
-
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">7. Widerruf Ihrer Einwilligung</h2>
-        <p>
-          Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Eine formlose Mitteilung per E-Mail reicht aus.
+        <h3 className="font-medium mt-4 mb-1">a) Beim Besuch der Website</h3>
+        <p className="text-sm leading-relaxed">
+          Beim Aufrufen dieser Website werden durch den Hosting-Provider automatisch Informationen erfasst (z. B. IP-Adresse, Browser, Uhrzeit). Diese Daten sind technisch erforderlich.
         </p>
-      </div>
 
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">8. Beschwerderecht</h2>
-        <p>
+        <p className="text-sm mt-2">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO</p>
+
+        <h3 className="font-medium mt-4 mb-1">b) Kontaktformular</h3>
+        <p className="text-sm leading-relaxed">
+          Bei Nutzung des Kontaktformulars werden Ihre Angaben (z. B. Name, E-Mail, Nachricht) zur Bearbeitung Ihrer Anfrage verarbeitet.
+        </p>
+        <p className="text-sm mt-2">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO</p>
+
+        <h3 className="font-medium mt-4 mb-1">c) Vercel Analytics</h3>
+        <p className="text-sm leading-relaxed">
+          Diese Website nutzt Vercel Analytics zur anonymisierten Auswertung der Nutzung. Es werden keine Cookies gesetzt und keine personenbezogenen Profile erstellt.
+        </p>
+        <p className="text-sm mt-2">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO</p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">4. Cookies</h2>
+        <p className="text-sm leading-relaxed">
+          Diese Website verwendet Cookies. Beim ersten Besuch können Sie über ein Cookie-Banner Ihre Einwilligung erteilen oder ablehnen.
+        </p>
+        <p className="text-sm mt-2">
+          Rechtsgrundlagen:<br />
+          - Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)<br />
+          - Art. 6 Abs. 1 lit. f DSGVO (notwendige Cookies)
+        </p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">5. Hosting</h2>
+        <p className="text-sm leading-relaxed">
+          Diese Website wird bei Vercel gehostet. Dabei werden Daten wie IP-Adressen verarbeitet. Die Übertragung erfolgt auf Basis von Standardvertragsklauseln.
+        </p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">6. Ihre Rechte</h2>
+        <p className="text-sm leading-relaxed">
+          Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie Datenübertragbarkeit und Widerspruch.
+        </p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">7. Widerruf Ihrer Einwilligung</h2>
+        <p className="text-sm leading-relaxed">
+          Eine erteilte Einwilligung können Sie jederzeit widerrufen.
+        </p>
+      </section>
+
+      <section className="mb-6">
+        <h2 className="font-medium text-lg mb-2">8. Beschwerderecht</h2>
+        <p className="text-sm leading-relaxed">
           Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.
         </p>
-      </div>
+      </section>
 
-      <div>
-        <h2 className="text-xl font-semibold text-white mb-2">9. Aktualität und Änderung</h2>
-        <p>
-          Diese Datenschutzerklärung ist aktuell gültig und wird bei Bedarf angepasst.
+      <section>
+        <h2 className="font-medium text-lg mb-2">9. Aktualität</h2>
+        <p className="text-sm leading-relaxed">
+          Diese Datenschutzerklärung ist aktuell gültig (Stand: 2026).
         </p>
-      </div>
+      </section>
 
-      {/* Zurück-Button */}
-      <div className="mt-12">
-        <Link
-          href="/"
-          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg transition"
-        >
-          ← Zurück zur Startseite
-        </Link>
-      </div>
-    </section>
-    </main>
+    </div>
+  </main>
   );
 }
