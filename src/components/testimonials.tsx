@@ -77,7 +77,7 @@ const Testimonials = () => {
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 28, // Geschwindigkeit (höher = langsamer)
+            duration: 28, // Geschwindigkeit 
             ease: "linear",
           }}
         >
