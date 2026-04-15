@@ -9,6 +9,7 @@ import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
 import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
 import CallToActionMobile from "../components/CallToActionMobile";
 import UeberschiftUX from "../components/UxProjects/Ueberschrift";
+import IntroductionMobile from "../components/vorstellung/introductionMobile";
 
 export default function Home() {
   return (
@@ -23,7 +24,14 @@ export default function Home() {
           <HeroSection />
         </section>
 
-        <Introduction />
+        <section>
+          <div className="hidden md:block">
+            <Introduction />
+          </div>
+          <div className="block md:hidden">
+            <IntroductionMobile />
+          </div>
+        </section>
 
         <section>
           <ProjectOverview />

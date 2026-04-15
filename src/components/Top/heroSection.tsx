@@ -1,18 +1,22 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import HeadingEffect from "./HeadingEffect";
 import LogoAnimation from "./LogoAnimation";
 
+const HEADING_DELAY = 4;
+
 export default function HeroSection() {
   const pRef = useRef<HTMLParagraphElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+  useEffect(() => {
+    if (!textRef.current || !pRef.current) return;
+
+    gsap.set([textRef.current, pRef.current], { opacity: 0 });
+
     const tl = gsap.timeline();
 
-    // h2 Texte einblenden
     tl.fromTo(
       textRef.current,
       { opacity: 0, y: 30 },
@@ -20,40 +24,44 @@ export default function HeroSection() {
         opacity: 1,
         y: 0,
         duration: 1.2,
-        delay: 4, // nach deinem Heading Effekt
+        delay: HEADING_DELAY,
         ease: "power3.out",
-      }
-    );
-
-    // scroll text danach
-    tl.fromTo(
+      },
+    ).fromTo(
       pRef.current,
       { opacity: 0 },
       {
         opacity: 1,
         duration: 1,
         ease: "power2.out",
-      }
+      },
     );
+
+    return () => {
+      tl.kill();
+    };
   }, []);
 
-   return (
+  return (
     <section className="relative h-screen bg-[#151515] overflow-hidden">
       <div className="absolute inset-0 flex justify-center items-center">
         <LogoAnimation />
       </div>
 
       <div className="relative flex flex-col justify-center h-full">
-        <div className=" mx-auto">
+        <div className="mx-auto">
           <HeadingEffect />
 
-          <div ref={textRef} className="text-center text-[#828282] text-2xl sm:text-3xl opacity-0 pt-8 sm:pt-0">
-            <h2>Developing modern websites & web apps.</h2>
-            <h2>Designing the experiences around them.</h2>
+          <div
+            ref={textRef}
+            className="text-center text-[#828282] text-lg sm:text-3xl pt-8 sm:pt-0"
+          >
+            <p>Developing modern websites & web apps.</p>
+            <p>Designing the experiences around them.</p>
           </div>
 
           <div className="absolute bottom-0 left-0 w-full text-center text-[#D9D9D9] pb-8">
-            <p ref={pRef} style={{ opacity: 0 }}>
+            <p ref={pRef}>
               scroll to explore <span>&darr;</span>
             </p>
           </div>
