@@ -45,14 +45,16 @@ function ProjectOverview() {
       </div>
 
       <div className="flex flex-col gap-16 sm:gap-24">
-
-        {/* =========================================== Pokemon – Text links, Bild rechts =========================================== */}
+        {/* =========================================== Pokemon =========================================== */}
         <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
           <FadeIn className="md:order-1">
             <div className="relative space-y-4">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 I love gaming so i{" "}
-                <span className="text-transparent stroke-text font-black" style={{ WebkitTextStrokeWidth: "1px" }}>
+                <span
+                  className="text-transparent stroke-text font-black"
+                  style={{ WebkitTextStrokeWidth: "1px" }}
+                >
                   &quot;recreated&quot;{" "}
                 </span>
                 an old board game
@@ -78,16 +80,22 @@ function ProjectOverview() {
           </FadeIn>
         </div>
 
-        {/* =========================================== Rings – Bild links, Text rechts =========================================== */}
+        {/* =========================================== Rings =========================================== */}
         <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
           <FadeIn className="md:order-2">
             <div className="relative space-y-6">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-                <span className="text-transparent stroke-text font-black" style={{ WebkitTextStrokeWidth: "1px" }}>
+                <span
+                  className="text-transparent stroke-text font-black"
+                  style={{ WebkitTextStrokeWidth: "1px" }}
+                >
                   CAD{" "}
                 </span>
                 and{" "}
-                <span className="text-transparent stroke-text font-black" style={{ WebkitTextStrokeWidth: "1px" }}>
+                <span
+                  className="text-transparent stroke-text font-black"
+                  style={{ WebkitTextStrokeWidth: "1px" }}
+                >
                   3D-printing{" "}
                 </span>
                 are part of my life
@@ -113,17 +121,23 @@ function ProjectOverview() {
           </FadeIn>
         </div>
 
-        {/* =========================================== Tunier – Text links, Bild rechts =========================================== */}
+        {/* =========================================== Tunier =========================================== */}
         <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
           <FadeIn className="md:order-1">
             <div className="relative space-y-6">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 Competitions are{" "}
-                <span className="text-transparent stroke-text font-black" style={{ WebkitTextStrokeWidth: "1px" }}>
+                <span
+                  className="text-transparent stroke-text font-black"
+                  style={{ WebkitTextStrokeWidth: "1px" }}
+                >
                   not{" "}
                 </span>
                 just for{" "}
-                <span className="text-transparent stroke-text font-black" style={{ WebkitTextStrokeWidth: "1px" }}>
+                <span
+                  className="text-transparent stroke-text font-black"
+                  style={{ WebkitTextStrokeWidth: "1px" }}
+                >
                   fun{" "}
                 </span>
               </h2>
@@ -148,13 +162,16 @@ function ProjectOverview() {
           </FadeIn>
         </div>
 
-        {/* =========================================== Moneta – Bild links, Text rechts =========================================== */}
+        {/* =========================================== Moneta =========================================== */}
         <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
           <FadeIn className="md:order-2">
             <div className="relative space-y-6">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 Track your{" "}
-                <span className="text-transparent stroke-text font-black" style={{ WebkitTextStrokeWidth: "1px" }}>
+                <span
+                  className="text-transparent stroke-text font-black"
+                  style={{ WebkitTextStrokeWidth: "1px" }}
+                >
                   expanses{" "}
                 </span>
                 for full control of your budget
@@ -179,7 +196,6 @@ function ProjectOverview() {
             </div>
           </FadeIn>
         </div>
-
       </div>
     </section>
   );

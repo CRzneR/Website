@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ScrollProgressBar from "../ScrollProgressBar";
 
 const NavBar = () => {
   return (
@@ -23,6 +24,7 @@ const NavBar = () => {
           Contact me
         </a>
       </div>
+      <ScrollProgressBar />
     </nav>
   );
 };

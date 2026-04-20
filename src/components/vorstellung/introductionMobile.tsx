@@ -1,16 +1,13 @@
 "use client";
-
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 gsap.registerPlugin(ScrollTrigger);
 
 const Introduction: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const yellowDivRef = useRef<HTMLDivElement>(null);
-
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
 
@@ -18,9 +15,11 @@ const Introduction: React.FC = () => {
     if (!containerRef.current || !yellowDivRef.current) return;
 
     const ctx = gsap.context(() => {
-      // GSAP selector (scoped!)
       const left = gsap.utils.selector(leftRef);
       const right = gsap.utils.selector(rightRef);
+
+      // Initialzustand: unsichtbar
+      gsap.set(yellowDivRef.current, { opacity: 0 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -32,18 +31,23 @@ const Introduction: React.FC = () => {
         },
       });
 
+      // Gelber Container einblenden
+      tl.to(
+        yellowDivRef.current,
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        },
+        0,
+      );
+
       // LEFT TEXT
       if (leftRef.current) {
         tl.from(
           left(".line"),
-          {
-            y: 100,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 1,
-            ease: "power3.out",
-          },
-          0,
+          { y: 100, opacity: 0, stagger: 0.2, duration: 1, ease: "power3.out" },
+          0.3,
         );
       }
 
@@ -51,13 +55,7 @@ const Introduction: React.FC = () => {
       if (rightRef.current) {
         tl.from(
           right(".line"),
-          {
-            y: 100,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 1,
-            ease: "power3.out",
-          },
+          { y: 100, opacity: 0, stagger: 0.2, duration: 1, ease: "power3.out" },
           1.3,
         );
       }
@@ -101,10 +99,11 @@ const Introduction: React.FC = () => {
             EXPERIENCES FOR CUSTOMERS <br />
             WITH A FOCUS ON UX
           </div>
-          <div className="line text-xl font-bold">User Interface Design</div>
-          <div className="line text-xl font-bold">User Experience Design</div>
-          <div className="line text-xl font-bold">Frontend Development</div>
-          <div className="line text-xl font-bold">Strategie</div>
+          <br />
+          <div className="line text-xl font-bold uppercase">User Interface Design</div>
+          <div className="line text-xl font-bold uppercase">User Experience Design</div>
+          <div className="line text-xl font-bold uppercase">Frontend Development</div>
+          <div className="line text-xl font-bold uppercase">Strategie</div>
         </div>
       </div>
     </div>
