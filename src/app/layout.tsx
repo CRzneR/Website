@@ -4,6 +4,8 @@ import "./globals.css";
 import Analytics from "../components/analytics";
 import CustomCursor from "../components/CustomCursor";
 
+// ─── Fonts ───────────────────────────────────────────────────────────────────
+
 const cormorant = localFont({
   src: [
     { path: "../fonts/CormorantSC-Bold.ttf", weight: "900", style: "normal" },
@@ -11,6 +13,7 @@ const cormorant = localFont({
   ],
   variable: "--font-cormorant",
   display: "swap",
+  preload: true,
 });
 
 const encoded = localFont({
@@ -21,6 +24,7 @@ const encoded = localFont({
   ],
   variable: "--font-encoded",
   display: "swap",
+  preload: true,
 });
 
 const rocGrotesk = localFont({
@@ -30,12 +34,14 @@ const rocGrotesk = localFont({
   ],
   variable: "--font-rocGrotesk",
   display: "swap",
+  preload: false, // Nur Hauptschriften preloaden
 });
 
 const panther = localFont({
   src: [{ path: "../fonts/panther.ttf", weight: "400", style: "normal" }],
   variable: "--font-panther",
   display: "swap",
+  preload: false,
 });
 
 const bstyle = localFont({
@@ -44,17 +50,25 @@ const bstyle = localFont({
   style: "normal",
   variable: "--font-bstyle",
   display: "swap",
+  preload: false,
 });
+
+// ─── Metadata ────────────────────────────────────────────────────────────────
 
 const siteUrl = "https://www.christophrenz.de";
 const siteName = "Christoph Renz";
+const siteDescription =
+  "Portfolio von Christoph Renz – Webentwickler & Frontend Developer für moderne Websites und Web-Apps mit Next.js, React, Tailwind CSS und TypeScript.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
-  title: `${siteName} – Webentwickler & Frontend Developer`,
-  description:
-    "Portfolio und Blog von Christoph Renz – Webentwickler & Frontend Developer für moderne Websites und Web-Apps mit Next.js, React, Tailwind CSS und TypeScript.",
+  title: {
+    default: `${siteName} – Webentwickler & Frontend Developer`,
+    template: `%s | ${siteName}`, // Unterseiten: "Impressum | Christoph Renz"
+  },
+
+  description: siteDescription,
 
   alternates: {
     canonical: "/",
@@ -74,46 +88,89 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    url: "/",
+    url: siteUrl,
     title: `${siteName} – Webentwickler & Frontend Developer`,
-    description:
-      "Moderne Web- und App-Entwicklung mit Next.js, React und Tailwind CSS. Projekte, Leistungen und Blog.",
+    description: siteDescription,
     siteName,
     locale: "de_DE",
     images: [
       {
-        url: "/og.jpg", // -> Datei in /public/og.jpg
+        url: "/og.jpg",
         width: 1200,
         height: 630,
-        alt: `${siteName} – Portfolio`,
+        alt: `${siteName} – Webentwickler Portfolio`,
+        type: "image/jpeg",
       },
     ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} – Webentwickler & Frontend Developer`,
+    description: siteDescription,
+    images: ["/og.jpg"],
   },
 
   keywords: [
     "Christoph Renz",
     "Webentwickler",
     "Frontend Developer",
-    "Next.js",
-    "React",
+    "Next.js Entwickler",
+    "React Entwickler",
     "Tailwind CSS",
     "TypeScript",
-    "Webentwicklung",
-    "Web-App",
+    "Webentwicklung Deutschland",
+    "Portfolio Webentwickler",
+    "moderne Websites",
+    "Web-App Entwicklung",
   ],
 
   authors: [{ name: siteName, url: siteUrl }],
   creator: siteName,
   publisher: siteName,
-
   category: "technology",
+
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
+
+// ─── JSON-LD Structured Data ─────────────────────────────────────────────────
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteName,
+  url: siteUrl,
+  jobTitle: "Webentwickler & Frontend Developer",
+  description: siteDescription,
+  image: `${siteUrl}/og.jpg`,
+  sameAs: ["https://github.com/crzner", "https://www.linkedin.com/in/christoph-renz-806822388/"],
+  knowsAbout: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Web Development"],
+};
+
+// ─── Layout ──────────────────────────────────────────────────────────────────
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
-        className={`${cormorant.variable} ${encoded.variable} ${bstyle.variable} ${panther.variable} ${rocGrotesk.variable} antialiased`}
+        className={`
+          ${cormorant.variable}
+          ${encoded.variable}
+          ${bstyle.variable}
+          ${panther.variable}
+          ${rocGrotesk.variable}
+          antialiased
+        `}
       >
         <CustomCursor />
         {children}
