@@ -58,7 +58,7 @@ const bstyle = localFont({
 const siteUrl = "https://www.christophrenz.de";
 const siteName = "Christoph Renz";
 const siteDescription =
-  "Portfolio von Christoph Renz – Webentwickler & Frontend Developer für moderne Websites und Web-Apps mit Next.js, React, Tailwind CSS und TypeScript.";
+  "Portfolio von Christoph Renz – Webentwickler & Frontend Developer für moderne Websites und Web-Apps mit Next.js, React, TailwindCSS und TypeScript.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
