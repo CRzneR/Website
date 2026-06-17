@@ -60,8 +60,8 @@ export default function HeroSection() {
             <p>Designing the experiences around them.</p>
           </div>
 
-          <div className="absolute bottom-0 left-0 w-full text-center text-[#D9D9D9] pb-8">
-            <p ref={pRef}>
+          <div className="absolute bottom-0 left-0 pb-8 pl-16">
+            <p ref={pRef} style={{ opacity: 0 }} className="text-[#D9D9D9]">
               scroll to explore <span>&darr;</span>
             </p>
           </div>

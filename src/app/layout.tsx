@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Analytics from "../components/analytics";
-
+import CustomCursor from "../components/CustomCursor";
 
 const cormorant = localFont({
   src: [
@@ -115,6 +115,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body
         className={`${cormorant.variable} ${encoded.variable} ${bstyle.variable} ${panther.variable} ${rocGrotesk.variable} antialiased`}
       >
+        <CustomCursor />
         {children}
         <Analytics />
       </body>

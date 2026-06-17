@@ -44,10 +44,39 @@ function ProjectOverview() {
         />
       </div>
 
-      <div className="flex flex-col gap-16 sm:gap-24">
+      <div className="flex flex-col gap-32 sm:gap-48">
         {/* =========================================== Pokemon =========================================== */}
-        <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
-          <FadeIn className="md:order-1">
+
+        {/* Mobile Layout */}
+        <FadeIn className="md:hidden flex flex-col gap-6">
+          <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
+            I love gaming so i{" "}
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              &quot;recreated&quot;{" "}
+            </span>
+            an old board game
+          </h2>
+          <div className="relative w-full h-[280px]">
+            <Image
+              src="/image/pokemon.png"
+              alt="Pokemon Boardgame"
+              fill
+              className="object-contain rounded-xl"
+              sizes="100vw"
+              quality={90}
+              priority
+            />
+          </div>
+          <p className="text-xl text-[#CEC9C9]">and of course i used pokemon for that</p>
+          <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
+        </FadeIn>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
+          <FadeIn className="order-1">
             <div className="relative space-y-4">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 I love gaming so i{" "}
@@ -59,20 +88,20 @@ function ProjectOverview() {
                 </span>
                 an old board game
               </h2>
-              <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
+              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
                 and of course i used pokemon for that
               </p>
               <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
             </div>
           </FadeIn>
-          <FadeIn className="md:order-2">
-            <div className="relative w-full h-[280px] md:h-[500px]">
+          <FadeIn className="order-2">
+            <div className="relative w-full h-[500px]">
               <Image
                 src="/image/pokemon.png"
                 alt="Pokemon Boardgame"
                 fill
                 className="object-contain rounded-xl"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="50vw"
                 quality={90}
                 priority
               />
@@ -81,8 +110,45 @@ function ProjectOverview() {
         </div>
 
         {/* =========================================== Rings =========================================== */}
-        <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
-          <FadeIn className="md:order-2">
+
+        {/* Mobile Layout */}
+        <FadeIn className="md:hidden flex flex-col gap-6">
+          <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              CAD{" "}
+            </span>
+            and{" "}
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              3D-printing{" "}
+            </span>
+            are part of my life
+          </h2>
+          <div className="relative w-full h-[280px]">
+            <Image
+              src="/image/Rings.png"
+              alt="3D Printed Rings"
+              fill
+              className="object-contain rounded-xl"
+              sizes="100vw"
+              quality={90}
+              priority
+            />
+          </div>
+          <p className="text-xl text-[#CEC9C9]">
+            I love creating my ideas and bring them to reality
+          </p>
+          <Button a="https://rings-nu.vercel.app" text="Visit site" />
+        </FadeIn>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
+          <FadeIn className="order-2">
             <div className="relative space-y-6">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 <span
@@ -100,20 +166,20 @@ function ProjectOverview() {
                 </span>
                 are part of my life
               </h2>
-              <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
+              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
                 I love creating my ideas and bring them to reality
               </p>
-              <Button a="https://rings-nu.vercel.app" text="Visit site" className="mt-6" />
+              <Button a="https://rings-nu.vercel.app" text="Visit site" />
             </div>
           </FadeIn>
-          <FadeIn className="md:order-1">
-            <div className="relative w-full h-[280px] md:h-[500px]">
+          <FadeIn className="order-1">
+            <div className="relative w-full h-[500px]">
               <Image
                 src="/image/Rings.png"
                 alt="3D Printed Rings"
                 fill
                 className="object-contain rounded-xl"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="50vw"
                 quality={90}
                 priority
               />
@@ -122,8 +188,45 @@ function ProjectOverview() {
         </div>
 
         {/* =========================================== Tunier =========================================== */}
-        <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
-          <FadeIn className="md:order-1">
+
+        {/* Mobile Layout */}
+        <FadeIn className="md:hidden flex flex-col gap-6">
+          <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
+            Competitions are{" "}
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              not{" "}
+            </span>
+            just for{" "}
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              fun{" "}
+            </span>
+          </h2>
+          <div className="relative w-full h-[280px]">
+            <Image
+              src="/image/ForChampions.png"
+              alt="For Champions App"
+              fill
+              className="object-contain rounded-xl"
+              sizes="100vw"
+              quality={90}
+              priority
+            />
+          </div>
+          <p className="text-xl text-[#CEC9C9]">
+            they also show you your skills compared to competitors
+          </p>
+          <Button a="https://champs-front.vercel.app" text="go to the app" />
+        </FadeIn>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
+          <FadeIn className="order-1">
             <div className="relative space-y-6">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 Competitions are{" "}
@@ -141,20 +244,20 @@ function ProjectOverview() {
                   fun{" "}
                 </span>
               </h2>
-              <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
+              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
                 they also show you your skills compared to competitors
               </p>
-              <Button a="https://champs-front.vercel.app" text="go to the app" className="mt-6" />
+              <Button a="https://champs-front.vercel.app" text="go to the app" />
             </div>
           </FadeIn>
-          <FadeIn className="md:order-2">
-            <div className="relative w-full h-[280px] md:h-[500px]">
+          <FadeIn className="order-2">
+            <div className="relative w-full h-[500px]">
               <Image
                 src="/image/ForChampions.png"
                 alt="For Champions App"
                 fill
                 className="object-contain rounded-xl"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="50vw"
                 quality={90}
                 priority
               />
@@ -163,8 +266,37 @@ function ProjectOverview() {
         </div>
 
         {/* =========================================== Moneta =========================================== */}
-        <div className="max-w-6xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center mx-auto">
-          <FadeIn className="md:order-2">
+
+        {/* Mobile Layout */}
+        <FadeIn className="md:hidden flex flex-col gap-6">
+          <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
+            Track your{" "}
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              expanses{" "}
+            </span>
+            for full control of your budget
+          </h2>
+          <div className="relative w-full h-[280px]">
+            <Image
+              src="/image/Moneta.png"
+              alt="Haushaltsbuch App"
+              fill
+              className="object-contain rounded-xl"
+              sizes="100vw"
+              quality={90}
+              priority
+            />
+          </div>
+          <p className="text-xl text-[#CEC9C9]">Control your spending habits and save more money</p>
+          <Button a="https://moneta-frontend.vercel.app" text="Test the app" />
+        </FadeIn>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
+          <FadeIn className="order-2">
             <div className="relative space-y-6">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 Track your{" "}
@@ -176,20 +308,20 @@ function ProjectOverview() {
                 </span>
                 for full control of your budget
               </h2>
-              <p className="text-xl text-[#CEC9C9] md:font-bold pb-4">
+              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
                 Control your spending habits and save more money
               </p>
-              <Button a="https://moneta-frontend.vercel.app" text="Test the app" className="mt-6" />
+              <Button a="https://moneta-frontend.vercel.app" text="Test the app" />
             </div>
           </FadeIn>
-          <FadeIn className="md:order-1">
-            <div className="relative w-full h-[280px] md:h-[500px]">
+          <FadeIn className="order-1">
+            <div className="relative w-full h-[500px]">
               <Image
                 src="/image/Moneta.png"
                 alt="Haushaltsbuch App"
                 fill
                 className="object-contain rounded-xl"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="50vw"
                 quality={90}
                 priority
               />
