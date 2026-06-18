@@ -10,6 +10,7 @@ import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
 import CallToActionMobile from "../components/CallToActionMobile";
 import UeberschiftUX from "../components/UxProjects/Ueberschrift";
 import IntroductionMobile from "../components/vorstellung/introductionMobile";
+import MorphSection from "../components/MorphSection";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
           <div className="block md:hidden">
             <IntroductionMobile />
           </div>
+          <MorphSection />
         </section>
 
         <section>
