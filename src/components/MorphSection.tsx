@@ -6,10 +6,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const LINES = [
-  { text: "Christoph Renz", goesLeft: false, color: "#CEC9C9" },
-  { text: "Webentwickler", goesLeft: true, color: "#F5FC7B" },
-  { text: "Christoph Renz", goesLeft: false, color: "#CEC9C9" },
-  { text: "Appentwickler", goesLeft: true, color: "#F5FC7B" },
+  { text: "Christoph Renz", goesLeft: false, color: "#1D2E11" },
+  { text: "Webentwickler", goesLeft: true, color: "#FBFF83" },
+  { text: "Christoph Renz", goesLeft: false, color: "#1D2E11" },
+  { text: "Appentwickler", goesLeft: true, color: "#FBFF83" },
 ];
 
 const LIST_ITEMS = ["UX Design", "Strategie", "Webentwicklung", "UI Design"];
@@ -48,14 +48,12 @@ export default function MorphSection() {
         },
       });
 
-      // ── Phase 1: Box erscheint ───────────────────────────────────────────
       tl.fromTo(
         box,
         { opacity: 0, scale: 0.88 },
         { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
       );
 
-      // ── Phase 2: Zeilen gegenläufig ──────────────────────────────────────
       linesRef.current.forEach((line, i) => {
         if (!line) return;
         const { goesLeft } = LINES[i];
@@ -67,10 +65,8 @@ export default function MorphSection() {
         );
       });
 
-      // ── Phase 3: Pause ───────────────────────────────────────────────────
       tl.to({}, { duration: 1.5 });
 
-      // ── Phase 4: Box morpht zu 3:4 Rechteck ─────────────────────────────
       tl.to(
         box,
         {
@@ -83,7 +79,6 @@ export default function MorphSection() {
         ">",
       );
 
-      // ── Phase 5: Liste links + Kacheln rechts erscheinen ─────────────────
       tl.fromTo(
         list,
         { opacity: 0, x: -20 },
@@ -104,9 +99,8 @@ export default function MorphSection() {
   }, []);
 
   return (
-    <div ref={outerRef} className="relative h-[700vh]">
+    <div ref={outerRef} className="relative h-[700vh]" style={{ background: "#151515" }}>
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        {/* Outer wrapper – zentriert alles */}
         <div className="flex items-center justify-center gap-8">
           {/* ── Links: Aufzählung ── */}
           <div
@@ -116,7 +110,7 @@ export default function MorphSection() {
           >
             {LIST_ITEMS.map((item, i) => (
               <div key={i} className="flex items-center gap-3">
-                <span style={{ color: "#444" }} className="text-sm">
+                <span className="text-sm" style={{ color: "#444" }}>
                   —
                 </span>
                 <span
@@ -137,7 +131,7 @@ export default function MorphSection() {
               width: "90vw",
               height: "85vh",
               borderRadius: "24px",
-              background: "linear-gradient(135deg, #1a1a1a 0%, #252525 100%)",
+              background: "#FEFFA4",
               opacity: 0,
               willChange: "transform, border-radius, width, height, opacity",
             }}
@@ -180,14 +174,12 @@ export default function MorphSection() {
                   aspectRatio: "1 / 1",
                 }}
               >
-                {/* Icon Placeholder */}
                 <div
                   className="w-7 h-7 rounded-lg flex items-center justify-center"
-                  style={{ background: "#F5FC7B22" }}
+                  style={{ background: "#FEFFA422" }}
                 >
                   <span style={{ fontSize: "14px" }}>🏅</span>
                 </div>
-
                 <div>
                   <p className="text-xs font-semibold leading-tight" style={{ color: "#CEC9C9" }}>
                     {cert.title}
