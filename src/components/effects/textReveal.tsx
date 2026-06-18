@@ -29,7 +29,7 @@ function TextReveal() {
     return () => {
       anim.kill();
     };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div ref={triggerRef}>

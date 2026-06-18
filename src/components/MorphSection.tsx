@@ -142,7 +142,7 @@ export default function MorphSection() {
               willChange: "transform, border-radius, width, height, opacity",
             }}
           >
-            {LINES.map(({ text, goesLeft, color }, i) => {
+            {LINES.map(({ text, color }, i) => {
               const topPct = 20 + (i / (LINES.length - 1)) * 60;
               return (
                 <div
