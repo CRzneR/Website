@@ -3,7 +3,7 @@ import NavBar from "../components/Top/navBar";
 import ProjectOverview from "../components/Projects/projectOverview";
 import Testimonials from "../components/testimonials";
 import HeroSection from "../components/Top/heroSection";
-import Introduction from "../components/vorstellung/introduction";
+
 import CookieConsentBanner from "../components/CookieCOnsentBanner";
 import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
 import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
