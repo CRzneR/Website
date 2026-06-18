@@ -3,13 +3,11 @@ import NavBar from "../components/Top/navBar";
 import ProjectOverview from "../components/Projects/projectOverview";
 import Testimonials from "../components/testimonials";
 import HeroSection from "../components/Top/heroSection";
-
 import CookieConsentBanner from "../components/CookieCOnsentBanner";
 import ScalingCardLifas from "../components/Projects/Lifas/ScalingCardLifas";
 import ScalingCardVert from "../components/Projects/Vert/ScalingCardVert";
 import CallToActionMobile from "../components/CallToActionMobile";
 import UeberschiftUX from "../components/UxProjects/Ueberschrift";
-import IntroductionMobile from "../components/vorstellung/introductionMobile";
 import MorphSection from "../components/MorphSection";
 
 export default function Home() {
