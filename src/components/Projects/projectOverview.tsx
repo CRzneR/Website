@@ -45,94 +45,30 @@ function ProjectOverview() {
       </div>
 
       <div className="flex flex-col gap-32 sm:gap-48">
-        {/* =========================================== Pokemon =========================================== */}
+        {/* =========================================== Celeste Home Design =========================================== */}
 
         {/* Mobile Layout */}
         <FadeIn className="md:hidden flex flex-col gap-6">
           <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
-            I love gaming so i{" "}
+            Company website for{" "}
             <span
               className="text-transparent stroke-text font-black"
               style={{ WebkitTextStrokeWidth: "1px" }}
             >
-              &quot;recreated&quot;{" "}
-            </span>
-            an old board game
-          </h2>
-          <div className="relative w-full h-[280px]">
-            <Image
-              src="/image/pokemon.png"
-              alt="Pokemon Boardgame"
-              fill
-              className="object-contain rounded-xl"
-              sizes="100vw"
-              quality={90}
-              priority
-            />
-          </div>
-          <p className="text-xl text-[#CEC9C9]">and of course i used pokemon for that</p>
-          <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
-        </FadeIn>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
-          <FadeIn className="order-1">
-            <div className="relative space-y-4">
-              <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-                I love gaming so i{" "}
-                <span
-                  className="text-transparent stroke-text font-black"
-                  style={{ WebkitTextStrokeWidth: "1px" }}
-                >
-                  &quot;recreated&quot;{" "}
-                </span>
-                an old board game
-              </h2>
-              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
-                and of course i used pokemon for that
-              </p>
-              <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
-            </div>
-          </FadeIn>
-          <FadeIn className="order-2">
-            <div className="relative w-full h-[500px]">
-              <Image
-                src="/image/pokemon.png"
-                alt="Pokemon Boardgame"
-                fill
-                className="object-contain rounded-xl"
-                sizes="50vw"
-                quality={90}
-                priority
-              />
-            </div>
-          </FadeIn>
-        </div>
-
-        {/* =========================================== Rings =========================================== */}
-
-        {/* Mobile Layout */}
-        <FadeIn className="md:hidden flex flex-col gap-6">
-          <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
-            <span
-              className="text-transparent stroke-text font-black"
-              style={{ WebkitTextStrokeWidth: "1px" }}
-            >
-              CAD{" "}
+              furniture restoration{" "}
             </span>
             and{" "}
             <span
               className="text-transparent stroke-text font-black"
               style={{ WebkitTextStrokeWidth: "1px" }}
             >
-              3D-printing{" "}
+              household clearances{" "}
             </span>
-            are part of my life
           </h2>
           <div className="relative w-full h-[280px]">
             <Image
-              src="/image/Rings.png"
-              alt="3D Printed Rings"
+              src="/image/Celestehomedesign.png"
+              alt="Celeste Home Design Website"
               fill
               className="object-contain rounded-xl"
               sizes="100vw"
@@ -141,9 +77,9 @@ function ProjectOverview() {
             />
           </div>
           <p className="text-xl text-[#CEC9C9]">
-            I love creating my ideas and bring them to reality
+            The site presents the services and products available for sale.
           </p>
-          <Button a="https://rings-nu.vercel.app" text="Visit site" />
+          <Button a="https://celestehomedesign.de" text="Visit site" />
         </FadeIn>
 
         {/* Desktop Layout */}
@@ -151,32 +87,32 @@ function ProjectOverview() {
           <FadeIn className="order-2">
             <div className="relative space-y-6">
               <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
+                Company website for{" "}
                 <span
                   className="text-transparent stroke-text font-black"
                   style={{ WebkitTextStrokeWidth: "1px" }}
                 >
-                  CAD{" "}
+                  furniture restoration{" "}
                 </span>
                 and{" "}
                 <span
                   className="text-transparent stroke-text font-black"
                   style={{ WebkitTextStrokeWidth: "1px" }}
                 >
-                  3D-printing{" "}
+                  household clearances{" "}
                 </span>
-                are part of my life
               </h2>
               <p className="text-xl text-[#CEC9C9] font-bold pb-4">
-                I love creating my ideas and bring them to reality
+                The site presents the services and products available for sale.
               </p>
-              <Button a="https://rings-nu.vercel.app" text="Visit site" />
+              <Button a="https://celestehomedesign.de" text="Visit site" />
             </div>
           </FadeIn>
           <FadeIn className="order-1">
             <div className="relative w-full h-[500px]">
               <Image
-                src="/image/Rings.png"
-                alt="3D Printed Rings"
+                src="/image/Celestehomedesign.png"
+                alt="Celeste Home Design Website"
                 fill
                 className="object-contain rounded-xl"
                 sizes="50vw"
@@ -319,6 +255,69 @@ function ProjectOverview() {
               <Image
                 src="/image/Moneta.png"
                 alt="Haushaltsbuch App"
+                fill
+                className="object-contain rounded-xl"
+                sizes="50vw"
+                quality={90}
+                priority
+              />
+            </div>
+          </FadeIn>
+        </div>
+        {/* =========================================== Pokemon =========================================== */}
+
+        {/* Mobile Layout */}
+        <FadeIn className="md:hidden flex flex-col gap-6">
+          <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
+            I love gaming so i{" "}
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              &quot;recreated&quot;{" "}
+            </span>
+            an old board game
+          </h2>
+          <div className="relative w-full h-[280px]">
+            <Image
+              src="/image/pokemon.png"
+              alt="Pokemon Boardgame"
+              fill
+              className="object-contain rounded-xl"
+              sizes="100vw"
+              quality={90}
+              priority
+            />
+          </div>
+          <p className="text-xl text-[#CEC9C9]">and of course i used pokemon for that</p>
+          <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
+        </FadeIn>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
+          <FadeIn className="order-1">
+            <div className="relative space-y-4">
+              <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
+                I love gaming so i{" "}
+                <span
+                  className="text-transparent stroke-text font-black"
+                  style={{ WebkitTextStrokeWidth: "1px" }}
+                >
+                  &quot;recreated&quot;{" "}
+                </span>
+                an old board game
+              </h2>
+              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
+                and of course i used pokemon for that
+              </p>
+              <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
+            </div>
+          </FadeIn>
+          <FadeIn className="order-2">
+            <div className="relative w-full h-[500px]">
+              <Image
+                src="/image/pokemon.png"
+                alt="Pokemon Boardgame"
                 fill
                 className="object-contain rounded-xl"
                 sizes="50vw"
