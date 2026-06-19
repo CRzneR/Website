@@ -48,7 +48,7 @@ function ProjectOverview() {
         {/* =========================================== Celeste Home Design =========================================== */}
 
         {/* Mobile Layout */}
-        <FadeIn className="md:hidden flex flex-col gap-6">
+        <FadeIn className="md:hidden flex flex-col gap-2">
           <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
             Company website for{" "}
             <span
@@ -126,7 +126,7 @@ function ProjectOverview() {
         {/* =========================================== Tunier =========================================== */}
 
         {/* Mobile Layout */}
-        <FadeIn className="md:hidden flex flex-col gap-6">
+        <FadeIn className="md:hidden flex flex-col gap-2">
           <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
             Competitions are{" "}
             <span
@@ -204,7 +204,7 @@ function ProjectOverview() {
         {/* =========================================== Moneta =========================================== */}
 
         {/* Mobile Layout */}
-        <FadeIn className="md:hidden flex flex-col gap-6">
+        <FadeIn className="md:hidden flex flex-col gap-2">
           <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
             Track your{" "}
             <span
@@ -267,7 +267,7 @@ function ProjectOverview() {
         {/* =========================================== Pokemon =========================================== */}
 
         {/* Mobile Layout */}
-        <FadeIn className="md:hidden flex flex-col gap-6">
+        <FadeIn className="md:hidden flex flex-col gap-2">
           <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
             I love gaming so i{" "}
             <span

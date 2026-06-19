@@ -14,7 +14,7 @@ const LINE_COUNT = 6;
 
 const LINES = Array.from({ length: LINE_COUNT }, (_, i) => PATTERN[i % PATTERN.length]);
 
-const LIST_ITEMS = ["UI Design", "UX Design", "Strategy", "Webdevelopment"];
+const LIST_ITEMS = ["UI Design", "UX Design", "Strategy", "Development"];
 
 const CERTS = [
   {
@@ -93,8 +93,8 @@ export default function MorphSection() {
         box,
         {
           borderRadius: "32px",
-          width: "360px",
-          height: "480px",
+          width: "432px",
+          height: "576px",
           duration: 3.5,
           ease: "power2.inOut",
         },
@@ -105,7 +105,7 @@ export default function MorphSection() {
         list,
         { opacity: 0, x: -20 },
         { opacity: 1, x: 0, duration: 2, ease: "power2.out" },
-        ">0.3", // startet NACH Ende des Morphs, kleine Pause
+        ">0.3",
       );
 
       tl.fromTo(
@@ -204,44 +204,50 @@ export default function MorphSection() {
           </div>
 
           {/* ── Rechts: Zertifikat-Kacheln ── */}
+
           <div
             ref={certsRef}
-            className="grid grid-cols-2 gap-3 flex-shrink-0"
+            className="flex flex-col gap-3 flex-shrink-0"
             style={{ opacity: 0, width: "200px" }}
           >
-            {CERTS.map((cert, i) => (
-              <div
-                key={i}
-                className="flex flex-col justify-between p-3 rounded-2xl"
-                style={{
-                  background: "#1e1e1e",
-                  border: "1px solid #2e2e2e",
-                  aspectRatio: "1 / 1",
-                }}
-              >
+            <p
+              className="text-xs uppercase tracking-widest font-semibold mb-1"
+              style={{ color: "#FBFF83" }}
+            >
+              Certificates
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {CERTS.map((cert, i) => (
                 <div
-                  className="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden"
-                  style={{ background: "#FEFFA422" }}
+                  key={i}
+                  className="flex flex-col justify-between p-3 rounded-2xl"
+                  style={{
+                    background: "#1e1e1e",
+                    border: "1px solid #2e2e2e",
+                    aspectRatio: "1 / 1",
+                  }}
                 >
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="w-full h-full object-contain mx-auto"
-                  />
-                </div>
-                <div>
-                  <p
-                    className="text-xs font-semibold leading-tight py-1"
-                    style={{ color: "#CEC9C9" }}
+                  <div
+                    className="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden mx-auto p-1"
+                    style={{ background: "#FEFFA422" }}
                   >
-                    {cert.title}
-                  </p>
-                  <p className="text-xs mt-0.5" style={{ color: "#555" }}>
-                    {cert.issuer} · {cert.year}
-                  </p>
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold leading-tight" style={{ color: "#CEC9C9" }}>
+                      {cert.title}
+                    </p>
+                    <p className="text-xs mt-0.5" style={{ color: "#555" }}>
+                      {cert.issuer} · {cert.year}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
