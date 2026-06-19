@@ -10,6 +10,12 @@ export default function CustomCursor() {
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
+    // Auf Touch-Geräten / Mobile komplett deaktivieren
+    const isTouchDevice =
+      window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) return;
+
     // Globaler Style – überschreibt cursor: pointer auf Buttons/Links
     const style = document.createElement("style");
     style.innerHTML = `* { cursor: none !important; }`;
@@ -41,7 +47,7 @@ export default function CustomCursor() {
     rafRef.current = requestAnimationFrame(animate);
 
     return () => {
-      document.head.removeChild(style); // Style wieder entfernen
+      document.head.removeChild(style);
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(rafRef.current);
     };
@@ -50,7 +56,7 @@ export default function CustomCursor() {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 z-[9999] pointer-events-none"
+      className="fixed top-0 left-0 z-[9999] pointer-events-none hidden md:block"
       style={{
         width: 40,
         height: 40,

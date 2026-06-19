@@ -1,8 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /impressum
-Disallow: /datenschutz
-Disallow: /api/
-
-Host: https://www.christophrenz.de
-Sitemap: https://www.christophrenz.de/sitemap.xml

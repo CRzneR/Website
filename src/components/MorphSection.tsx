@@ -5,20 +5,42 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const LINES = [
+const PATTERN = [
   { text: "Christoph Renz", goesLeft: false, color: "#1D2E11" },
   { text: "Webentwickler", goesLeft: true, color: "#FBFF83" },
-  { text: "Christoph Renz", goesLeft: false, color: "#1D2E11" },
-  { text: "Appentwickler", goesLeft: true, color: "#FBFF83" },
 ];
 
-const LIST_ITEMS = ["UX Design", "Strategie", "Webentwicklung", "UI Design"];
+const LINE_COUNT = 6;
+
+const LINES = Array.from({ length: LINE_COUNT }, (_, i) => PATTERN[i % PATTERN.length]);
+
+const LIST_ITEMS = ["UI Design", "UX Design", "Strategy", "Webdevelopment"];
 
 const CERTS = [
-  { title: "Zertifikat 1", issuer: "Anbieter", year: "2024" },
-  { title: "Zertifikat 2", issuer: "Anbieter", year: "2024" },
-  { title: "Zertifikat 3", issuer: "Anbieter", year: "2023" },
-  { title: "Zertifikat 4", issuer: "Anbieter", year: "2023" },
+  {
+    title: "AZ-900",
+    issuer: "Microsoft",
+    year: "01/2025",
+    image: "/image/certification/azure.png",
+  },
+  {
+    title: "CompTIA Tech+ (V6)",
+    issuer: "CompTIA",
+    year: "10/2025",
+    image: "/image/certification/compTIA.png",
+  },
+  {
+    title: "WDE™",
+    issuer: "JS Institute",
+    year: "02/2025",
+    image: "/image/certification/WDE.png",
+  },
+  {
+    title: "JSE™",
+    issuer: "JS Institute",
+    year: "05/2025",
+    image: "/image/certification/JSE.png",
+  },
 ];
 
 export default function MorphSection() {
@@ -60,7 +82,7 @@ export default function MorphSection() {
         tl.fromTo(
           line,
           { x: goesLeft ? "105%" : "-105%" },
-          { x: goesLeft ? "-105%" : "105%", duration: 6, ease: "none" },
+          { x: "0%", duration: 6, ease: "power2.out" },
           i === 0 ? "<0.5" : "<",
         );
       });
@@ -83,13 +105,14 @@ export default function MorphSection() {
         list,
         { opacity: 0, x: -20 },
         { opacity: 1, x: 0, duration: 2, ease: "power2.out" },
-        "<1.5",
+        ">0.3", // startet NACH Ende des Morphs, kleine Pause
       );
+
       tl.fromTo(
         certs,
         { opacity: 0, x: 20 },
         { opacity: 1, x: 0, duration: 2, ease: "power2.out" },
-        "<",
+        ">0.3",
       );
 
       return () => ScrollTrigger.getAll().forEach((st) => st.kill());
@@ -99,7 +122,7 @@ export default function MorphSection() {
   }, []);
 
   return (
-    <div ref={outerRef} className="relative h-[700vh]" style={{ background: "#151515" }}>
+    <div ref={outerRef} className="relative h-[850vh]" style={{ background: "#151515" }}>
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <div className="flex items-center justify-center gap-8">
           {/* ── Links: Aufzählung ── */}
@@ -108,6 +131,12 @@ export default function MorphSection() {
             className="flex flex-col gap-4 select-none flex-shrink-0"
             style={{ opacity: 0, width: "200px" }}
           >
+            <p
+              className="text-xs uppercase tracking-widest font-semibold mb-1"
+              style={{ color: "#FBFF83" }}
+            >
+              My Services
+            </p>
             {LIST_ITEMS.map((item, i) => (
               <div key={i} className="flex items-center gap-3">
                 <span className="text-sm" style={{ color: "#444" }}>
@@ -137,25 +166,41 @@ export default function MorphSection() {
             }}
           >
             {LINES.map(({ text, color }, i) => {
-              const topPct = 20 + (i / (LINES.length - 1)) * 60;
+              const topPct = (100 / (LINE_COUNT + 1)) * (i + 1);
               return (
                 <div
                   key={i}
                   ref={(el) => {
                     linesRef.current[i] = el;
                   }}
-                  className="absolute w-full pointer-events-none select-none"
+                  className="absolute w-full pointer-events-none select-none z-0"
                   style={{ top: `${topPct}%`, transform: "translateY(-50%)" }}
                 >
                   <span
-                    className="whitespace-nowrap font-black uppercase tracking-tighter leading-none"
-                    style={{ fontSize: "clamp(36px, 7vw, 100px)", color }}
+                    className="whitespace-nowrap uppercase leading-none"
+                    style={{
+                      fontSize: "clamp(40px, 8vw, 110px)",
+                      fontWeight: 900,
+                      letterSpacing: "-0.02em",
+                      WebkitTextStroke: `1.5px ${color}`,
+                      color,
+                    }}
                   >
                     {text}
                   </span>
                 </div>
               );
             })}
+
+            {/* ── Portrait – liegt über den Lines ── */}
+            <div className="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
+              <img
+                src="/image/CR_gross.png"
+                alt="Christoph Renz"
+                className="h-[95%] w-auto object-contain object-bottom"
+                style={{ filter: "drop-shadow(0 0 40px rgba(0,0,0,0.25))" }}
+              />
+            </div>
           </div>
 
           {/* ── Rechts: Zertifikat-Kacheln ── */}
@@ -175,13 +220,20 @@ export default function MorphSection() {
                 }}
               >
                 <div
-                  className="w-7 h-7 rounded-lg flex items-center justify-center"
+                  className="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden"
                   style={{ background: "#FEFFA422" }}
                 >
-                  <span style={{ fontSize: "14px" }}>🏅</span>
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-contain mx-auto"
+                  />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold leading-tight" style={{ color: "#CEC9C9" }}>
+                  <p
+                    className="text-xs font-semibold leading-tight py-1"
+                    style={{ color: "#CEC9C9" }}
+                  >
                     {cert.title}
                   </p>
                   <p className="text-xs mt-0.5" style={{ color: "#555" }}>
