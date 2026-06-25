@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import MorphSectionMobile from "./MorphSectionMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -122,140 +123,147 @@ export default function MorphSection() {
   }, []);
 
   return (
-    <div ref={outerRef} className="relative h-[850vh]" style={{ background: "#151515" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <div className="flex items-center justify-center gap-8">
-          {/* ── Links: Aufzählung ── */}
-          <div
-            ref={listRef}
-            className="flex flex-col gap-4 select-none flex-shrink-0"
-            style={{ opacity: 0, width: "200px" }}
-          >
-            <p
-              className="text-xs uppercase tracking-widest font-semibold mb-1"
-              style={{ color: "#FBFF83" }}
+    <>
+      <div ref={outerRef} className="relative h-[850vh]" style={{ background: "#151515" }}>
+        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+          <div className="flex items-center justify-center gap-8">
+            {/* ── Links: Aufzählung (nur Desktop) ── */}
+            <div
+              ref={listRef}
+              className="hidden md:flex flex-col gap-4 select-none flex-shrink-0"
+              style={{ opacity: 0, width: "200px" }}
             >
-              My Services
-            </p>
-            {LIST_ITEMS.map((item, i) => (
-              <div key={i} className="flex items-center gap-3">
-                <span className="text-sm" style={{ color: "#444" }}>
-                  —
-                </span>
-                <span
-                  className="text-base md:text-lg font-medium uppercase tracking-wide"
-                  style={{ color: "#CEC9C9" }}
-                >
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* ── Mitte: Haupt-Box ── */}
-          <div
-            ref={boxRef}
-            className="relative flex items-center justify-center overflow-hidden flex-shrink-0"
-            style={{
-              width: "90vw",
-              height: "85vh",
-              borderRadius: "24px",
-              background: "#FEFFA4",
-              opacity: 0,
-              willChange: "transform, border-radius, width, height, opacity",
-            }}
-          >
-            {LINES.map(({ text, color }, i) => {
-              const topPct = (100 / (LINE_COUNT + 1)) * (i + 1);
-              return (
-                <div
-                  key={i}
-                  ref={(el) => {
-                    linesRef.current[i] = el;
-                  }}
-                  className="absolute pointer-events-none select-none z-0"
-                  style={{
-                    top: `${topPct}%`,
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: "max-content",
-                  }}
-                >
+              <p
+                className="text-xs uppercase tracking-widest font-semibold mb-1"
+                style={{ color: "#FBFF83" }}
+              >
+                My Services
+              </p>
+              {LIST_ITEMS.map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="text-sm" style={{ color: "#444" }}>
+                    —
+                  </span>
                   <span
-                    className="whitespace-nowrap uppercase leading-none"
-                    style={{
-                      fontSize: "clamp(40px, 8vw, 110px)",
-                      fontWeight: 900,
-                      letterSpacing: "-0.02em",
-                      WebkitTextStroke: `1.5px ${color}`,
-                      color,
-                    }}
+                    className="text-base md:text-lg font-medium uppercase tracking-wide"
+                    style={{ color: "#CEC9C9" }}
                   >
-                    {text}
+                    {item}
                   </span>
                 </div>
-              );
-            })}
-
-            {/* ── Portrait – liegt über den Lines ── */}
-            <div className="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
-              <img
-                src="/image/CR_gross.png"
-                alt="Christoph Renz"
-                className="h-[95%] w-auto object-contain object-bottom"
-                style={{ filter: "drop-shadow(0 0 40px rgba(0,0,0,0.25))" }}
-              />
-            </div>
-          </div>
-
-          {/* ── Rechts: Zertifikat-Kacheln ── */}
-
-          <div
-            ref={certsRef}
-            className="flex flex-col gap-3 flex-shrink-0"
-            style={{ opacity: 0, width: "200px" }}
-          >
-            <p
-              className="text-xs uppercase tracking-widest font-semibold mb-1"
-              style={{ color: "#FBFF83" }}
-            >
-              Certificates
-            </p>
-            <div className="grid grid-cols-2 gap-3">
-              {CERTS.map((cert, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col justify-between p-3 rounded-2xl"
-                  style={{
-                    background: "#1e1e1e",
-                    border: "1px solid #2e2e2e",
-                    aspectRatio: "1 / 1",
-                  }}
-                >
-                  <div
-                    className="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden mx-auto p-1"
-                    style={{ background: "#FEFFA422" }}
-                  >
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold leading-tight" style={{ color: "#CEC9C9" }}>
-                      {cert.title}
-                    </p>
-                    <p className="text-xs mt-0.5" style={{ color: "#555" }}>
-                      {cert.issuer} · {cert.year}
-                    </p>
-                  </div>
-                </div>
               ))}
+            </div>
+
+            {/* ── Mitte: Haupt-Box ── */}
+            <div
+              ref={boxRef}
+              className="relative flex items-center justify-center overflow-hidden flex-shrink-0"
+              style={{
+                width: "90vw",
+                height: "85vh",
+                borderRadius: "24px",
+                background: "#FEFFA4",
+                opacity: 0,
+                willChange: "transform, border-radius, width, height, opacity",
+              }}
+            >
+              {LINES.map(({ text, color }, i) => {
+                const topPct = (100 / (LINE_COUNT + 1)) * (i + 1);
+                return (
+                  <div
+                    key={i}
+                    ref={(el) => {
+                      linesRef.current[i] = el;
+                    }}
+                    className="absolute pointer-events-none select-none z-0"
+                    style={{
+                      top: `${topPct}%`,
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: "max-content",
+                    }}
+                  >
+                    <span
+                      className="whitespace-nowrap uppercase leading-none"
+                      style={{
+                        fontSize: "clamp(44px, 8vw, 110px)",
+                        fontWeight: 900,
+                        letterSpacing: "-0.02em",
+                        WebkitTextStroke: `1.5px ${color}`,
+                        color,
+                      }}
+                    >
+                      {text}
+                    </span>
+                  </div>
+                );
+              })}
+
+              {/* ── Portrait – liegt über den Lines ── */}
+              <div className="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
+                <img
+                  src="/image/CR_gross.png"
+                  alt="Christoph Renz"
+                  className="h-[95%] w-auto object-contain object-bottom"
+                  style={{ filter: "drop-shadow(0 0 40px rgba(0,0,0,0.25))" }}
+                />
+              </div>
+            </div>
+
+            {/* ── Rechts: Zertifikat-Kacheln (nur Desktop) ── */}
+
+            <div
+              ref={certsRef}
+              className="hidden md:flex flex-col gap-3 flex-shrink-0"
+              style={{ opacity: 0, width: "200px" }}
+            >
+              <p
+                className="text-xs uppercase tracking-widest font-semibold mb-1"
+                style={{ color: "#FBFF83" }}
+              >
+                Certificates
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {CERTS.map((cert, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col justify-between p-3 rounded-2xl"
+                    style={{
+                      background: "#1e1e1e",
+                      border: "1px solid #2e2e2e",
+                      aspectRatio: "1 / 1",
+                    }}
+                  >
+                    <div
+                      className="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden mx-auto p-1"
+                      style={{ background: "#FEFFA422" }}
+                    >
+                      <img
+                        src={cert.image}
+                        alt={cert.title}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <div>
+                      <p
+                        className="text-xs font-semibold leading-tight"
+                        style={{ color: "#CEC9C9" }}
+                      >
+                        {cert.title}
+                      </p>
+                      <p className="text-xs mt-0.5" style={{ color: "#555" }}>
+                        {cert.issuer} · {cert.year}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <MorphSectionMobile />
+    </>
   );
 }
