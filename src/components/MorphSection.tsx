@@ -173,8 +173,13 @@ export default function MorphSection() {
                   ref={(el) => {
                     linesRef.current[i] = el;
                   }}
-                  className="absolute w-full pointer-events-none select-none z-0"
-                  style={{ top: `${topPct}%`, transform: "translateY(-50%)" }}
+                  className="absolute pointer-events-none select-none z-0"
+                  style={{
+                    top: `${topPct}%`,
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "max-content",
+                  }}
                 >
                   <span
                     className="whitespace-nowrap uppercase leading-none"

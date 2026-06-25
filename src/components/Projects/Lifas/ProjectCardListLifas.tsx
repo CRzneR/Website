@@ -42,7 +42,6 @@ export const ProjectCardList = () => {
       ease: "power1.out",
     });
 
-    // Verstecke den Inhalt parallel
     if (content) {
       tl.to(
         content,
@@ -50,26 +49,28 @@ export const ProjectCardList = () => {
           opacity: 0,
           ease: "power1.out",
         },
-        "<" // startet gleichzeitig mit der Skalierung
+        "<",
       );
     }
   }, []);
 
   return (
-    <div className="flex gap-6 justify-center items-center">
-      <div ref={(el) => addToRefs(el, 0)}>
-        <ProjectCard
-          title="Lifas"
-          subtitle="Online Marketplace"
-          logo="/image/lifas/LifasLogo.png"
-        />
-      </div>
-      <div ref={(el) => addToRefs(el, 1)}>
-        <ProjectCard
-          title="Vert City"
-          subtitle="Service Application"
-          logo="/image/vert/VertLogo.svg"
-        />
+    <div className="overflow-x-hidden">
+      <div className="flex gap-6 justify-center items-center">
+        <div ref={(el) => addToRefs(el, 0)}>
+          <ProjectCard
+            title="Lifas"
+            subtitle="Online Marketplace"
+            logo="/image/lifas/LifasLogo.png"
+          />
+        </div>
+        <div ref={(el) => addToRefs(el, 1)}>
+          <ProjectCard
+            title="Vert City"
+            subtitle="Service Application"
+            logo="/image/vert/VertLogo.svg"
+          />
+        </div>
       </div>
     </div>
   );

@@ -846,6 +846,9 @@ video {
 .min-w-\[350px\] {
   min-width: 350px;
 }
+.min-w-\[400px\] {
+  min-width: 400px;
+}
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -976,6 +979,9 @@ video {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 .whitespace-nowrap {
   white-space: nowrap;

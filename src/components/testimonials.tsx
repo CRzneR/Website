@@ -13,6 +13,12 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
+    text: "I was especially impressed by the collaborative process. From the initial idea to the finished website, I felt supported every step of the way. Every stage was clear and transparent, and communication was always prompt and straightforward. The final result matches exactly what I had envisioned.",
+    name: "Salvatore Celeste",
+    position: "Founder CelesteHomeDesign",
+    image: "/image/salva.png",
+  },
+  {
     text: "Working with Christoph was absolutely great. Not only did he handle his tasks with excellent professionalism, but he also went beyond his actual competencies to support me, which had a significant impact on the success of my project.",
     name: "Nikolaos Dirbanis",
     position: "Founder Conscious Finance",
@@ -72,19 +78,19 @@ const Testimonials = () => {
 
         <motion.div
           className="flex gap-8"
-          initial={{ x: "100%" }}
+          initial={{ x: "30%" }}
           animate={{ x: "-100%" }}
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 28, // Geschwindigkeit 
+            duration: 28, // Geschwindigkeit
             ease: "linear",
           }}
         >
           {testimonials.concat(testimonials).map((t, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center space-y-6 min-w-[350px] border border-white-700 rounded-lg p-8  my-12"
+              className="flex flex-col items-center text-center space-y-6 min-w-[400px] border border-white-700 rounded-lg p-8  my-12"
             >
               <p className="text-lg text-white italic">“{t.text}”</p>
               <div className="flex items-center gap-4">
