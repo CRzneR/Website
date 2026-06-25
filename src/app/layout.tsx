@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Analytics from "../components/analytics";
 import CustomCursor from "../components/CustomCursor";
+import SmoothScroller from "../components/SmoothScroll";
 
 // ─── Fonts ───────────────────────────────────────────────────────────────────
 
@@ -172,6 +173,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           antialiased
         `}
       >
+        <SmoothScroller />
         <CustomCursor />
         {children}
         <Analytics />
