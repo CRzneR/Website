@@ -1,47 +1,67 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteVert } from "./SiteVert";
 import { ProjectCard } from "../../UxProjects/ProjectCard";
 
-// GSAP Plugin registrieren
 gsap.registerPlugin(ScrollTrigger);
 
 const ScalingCardVert = () => {
-  const scaleBoxRef1 = useRef(null);
+  const scaleBoxRef1 = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const scaleBox1 = scaleBoxRef1.current;
+    if (!scaleBox1) return;
 
-    const animation = gsap.to(scaleBox1, {
-      scaleX: 4.3, // Skaliert nur horizontal
-      scaleY: 4.3, // Skaliert nur vertikal
-      scrollTrigger: {
-        trigger: scaleBox1,
-        start: "top top", // Startet beim oberen Rand des Elements
-        end: "=+2000", // Endet beim unteren Rand des Viewports
-        scrub: true, // Sanfter Übergang beim Scrollen
-        markers: false, // Debug-Marker anzeigen
-        toggleActions: "play reverse play reverse",
-      },
-    });
+    let animation: gsap.core.Tween;
 
-    // Cleanup-Funktion
-    return () => {
-      animation.scrollTrigger?.kill(); // ScrollTrigger beenden
-      animation.kill(); // GSAP-Animation beenden
+    const setup = () => {
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
+
+      const elementWidth = scaleBox1.offsetWidth;
+      const targetScale = window.innerWidth / elementWidth;
+
+      console.log("elementWidth:", elementWidth, "targetScale:", targetScale);
+
+      if (elementWidth === 0 || !isFinite(targetScale)) {
+        return;
+      }
+
+      animation = gsap.to(scaleBox1, {
+        scaleX: targetScale,
+        scaleY: targetScale,
+        scrollTrigger: {
+          trigger: scaleBox1,
+          start: "top top",
+          end: "+=2000",
+          scrub: true,
+          markers: false,
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      ScrollTrigger.refresh();
     };
-  }, []); // Leeres Array bedeutet, dass dieser Effekt nur einmal beim Mounten ausgeführt wird
+
+    const raf = requestAnimationFrame(setup);
+    window.addEventListener("resize", setup);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", setup);
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
+    };
+  }, []);
 
   return (
-    <div className="h-[600vh] relative bg-[#151515] ">
+    <div className="h-[600vh] relative bg-[#151515]">
       <div className="h-[10%]"></div>
-
       <div
         ref={scaleBoxRef1}
-        className="sticky top-[20%] h-[400px] w-[350px] bg-[#CEC9C9] mx-auto  flex items-center justify-center "
+        className="sticky top-[20%] h-[400px] w-[350px] bg-[#CEC9C9] mx-auto flex items-center justify-center"
       >
         <ProjectCard
           title="Vert City"
@@ -49,10 +69,8 @@ const ScalingCardVert = () => {
           logo="/image/vert/VertLogo.svg"
         />
       </div>
-
       <div className="h-[14%]"></div>
-
-      <section className=" relative z-10">
+      <section className="relative z-10">
         <SiteVert />
       </section>
     </div>

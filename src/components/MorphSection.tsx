@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PATTERN = [
   { text: "Christoph Renz", goesLeft: false, color: "#1D2E11" },
-  { text: "Webentwickler", goesLeft: true, color: "#FBFF83" },
+  { text: "Webentwickler", goesLeft: true, color: "#f0f476" },
 ];
 
 const LINE_COUNT = 6;

@@ -1,12 +1,10 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SiteLifas } from "./SiteLifas";
 import { ProjectCard } from "../../UxProjects/ProjectCard";
 
-// Plugin registrieren
 gsap.registerPlugin(ScrollTrigger);
 
 const ScalingCardLifas = () => {
@@ -14,39 +12,49 @@ const ScalingCardLifas = () => {
 
   useEffect(() => {
     const scaleBox = scaleBoxRef.current;
+    if (!scaleBox) return;
 
-    const animation = gsap.to(scaleBox, {
-      scaleX: 4.3,
-      scaleY: 4.3,
-      scrollTrigger: {
-        trigger: scaleBox,
-        start: "top top",
-        end: "+=2000",
-        scrub: true,
-        markers: false,
-      },
-    });
+    let animation: gsap.core.Tween;
+
+    const setup = () => {
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
+
+      const elementWidth = scaleBox.offsetWidth;
+      const targetScale = window.innerWidth / elementWidth;
+
+      animation = gsap.to(scaleBox, {
+        scaleX: targetScale,
+        scaleY: targetScale,
+        scrollTrigger: {
+          trigger: scaleBox,
+          start: "top top",
+          end: "+=1800",
+          scrub: true,
+          markers: false,
+        },
+      });
+    };
+
+    setup();
+
+    window.addEventListener("resize", setup);
 
     return () => {
-      animation.scrollTrigger?.kill();
-      animation.kill();
+      window.removeEventListener("resize", setup);
+      animation?.scrollTrigger?.kill();
+      animation?.kill();
     };
   }, []);
 
   return (
     <div className="h-[650vh] relative bg-[#151515]">
-      {/* spacer */}
       <div className="h-[7%]" />
-
-      {/* nur Hintergrund wird gescaled */}
       <div
         ref={scaleBoxRef}
         className="sticky top-[20%] h-[400px] w-[350px] mx-auto flex items-center justify-center"
       >
-        {/* Hintergrund separat */}
         <div className="absolute inset-0 bg-[#CEC9C9]" />
-
-        {/* Inhalt bleibt gleich */}
         <div className="relative z-10">
           <ProjectCard
             title="Lifas"
@@ -55,10 +63,7 @@ const ScalingCardLifas = () => {
           />
         </div>
       </div>
-
-      {/* spacer */}
       <div className="h-[14%]" />
-
       <section className="relative z-10 mb-20">
         <SiteLifas />
       </section>

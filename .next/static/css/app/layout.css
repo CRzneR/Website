@@ -934,6 +934,9 @@ video {
 .select-none {
   user-select: none;
 }
+.resize {
+  resize: both;
+}
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1154,6 +1157,9 @@ video {
 .object-bottom {
   object-position: bottom;
 }
+.p-1 {
+  padding: 0.25rem;
+}
 .p-3 {
   padding: 0.75rem;
 }
@@ -1168,9 +1174,6 @@ video {
 }
 .p-\[10\%\] {
   padding: 10%;
-}
-.p-1 {
-  padding: 0.25rem;
 }
 .px-20 {
   padding-left: 5rem;
@@ -1187,10 +1190,6 @@ video {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
-}
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
 }
 .py-10 {
   padding-top: 2.5rem;

@@ -24,13 +24,6 @@ export default function Home() {
         </section>
 
         <section>
-          {/* <TextReveal />
-          <div className="hidden md:block">
-            <Introduction />
-          </div>
-          <div className="block md:hidden">
-            <IntroductionMobile />
-          </div> */}
           <MorphSection />
         </section>
 
