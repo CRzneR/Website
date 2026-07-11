@@ -8,14 +8,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PATTERN = [
   { text: "Christoph Renz", goesLeft: false, color: "#1D2E11" },
-  { text: "Webentwickler", goesLeft: true, color: "#f0f476" },
+  { text: "Webdeveloper", goesLeft: true, color: "#f0f476" },
 ];
 
 const LINE_COUNT = 6;
+const CENTER_SPREAD = 6;
 
 const LINES = Array.from({ length: LINE_COUNT }, (_, i) => PATTERN[i % PATTERN.length]);
-
-const LIST_ITEMS = ["UI Design", "UX Design", "Strategy", "Development"];
 
 const CERTS = [
   {
@@ -127,31 +126,26 @@ export default function MorphSection() {
       <div ref={outerRef} className="relative h-[850vh]" style={{ background: "#151515" }}>
         <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
           <div className="flex items-center justify-center gap-8">
-            {/* ── Links: Aufzählung (nur Desktop) ── */}
+            {/* ── Links: Beschreibungstext (nur Desktop) ── */}
             <div
               ref={listRef}
               className="hidden md:flex flex-col gap-4 select-none flex-shrink-0"
-              style={{ opacity: 0, width: "200px" }}
+              style={{ opacity: 0, width: "280px" }}
             >
               <p
                 className="text-xs uppercase tracking-widest font-semibold mb-1"
                 style={{ color: "#FBFF83" }}
               >
-                My Services
+                My profile
               </p>
-              {LIST_ITEMS.map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <span className="text-sm" style={{ color: "#444" }}>
-                    —
-                  </span>
-                  <span
-                    className="text-base md:text-lg font-medium uppercase tracking-wide"
-                    style={{ color: "#CEC9C9" }}
-                  >
-                    {item}
-                  </span>
-                </div>
-              ))}
+
+              <p
+                className="text-base md:text-lg font-medium leading-snug"
+                style={{ color: "#CEC9C9" }}
+              >
+                I build web applications tailored to your needs, combining thoughtful UI & UX design
+                with seamless functionality to create outstanding user experiences.
+              </p>
             </div>
 
             {/* ── Mitte: Haupt-Box ── */}
@@ -168,27 +162,28 @@ export default function MorphSection() {
               }}
             >
               {LINES.map(({ text, color }, i) => {
-                const topPct = (100 / (LINE_COUNT + 1)) * (i + 1);
+                const topPct = 50 + (i - (LINE_COUNT - 1) / 2) * CENTER_SPREAD;
                 return (
                   <div
                     key={i}
                     ref={(el) => {
                       linesRef.current[i] = el;
                     }}
-                    className="absolute pointer-events-none select-none z-0"
+                    className="absolute pointer-events-none select-none"
                     style={{
                       top: `${topPct}%`,
                       left: "50%",
                       transform: "translate(-50%, -50%)",
                       width: "max-content",
+                      zIndex: i, // sorgt für definierte Stapel-Reihenfolge beim Überlappen
                     }}
                   >
                     <span
                       className="whitespace-nowrap uppercase leading-none"
                       style={{
-                        fontSize: "clamp(44px, 8vw, 110px)",
+                        fontSize: "clamp(90px, 16vw, 260px)",
                         fontWeight: 900,
-                        letterSpacing: "-0.02em",
+                        letterSpacing: "-0.03em",
                         WebkitTextStroke: `1.5px ${color}`,
                         color,
                       }}
@@ -215,7 +210,7 @@ export default function MorphSection() {
             <div
               ref={certsRef}
               className="hidden md:flex flex-col gap-3 flex-shrink-0"
-              style={{ opacity: 0, width: "200px" }}
+              style={{ opacity: 0, width: "280px" }}
             >
               <p
                 className="text-xs uppercase tracking-widest font-semibold mb-1"

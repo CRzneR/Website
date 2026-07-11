@@ -10,7 +10,6 @@ export default function CustomCursor() {
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    // Auf Touch-Geräten / Mobile komplett deaktivieren
     const isTouchDevice =
       window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0;
 
@@ -24,7 +23,7 @@ export default function CustomCursor() {
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY };
       const el = document.elementFromPoint(e.clientX, e.clientY);
-      const isLarge = el?.closest("button, a, h1, h2, h3, h4, h5, h6");
+      const isLarge = el?.closest("button, a");
       targetSize.current = isLarge ? 80 : 40;
     };
 

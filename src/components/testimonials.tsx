@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import SplitTextAnimation from "./effects/splitText";
-import { motion } from "framer-motion";
 
 interface Testimonial {
   text: string;
@@ -30,12 +29,13 @@ const testimonials: Testimonial[] = [
     position: "Product Designer",
     image: "/image/lisa.png",
   },
+  /*
   {
     text: "The work was very pleasant. Christoph kept coming up with new, individual suggestions that were very helpful. This resulted in excellent outcomes.",
     name: "Stefania",
     position: "Wedding Planner",
     image: "/image/Sarah.jpg",
-  },
+  },*/
 ];
 
 const Testimonials = () => {
@@ -55,7 +55,7 @@ const Testimonials = () => {
           }}
           scrollTrigger={{
             start: "top 75%",
-            markers: false,
+            markers: process.env.NODE_ENV === "development",
           }}
         />
         <br />
@@ -72,27 +72,17 @@ const Testimonials = () => {
           }}
           scrollTrigger={{
             start: "top 75%",
-            markers: false,
+            markers: process.env.NODE_ENV === "development",
           }}
         />
 
-        <motion.div
-          className="flex gap-8"
-          initial={{ x: "30%" }}
-          animate={{ x: "-100%" }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 28, // Geschwindigkeit
-            ease: "linear",
-          }}
-        >
-          {testimonials.concat(testimonials).map((t, index) => (
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch py-8 md:py-24">
+          {testimonials.slice(0, 3).map((t, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center space-y-6 min-w-[400px] border border-white-700 rounded-lg p-8  my-12"
+              className="flex flex-col items-center text-center space-y-6 w-full md:w-1/3 border border-white-700 rounded-lg p-6 md:p-8"
             >
-              <p className="text-lg text-white italic">“{t.text}”</p>
+              <p className="text-sm md:text-base text-white italic line-clamp-6">"{t.text}"</p>
               <div className="flex items-center gap-4">
                 <Image
                   src={t.image}
@@ -108,7 +98,7 @@ const Testimonials = () => {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

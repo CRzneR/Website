@@ -2,6 +2,7 @@ import { Button } from "../button";
 import FadeIn from "../effects/fadeIn";
 import SplitTextAnimation from "../effects/splitText";
 import Image from "next/image";
+import { Tag } from "../Tag";
 
 function ProjectOverview() {
   return (
@@ -26,7 +27,7 @@ function ProjectOverview() {
         />
         <br />
         <SplitTextAnimation
-          text="projects i love"
+          text="projects"
           tag="h3"
           className="text-4xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
           charClass="inline-block"
@@ -34,14 +35,6 @@ function ProjectOverview() {
           scrollTrigger={{ start: "top 75%", markers: false }}
         />
         <br />
-        <SplitTextAnimation
-          text="this"
-          tag="h3"
-          className="text-4xl lg:text-8xl font-bold mb-2 text-[#CEC9C9] uppercase"
-          charClass="inline-block"
-          animation={{ y: 100, opacity: 0, duration: 0.8, stagger: 0.03, ease: "power3.out" }}
-          scrollTrigger={{ start: "top 75%", markers: false }}
-        />
       </div>
 
       <div className="flex flex-col gap-32 sm:gap-48">
@@ -76,17 +69,26 @@ function ProjectOverview() {
               priority
             />
           </div>
-          <p className="text-xl text-[#CEC9C9]">
-            The site presents the services and products available for sale.
+          <div className="flex flex-wrap gap-3 pb-2">
+            <Tag text="Javascript" />
+            <Tag text="TailwindCss" />
+            <Tag text="Sanity" />
+            <Tag text="Email.js" />
+          </div>
+          <p className="text-lg text-[#CEC9C9] pb-2">
+            A simple and user-friendly solution was developed for the client. By using Sanity as the
+            content management system, the client can easily manage and update their products
+            independently.
           </p>
+
           <Button a="https://celestehomedesign.de" text="Visit site" />
         </FadeIn>
 
         {/* Desktop Layout */}
         <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
           <FadeIn className="order-2">
-            <div className="relative space-y-6">
-              <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
+            <div className="relative ">
+              <h2 className="text-2xl xl:text-3xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 Company website for{" "}
                 <span
                   className="text-transparent stroke-text font-black"
@@ -102,9 +104,17 @@ function ProjectOverview() {
                   household clearances{" "}
                 </span>
               </h2>
-              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
-                The site presents the services and products available for sale.
+              <p className="text-lg text-[#CEC9C9] font-bold py-4">
+                A simple and user-friendly solution was developed for the client. By using Sanity as
+                the content management system, the client can easily manage and update their
+                products independently.
               </p>
+              <div className="flex flex-wrap gap-3 pb-6">
+                <Tag text="Javascript" />
+                <Tag text="TailwindCss" />
+                <Tag text="Sanity" />
+                <Tag text="Email.js" />
+              </div>
               <Button a="https://celestehomedesign.de" text="Visit site" />
             </div>
           </FadeIn>
@@ -128,20 +138,13 @@ function ProjectOverview() {
         {/* Mobile Layout */}
         <FadeIn className="md:hidden flex flex-col gap-2">
           <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
-            Competitions are{" "}
             <span
               className="text-transparent stroke-text font-black"
               style={{ WebkitTextStrokeWidth: "1px" }}
             >
-              not{" "}
+              Custom{" "}
             </span>
-            just for{" "}
-            <span
-              className="text-transparent stroke-text font-black"
-              style={{ WebkitTextStrokeWidth: "1px" }}
-            >
-              fun{" "}
-            </span>
+            Tournament App{" "}
           </h2>
           <div className="relative w-full h-[280px]">
             <Image
@@ -154,8 +157,15 @@ function ProjectOverview() {
               priority
             />
           </div>
-          <p className="text-xl text-[#CEC9C9]">
-            they also show you your skills compared to competitors
+          <div className="flex flex-wrap gap-3 pb-2">
+            <Tag text="Next.js" />
+            <Tag text="TailwindCss" />
+            <Tag text="React" />
+          </div>
+          <p className="text-lg text-[#CEC9C9] pb-2">
+            A tournament application built to meet the requirements of custom tournaments, with a
+            focus on flexible group stages, knockout brackets, and support for an uneven number of
+            teams.
           </p>
           <Button a="https://champs-front.vercel.app" text="go to the app" />
         </FadeIn>
@@ -163,26 +173,26 @@ function ProjectOverview() {
         {/* Desktop Layout */}
         <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
           <FadeIn className="order-1">
-            <div className="relative space-y-6">
-              <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-                Competitions are{" "}
+            <div className="relative ">
+              <h2 className="text-2xl xl:text-3xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 <span
                   className="text-transparent stroke-text font-black"
                   style={{ WebkitTextStrokeWidth: "1px" }}
                 >
-                  not{" "}
+                  Custom{" "}
                 </span>
-                just for{" "}
-                <span
-                  className="text-transparent stroke-text font-black"
-                  style={{ WebkitTextStrokeWidth: "1px" }}
-                >
-                  fun{" "}
-                </span>
+                Tournament App{" "}
               </h2>
-              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
-                they also show you your skills compared to competitors
+              <p className="text-lg text-[#CEC9C9] font-bold py-4">
+                A tournament application built to meet the requirements of custom tournaments, with
+                a focus on flexible group stages, knockout brackets, and support for an uneven
+                number of teams.
               </p>
+              <div className="flex flex-wrap gap-3 pb-6">
+                <Tag text="Next.js" />
+                <Tag text="TailwindCss" />
+                <Tag text="React" />
+              </div>
               <Button a="https://champs-front.vercel.app" text="go to the app" />
             </div>
           </FadeIn>
@@ -213,7 +223,14 @@ function ProjectOverview() {
             >
               expanses{" "}
             </span>
-            for full control of your budget
+            for{" "}
+            <span
+              className="text-transparent stroke-text font-black"
+              style={{ WebkitTextStrokeWidth: "1px" }}
+            >
+              full control{" "}
+            </span>
+            of your budget
           </h2>
           <div className="relative w-full h-[280px]">
             <Image
@@ -226,15 +243,24 @@ function ProjectOverview() {
               priority
             />
           </div>
-          <p className="text-xl text-[#CEC9C9]">Control your spending habits and save more money</p>
+          <div className="flex flex-wrap gap-3 pb-2">
+            <Tag text="Next.js" />
+            <Tag text="TailwindCss" />
+            <Tag text="React" />
+          </div>
+          <p className="text-xl text-[#CEC9C9] pb-2">
+            {" "}
+            Track your income and expenses in a personal profile and access them anytime. A mobile
+            budgeting app focused on managing recurring and fixed monthly costs.
+          </p>
           <Button a="https://moneta-frontend.vercel.app" text="Test the app" />
         </FadeIn>
 
         {/* Desktop Layout */}
         <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
           <FadeIn className="order-2">
-            <div className="relative space-y-6">
-              <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
+            <div className="relative ">
+              <h2 className="text-2xl xl:text-3xl uppercase font-bold text-[#CEC9C9] leading-tight">
                 Track your{" "}
                 <span
                   className="text-transparent stroke-text font-black"
@@ -244,9 +270,15 @@ function ProjectOverview() {
                 </span>
                 for full control of your budget
               </h2>
-              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
-                Control your spending habits and save more money
+              <p className="text-lg text-[#CEC9C9] font-bold py-4">
+                Track your income and expenses in a personal profile and access them anytime. A
+                mobile budgeting app focused on managing recurring and fixed monthly costs.
               </p>
+              <div className="flex flex-wrap gap-3 pb-6">
+                <Tag text="Javascript" />
+                <Tag text="TailwindCss" />
+                <Tag text="MongoDb" />
+              </div>
               <Button a="https://moneta-frontend.vercel.app" text="Test the app" />
             </div>
           </FadeIn>
