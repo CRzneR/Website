@@ -29,13 +29,6 @@ const testimonials: Testimonial[] = [
     position: "Product Designer",
     image: "/image/lisa.png",
   },
-  /*
-  {
-    text: "The work was very pleasant. Christoph kept coming up with new, individual suggestions that were very helpful. This resulted in excellent outcomes.",
-    name: "Stefania",
-    position: "Wedding Planner",
-    image: "/image/Sarah.jpg",
-  },*/
 ];
 
 const Testimonials = () => {
@@ -82,7 +75,9 @@ const Testimonials = () => {
               key={index}
               className="flex flex-col items-center text-center space-y-6 w-full md:w-1/3 border border-white-700 rounded-lg p-6 md:p-8"
             >
-              <p className="text-sm md:text-base text-white italic line-clamp-6">"{t.text}"</p>
+              <p className="text-sm md:text-base text-white italic line-clamp-6">
+                &quot;{t.text}&quot;
+              </p>
               <div className="flex items-center gap-4">
                 <Image
                   src={t.image}
