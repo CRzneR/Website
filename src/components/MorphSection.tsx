@@ -11,8 +11,9 @@ const PATTERN = [
   { text: "Webdeveloper", goesLeft: true, color: "#f0f476" },
 ];
 
-const LINE_COUNT = 6;
-const CENTER_SPREAD = 6;
+const LINE_COUNT = 4;
+const TOP_MARGIN = 10; // % Abstand von oben
+const BOTTOM_MARGIN = 10; // % Abstand von unten
 
 const LINES = Array.from({ length: LINE_COUNT }, (_, i) => PATTERN[i % PATTERN.length]);
 
@@ -126,7 +127,7 @@ export default function MorphSection() {
       <div ref={outerRef} className="relative h-[850vh]" style={{ background: "#151515" }}>
         <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
           <div className="flex items-center justify-center gap-8">
-            {/* ── Links: Beschreibungstext (nur Desktop) ── */}
+            {/*  Links: Beschreibungstext  */}
             <div
               ref={listRef}
               className="hidden md:flex flex-col gap-4 select-none flex-shrink-0"
@@ -148,7 +149,7 @@ export default function MorphSection() {
               </p>
             </div>
 
-            {/* ── Mitte: Haupt-Box ── */}
+            {/*  Mitte: Haupt-Box  */}
             <div
               ref={boxRef}
               className="relative flex items-center justify-center overflow-hidden flex-shrink-0"
@@ -162,7 +163,8 @@ export default function MorphSection() {
               }}
             >
               {LINES.map(({ text, color }, i) => {
-                const topPct = 50 + (i - (LINE_COUNT - 1) / 2) * CENTER_SPREAD;
+                const topPct =
+                  TOP_MARGIN + (i * (100 - TOP_MARGIN - BOTTOM_MARGIN)) / (LINE_COUNT - 1);
                 return (
                   <div
                     key={i}
@@ -175,7 +177,7 @@ export default function MorphSection() {
                       left: "50%",
                       transform: "translate(-50%, -50%)",
                       width: "max-content",
-                      zIndex: i, // sorgt für definierte Stapel-Reihenfolge beim Überlappen
+                      zIndex: i,
                     }}
                   >
                     <span
@@ -194,7 +196,7 @@ export default function MorphSection() {
                 );
               })}
 
-              {/* ── Portrait – liegt über den Lines ── */}
+              {/*  Portrait – liegt über den Lines  */}
               <div className="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
                 <img
                   src="/image/CR_gross.png"
@@ -205,7 +207,7 @@ export default function MorphSection() {
               </div>
             </div>
 
-            {/* ── Rechts: Zertifikat-Kacheln (nur Desktop) ── */}
+            {/*  Rechts: Zertifikat-Kacheln (nur Desktop)  */}
 
             <div
               ref={certsRef}

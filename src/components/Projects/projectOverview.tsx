@@ -296,69 +296,6 @@ function ProjectOverview() {
             </div>
           </FadeIn>
         </div>
-        {/* =========================================== Pokemon =========================================== */}
-
-        {/* Mobile Layout */}
-        <FadeIn className="md:hidden flex flex-col gap-2">
-          <h2 className="text-2xl uppercase font-bold text-[#CEC9C9] leading-tight">
-            I love gaming so i{" "}
-            <span
-              className="text-transparent stroke-text font-black"
-              style={{ WebkitTextStrokeWidth: "1px" }}
-            >
-              &quot;recreated&quot;{" "}
-            </span>
-            an old board game
-          </h2>
-          <div className="relative w-full h-[280px]">
-            <Image
-              src="/image/pokemon.png"
-              alt="Pokemon Boardgame"
-              fill
-              className="object-contain rounded-xl"
-              sizes="100vw"
-              quality={90}
-              priority
-            />
-          </div>
-          <p className="text-xl text-[#CEC9C9]">and of course i used pokemon for that</p>
-          <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
-        </FadeIn>
-
-        {/* Desktop Layout */}
-        <div className="hidden md:grid max-w-6xl w-full grid-cols-2 gap-12 items-center mx-auto">
-          <FadeIn className="order-1">
-            <div className="relative space-y-4">
-              <h2 className="text-2xl xl:text-4xl uppercase font-bold text-[#CEC9C9] leading-tight">
-                I love gaming so i{" "}
-                <span
-                  className="text-transparent stroke-text font-black"
-                  style={{ WebkitTextStrokeWidth: "1px" }}
-                >
-                  &quot;recreated&quot;{" "}
-                </span>
-                an old board game
-              </h2>
-              <p className="text-xl text-[#CEC9C9] font-bold pb-4">
-                and of course i used pokemon for that
-              </p>
-              <Button a="https://crzner.github.io/Fast5/" text="Play FastFive" />
-            </div>
-          </FadeIn>
-          <FadeIn className="order-2">
-            <div className="relative w-full h-[500px]">
-              <Image
-                src="/image/pokemon.png"
-                alt="Pokemon Boardgame"
-                fill
-                className="object-contain rounded-xl"
-                sizes="50vw"
-                quality={90}
-                priority
-              />
-            </div>
-          </FadeIn>
-        </div>
       </div>
     </section>
   );
