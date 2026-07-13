@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Analytics from "../components/analytics";
@@ -136,6 +136,12 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+};
+
+// ─── Viewport (theme-color für mobile Browser-UI) ────────────────────────────
+
+export const viewport: Viewport = {
+  themeColor: "#151515",
 };
 
 // ─── JSON-LD Structured Data ─────────────────────────────────────────────────

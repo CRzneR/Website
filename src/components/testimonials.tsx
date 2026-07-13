@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SplitTextAnimation from "./effects/splitText";
@@ -33,8 +33,15 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const DRAG_THRESHOLD = 80; // px, ab der ein Swipe als "weiter/zurück" zählt
+
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [dragX, setDragX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const startXRef = useRef(0);
+  const draggingRef = useRef(false);
 
   const goToPrev = () => {
     setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
@@ -42,6 +49,31 @@ const Testimonials = () => {
 
   const goToNext = () => {
     setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    draggingRef.current = true;
+    startXRef.current = e.clientX;
+    setIsDragging(true);
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!draggingRef.current) return;
+    setDragX(e.clientX - startXRef.current);
+  };
+
+  const endDrag = () => {
+    if (!draggingRef.current) return;
+    draggingRef.current = false;
+    setIsDragging(false);
+
+    if (dragX > DRAG_THRESHOLD) {
+      goToPrev();
+    } else if (dragX < -DRAG_THRESHOLD) {
+      goToNext();
+    }
+    setDragX(0);
   };
 
   const active = testimonials[activeIndex];
@@ -84,41 +116,56 @@ const Testimonials = () => {
         />
 
         <div className="flex items-center justify-center gap-4 md:gap-8 py-8 md:py-24">
-          {/* Prev button */}
+          {/* Prev button – nur Desktop */}
           <button
             onClick={goToPrev}
             aria-label="Vorheriges Testimonial"
-            className="shrink-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
+            className="hidden md:flex shrink-0 items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
 
-          {/* Testimonial card */}
+          {/* Testimonial card – draggable */}
           <div
-            key={activeIndex}
-            className="flex flex-col items-center text-center space-y-6 w-full max-w-xl border border-white-700 rounded-lg p-6 md:p-8 animate-[fadeIn_0.4s_ease-out]"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={endDrag}
+            onPointerLeave={endDrag}
+            onPointerCancel={endDrag}
+            style={{
+              transform: `translateX(${dragX}px)`,
+              transition: isDragging ? "none" : "transform 0.35s ease-out",
+              touchAction: "pan-y",
+            }}
+            className="cursor-grab active:cursor-grabbing select-none w-full max-w-xl"
           >
-            <p className="text-sm md:text-base text-white italic">&quot;{active.text}&quot;</p>
-            <div className="flex items-center gap-4">
-              <Image
-                src={active.image}
-                alt={active.name}
-                width={60}
-                height={60}
-                className="rounded-full border-2 border-purple-500"
-              />
-              <div className="text-left">
-                <p className="text-sm font-semibold text-white">{active.name}</p>
-                <p className="text-sm text-gray-300">{active.position}</p>
+            <div
+              key={activeIndex}
+              className="flex flex-col items-center text-center space-y-6 border border-white-700 rounded-lg p-6 md:p-8 animate-[fadeIn_0.4s_ease-out]"
+            >
+              <p className="text-sm md:text-base text-white italic">&quot;{active.text}&quot;</p>
+              <div className="flex items-center gap-4">
+                <Image
+                  src={active.image}
+                  alt={active.name}
+                  width={60}
+                  height={60}
+                  draggable={false}
+                  className="rounded-full border-2 border-purple-500"
+                />
+                <div className="text-left">
+                  <p className="text-sm font-semibold text-white">{active.name}</p>
+                  <p className="text-sm text-gray-300">{active.position}</p>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Next button */}
+          {/* Next button – nur Desktop */}
           <button
             onClick={goToNext}
             aria-label="Nächstes Testimonial"
-            className="shrink-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
+            className="hidden md:flex shrink-0 items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>

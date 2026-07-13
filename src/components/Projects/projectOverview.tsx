@@ -58,17 +58,16 @@ function ProjectOverview() {
               household clearances{" "}
             </span>
           </h2>
-          <div className="relative w-full h-[280px]">
-            <Image
-              src="/image/Celestehomedesign.png"
-              alt="Celeste Home Design Website"
-              fill
-              className="object-contain rounded-xl"
-              sizes="100vw"
-              quality={90}
-              priority
-            />
-          </div>
+          <Image
+            src="/image/Celestehomedesign.png"
+            alt="Celeste Home Design Website"
+            width={1200}
+            height={750}
+            className="w-full h-auto rounded-xl"
+            sizes="100vw"
+            quality={90}
+            priority
+          />
           <div className="flex flex-wrap gap-3 pb-2">
             <Tag text="Javascript" />
             <Tag text="TailwindCss" />
@@ -146,17 +145,16 @@ function ProjectOverview() {
             </span>
             Tournament App{" "}
           </h2>
-          <div className="relative w-full h-[280px]">
-            <Image
-              src="/image/ForChampions.png"
-              alt="For Champions App"
-              fill
-              className="object-contain rounded-xl"
-              sizes="100vw"
-              quality={90}
-              priority
-            />
-          </div>
+          <Image
+            src="/image/ForChampions.png"
+            alt="For Champions App"
+            width={1200}
+            height={750}
+            className="w-full h-auto rounded-xl"
+            sizes="100vw"
+            quality={90}
+            priority
+          />
           <div className="flex flex-wrap gap-3 pb-2">
             <Tag text="Next.js" />
             <Tag text="TailwindCss" />
@@ -232,17 +230,16 @@ function ProjectOverview() {
             </span>
             of your budget
           </h2>
-          <div className="relative w-full h-[280px]">
-            <Image
-              src="/image/Moneta.png"
-              alt="Haushaltsbuch App"
-              fill
-              className="object-contain rounded-xl"
-              sizes="100vw"
-              quality={90}
-              priority
-            />
-          </div>
+          <Image
+            src="/image/Moneta.png"
+            alt="Haushaltsbuch App"
+            width={1200}
+            height={750}
+            className="w-full h-auto rounded-xl"
+            sizes="100vw"
+            quality={90}
+            priority
+          />
           <div className="flex flex-wrap gap-3 pb-2">
             <Tag text="Next.js" />
             <Tag text="TailwindCss" />
