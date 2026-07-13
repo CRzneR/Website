@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import SplitTextAnimation from "./effects/splitText";
 
 interface Testimonial {
@@ -32,6 +34,18 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const goToPrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  const goToNext = () => {
+    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
+  const active = testimonials[activeIndex];
+
   return (
     <section className="bg-[#151515] py-32 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
@@ -69,29 +83,58 @@ const Testimonials = () => {
           }}
         />
 
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch py-8 md:py-24">
-          {testimonials.slice(0, 3).map((t, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center space-y-6 w-full md:w-1/3 border border-white-700 rounded-lg p-6 md:p-8"
-            >
-              <p className="text-sm md:text-base text-white italic line-clamp-6">
-                &quot;{t.text}&quot;
-              </p>
-              <div className="flex items-center gap-4">
-                <Image
-                  src={t.image}
-                  alt={t.name}
-                  width={60}
-                  height={60}
-                  className="rounded-full border-2 border-purple-500"
-                />
-                <div className="text-left">
-                  <p className="text-sm font-semibold text-white">{t.name}</p>
-                  <p className="text-sm text-gray-300">{t.position}</p>
-                </div>
+        <div className="flex items-center justify-center gap-4 md:gap-8 py-8 md:py-24">
+          {/* Prev button */}
+          <button
+            onClick={goToPrev}
+            aria-label="Vorheriges Testimonial"
+            className="shrink-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+          </button>
+
+          {/* Testimonial card */}
+          <div
+            key={activeIndex}
+            className="flex flex-col items-center text-center space-y-6 w-full max-w-xl border border-white-700 rounded-lg p-6 md:p-8 animate-[fadeIn_0.4s_ease-out]"
+          >
+            <p className="text-sm md:text-base text-white italic">&quot;{active.text}&quot;</p>
+            <div className="flex items-center gap-4">
+              <Image
+                src={active.image}
+                alt={active.name}
+                width={60}
+                height={60}
+                className="rounded-full border-2 border-purple-500"
+              />
+              <div className="text-left">
+                <p className="text-sm font-semibold text-white">{active.name}</p>
+                <p className="text-sm text-gray-300">{active.position}</p>
               </div>
             </div>
+          </div>
+
+          {/* Next button */}
+          <button
+            onClick={goToNext}
+            aria-label="Nächstes Testimonial"
+            className="shrink-0 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors"
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+          </button>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Zu Testimonial ${index + 1}`}
+              className={`h-2 rounded-full transition-all ${
+                index === activeIndex ? "w-6 bg-white/30" : "w-2 bg-white/30 hover:bg-white/50"
+              }`}
+            />
           ))}
         </div>
       </div>

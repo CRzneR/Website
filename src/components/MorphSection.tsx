@@ -77,14 +77,16 @@ export default function MorphSection() {
         { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
       );
 
+      tl.addLabel("linesStart", ">-0.3"); // kurz bevor die Box-Animation fertig ist
+
       linesRef.current.forEach((line, i) => {
         if (!line) return;
         const { goesLeft } = LINES[i];
         tl.fromTo(
           line,
-          { x: goesLeft ? "105%" : "-105%" },
-          { x: "0%", duration: 6, ease: "power2.out" },
-          i === 0 ? "<0.5" : "<",
+          { x: goesLeft ? "100vw" : "-100vw" },
+          { x: 0, duration: 6, ease: "power2.out" },
+          "linesStart", // alle Zeilen starten exakt gleichzeitig -> treffen sich deckungsgleich in der Mitte
         );
       });
 
@@ -171,18 +173,21 @@ export default function MorphSection() {
                     ref={(el) => {
                       linesRef.current[i] = el;
                     }}
-                    className="absolute pointer-events-none select-none"
+                    className="absolute pointer-events-none select-none grid place-items-center"
                     style={{
                       top: `${topPct}%`,
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      width: "max-content",
+                      left: 0,
+                      width: "100%",
+                      // Kein "left: 50%" + "translate(-50%,-50%)" mehr nötig:
+                      // Grid zentriert den Inhalt bereits horizontal.
+                      transform: "translateY(-50%)",
                       zIndex: i,
                     }}
                   >
                     <span
                       className="whitespace-nowrap uppercase leading-none"
                       style={{
+                        gridArea: "1 / 1", // alle Zeilen teilen dieselbe Grid-Zelle -> identische Mittelachse
                         fontSize: "clamp(90px, 16vw, 260px)",
                         fontWeight: 900,
                         letterSpacing: "-0.03em",
