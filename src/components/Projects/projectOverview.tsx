@@ -74,7 +74,7 @@ function ProjectOverview() {
             <Tag text="Sanity" />
             <Tag text="Email.js" />
           </div>
-          <p className="text-lg text-[#CEC9C9] pb-2">
+          <p className="text-md text-[#CEC9C9] pb-2">
             A simple and user-friendly solution was developed for the client. By using Sanity as the
             content management system, the client can easily manage and update their products
             independently.
@@ -160,7 +160,7 @@ function ProjectOverview() {
             <Tag text="TailwindCss" />
             <Tag text="React" />
           </div>
-          <p className="text-lg text-[#CEC9C9] pb-2">
+          <p className="text-md text-[#CEC9C9] pb-2">
             A tournament application built to meet the requirements of custom tournaments, with a
             focus on flexible group stages, knockout brackets, and support for an uneven number of
             teams.
@@ -245,7 +245,7 @@ function ProjectOverview() {
             <Tag text="TailwindCss" />
             <Tag text="React" />
           </div>
-          <p className="text-xl text-[#CEC9C9] pb-2">
+          <p className="text-md text-[#CEC9C9] pb-2">
             {" "}
             Track your income and expenses in a personal profile and access them anytime. A mobile
             budgeting app focused on managing recurring and fixed monthly costs.
