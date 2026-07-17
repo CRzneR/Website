@@ -737,6 +737,9 @@ video {
 .hidden {
   display: none;
 }
+.h-10 {
+  height: 2.5rem;
+}
 .h-12 {
   height: 3rem;
 }
@@ -749,6 +752,9 @@ video {
 .h-40 {
   height: 10rem;
 }
+.h-5 {
+  height: 1.25rem;
+}
 .h-7 {
   height: 1.75rem;
 }
@@ -760,9 +766,6 @@ video {
 }
 .h-\[200px\] {
   height: 200px;
-}
-.h-\[280px\] {
-  height: 280px;
 }
 .h-\[300px\] {
   height: 300px;
@@ -797,6 +800,9 @@ video {
 .h-\[95\%\] {
   height: 95%;
 }
+.h-auto {
+  height: auto;
+}
 .h-full {
   height: 100%;
 }
@@ -806,20 +812,17 @@ video {
 .h-screen {
   height: 100vh;
 }
-.h-10 {
-  height: 2.5rem;
-}
-.h-5 {
-  height: 1.25rem;
-}
-.h-auto {
-  height: auto;
+.h-\[400vh\] {
+  height: 400vh;
 }
 .min-h-\[35vh\] {
   min-height: 35vh;
 }
 .min-h-screen {
   min-height: 100vh;
+}
+.w-10 {
+  width: 2.5rem;
 }
 .w-12 {
   width: 3rem;
@@ -832,6 +835,9 @@ video {
 }
 .w-48 {
   width: 12rem;
+}
+.w-5 {
+  width: 1.25rem;
 }
 .w-6 {
   width: 1.5rem;
@@ -865,12 +871,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-10 {
-  width: 2.5rem;
-}
-.w-5 {
-  width: 1.25rem;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -1417,6 +1417,10 @@ video {
 .text-white\/90 {
   color: rgb(255 255 255 / 0.9);
 }
+.text-\[\#FBFF83\] {
+  --tw-text-opacity: 1;
+  color: rgb(251 255 131 / var(--tw-text-opacity, 1));
+}
 .underline {
   text-decoration-line: underline;
 }
@@ -1459,6 +1463,11 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
 .transition-shadow {
   transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1466,11 +1475,6 @@ video {
 }
 .transition-transform {
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-.transition-colors {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1570,12 +1574,12 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-white\/50:hover {
-  background-color: rgb(255 255 255 / 0.5);
-}
-
 .hover\:bg-white\/10:hover {
   background-color: rgb(255 255 255 / 0.1);
+}
+
+.hover\:bg-white\/50:hover {
+  background-color: rgb(255 255 255 / 0.5);
 }
 
 .hover\:text-black:hover {
@@ -1679,16 +1683,16 @@ body {
     height: 1.5rem;
   }
 
-  .md\:w-\[400px\] {
-    width: 400px;
-  }
-
   .md\:w-12 {
     width: 3rem;
   }
 
   .md\:w-6 {
     width: 1.5rem;
+  }
+
+  .md\:w-\[400px\] {
+    width: 400px;
   }
 
   .md\:grid-cols-2 {

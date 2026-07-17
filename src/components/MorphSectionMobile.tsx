@@ -1,5 +1,7 @@
 "use client";
 
+import SplitTextAnimation from "../components/effects/splitText";
+
 const CERTS = [
   {
     title: "AZ-900",
@@ -27,17 +29,16 @@ const CERTS = [
   },
 ];
 
-export default function MorphSectionMobileExtras() {
+export default function MorphSectionMobile() {
   return (
-    <div className="flex flex-col md:hidden gap-8 px-6 py-12" style={{ background: "#151515" }}>
+    <div className="md:hidden flex flex-col gap-8 px-6 py-12" style={{ background: "#151515" }}>
       {/* ── My Profile ── */}
       <div className="flex flex-col gap-4 select-none">
-        <p
-          className="text-xs uppercase tracking-widest font-semibold mb-1"
-          style={{ color: "#FBFF83" }}
-        >
-          My profile
-        </p>
+        <SplitTextAnimation
+          text="My profile"
+          tag="p"
+          className="text-xl sm:text-xl  tracking-widest font-semibold mb-1 text-[#FBFF83]"
+        />
 
         <p className="text-base font-medium leading-snug" style={{ color: "#CEC9C9" }}>
           I build web applications tailored to your needs, combining thoughtful UI & UX design with
@@ -47,9 +48,11 @@ export default function MorphSectionMobileExtras() {
 
       {/* ── Certificates ── */}
       <div className="flex flex-col gap-4">
-        <p className="text-xs uppercase tracking-widest font-semibold" style={{ color: "#FBFF83" }}>
-          Certificates
-        </p>
+        <SplitTextAnimation
+          text="Certificates"
+          tag="p"
+          className="text-xl sm:text-xl  tracking-widest font-semibold text-[#FBFF83]"
+        />
 
         <div className="grid grid-cols-2 gap-3">
           {CERTS.map((cert, i) => (
