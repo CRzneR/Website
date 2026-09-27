@@ -1,0 +1,168 @@
+/* ---------- Hero ---------- */
+.hero {
+  --accent: 245, 252, 123; /* #F5FC7B als RGB */
+  --ink: #edebeb;
+  --muted: #8a8686;
+  /* Schriften: per next/font als CSS-Variablen setzen (siehe layout), sonst greifen die Fallbacks */
+  --font-display-stack:
+    var(--font-display, "Inter"), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body-stack: var(--font-body, "Roboto Condensed"), "Arial Narrow", system-ui, sans-serif;
+  --pad-x: 1.5rem;
+
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  justify-items: center;
+  gap: 2.5rem;
+  padding: 6rem var(--pad-x) 3rem;
+  overflow: hidden;
+  background: #151515;
+  color: var(--ink);
+  font-family: var(--font-body-stack);
+}
+
+/* Textblock links */
+.intro {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  max-width: 30rem;
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  color: rgb(var(--accent));
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display-stack);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.text {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+/* Prozess-Liste rechts */
+.steps {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  margin: 0;
+  padding: 0 0 0.75rem;
+  list-style: none;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.25;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(var(--accent));
+}
+
+/* Ab md: Text links, Logo mittig, Liste rechts – alles in derselben Grid-Zeile übereinander */
+@media (min-width: 768px) {
+  .hero {
+    --pad-x: 3rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .logo {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .intro {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .steps {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    margin-right: 3rem;
+  }
+}
+
+/* ---------- 3D-Logo ----------
+   Bühne mit den Proportionen von CR.svg (430 × 493).
+   Tiefen (--z, --d) in Logo-Einheiten: 1 Einheit = 1/430 der Breite.
+   Perspektive P = 860 Einheiten (2 × Breite). */
+.logo {
+  --w: min(78vw, 360px);
+  --p: 860;
+  width: var(--w);
+  aspect-ratio: 430 / 493;
+  perspective: calc(var(--w) * var(--p) / 430);
+}
+
+@media (min-width: 768px) {
+  .logo {
+    --w: min(36vw, 430px, calc(72svh * 430 / 493));
+  }
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Buchstabe füllt die Bühne → Transform-Origin = Perspektiv-Ursprung.
+   scale((P - z) / P) hebt die perspektivische Größenänderung auf. */
+.letter {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--w) * var(--z) / 430))
+    scale(calc((var(--p) - var(--z)) / var(--p)));
+}
+
+.letterC {
+  --z: 60; /* vorne */
+}
+
+.letterR {
+  --z: -60; /* hinten */
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: translateZ(calc(var(--w) * var(--d) / -430));
+}
+
+/* Boden: Lichtschein unter den Buchstaben */
+.floor {
+  position: absolute;
+  left: -90%;
+  width: 280%;
+  top: 0;
+  height: 200%; /* Mittelpunkt liegt auf der Unterkante der Bühne */
+  transform: rotateX(90deg);
+  background: radial-gradient(closest-side, rgba(var(--accent), 0.22), transparent) center / 45% 40%
+    no-repeat;
+  pointer-events: none;
+}
