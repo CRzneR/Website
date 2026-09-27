@@ -24,10 +24,6 @@ const apps = [
   },
 ];
 
-/*
-  Mobil: Karten untereinander, Größen in rem (gut lesbar auf kleinen Screens).
-  Ab md: zwei Spalten mit den bisherigen vw-Werten.
-*/
 export default function PersonalApps() {
   return (
     <section className="py-[10vw]">
@@ -35,14 +31,12 @@ export default function PersonalApps() {
         // my personal Web Aplications
       </h2>
 
-      {/* stagger: Die Karten erscheinen nacheinander – mobil beim Runterscrollen besonders schön */}
       <Reveal
         as="div"
         stagger={0.2}
         className="mt-6 grid grid-cols-1 gap-4 px-5 md:mt-[3vw] md:grid-cols-2 md:gap-[2.9vw] md:px-[6.5vw]"
       >
         {apps.map((app) => (
-          /* Die ganze Karte ist der Link – bleibt direktes Kind von Reveal, damit stagger greift */
           <a
             key={app.title}
             href={app.href}
@@ -87,7 +81,7 @@ export default function PersonalApps() {
                 ))}
               </div>
 
-              {/* Pfeil als visueller Hinweis – der Link ist die ganze Karte */}
+              {/* Pfeil */}
               <span
                 aria-hidden="true"
                 className="mt-auto flex h-10 w-10 items-center justify-center self-end rounded-full border border-white/70 text-white transition-colors duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-[#151515] md:h-[3vw] md:w-[3vw]"

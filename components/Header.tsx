@@ -30,7 +30,6 @@ export default function Header() {
       if (rafId === null) rafId = requestAnimationFrame(update);
     };
 
-    // Seitenhöhe kann sich ändern (Bilder laden, Sections klappen auf)
     const resizeObserver = new ResizeObserver(requestUpdate);
     resizeObserver.observe(document.body);
 

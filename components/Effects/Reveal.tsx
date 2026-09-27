@@ -22,7 +22,7 @@ type From = "bottom" | "top" | "left" | "right" | "none";
 
 type RevealProps = {
   children: ReactNode;
-  /** HTML-Element, das gerendert wird (Standard: div) */
+  /** HTML-Element, das gerendert wird */
   as?: ElementType;
   /** Richtung, aus der der Inhalt kommt */
   from?: From;
@@ -106,8 +106,7 @@ export default function Reveal({
       fromVars.filter = "blur(10px)";
       toVars.filter = "blur(0px)";
     }
-    // Nach einmaligem Abspielen Inline-Styles entfernen, damit nichts dauerhaft transformiert bleibt
-    // (wichtig z. B. für position: sticky oder fixed in Kindelementen)
+
     if (once) {
       toVars.clearProps = "transform,filter";
     }

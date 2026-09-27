@@ -3,7 +3,6 @@
   --accent: 245, 252, 123; /* #F5FC7B als RGB */
   --ink: #edebeb;
   --muted: #8a8686;
-  /* Schriften: per next/font als CSS-Variablen setzen (siehe layout), sonst greifen die Fallbacks */
   --font-display-stack:
     var(--font-display, "Inter"), system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-body-stack: var(--font-body, "Roboto Condensed"), "Arial Narrow", system-ui, sans-serif;
@@ -71,7 +70,6 @@
   border-bottom: 1px solid rgb(var(--accent));
 }
 
-/* Ab md: Text links, Logo mittig, Liste rechts – alles in derselben Grid-Zeile übereinander */
 @media (min-width: 768px) {
   .hero {
     --pad-x: 3rem;
@@ -101,10 +99,7 @@
   }
 }
 
-/* ---------- 3D-Logo ----------
-   Bühne mit den Proportionen von CR.svg (430 × 493).
-   Tiefen (--z, --d) in Logo-Einheiten: 1 Einheit = 1/430 der Breite.
-   Perspektive P = 860 Einheiten (2 × Breite). */
+/* ---------- 3D-Logo ---------- */
 .logo {
   --w: min(78vw, 360px);
   --p: 860;
@@ -127,8 +122,6 @@
   will-change: transform;
 }
 
-/* Buchstabe füllt die Bühne → Transform-Origin = Perspektiv-Ursprung.
-   scale((P - z) / P) hebt die perspektivische Größenänderung auf. */
 .letter {
   position: absolute;
   inset: 0;

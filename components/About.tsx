@@ -12,22 +12,11 @@ const certificates = [
 export default function About() {
   return (
     <section id="about" className="pb-[6vw] pt-[2vw]">
-      {/*
-        Name über die volle Breite: Schriftgröße so gewählt, dass der Schriftzug knapp
-        in 87vw (100vw - 2 × 6.5vw Padding) passt. Der kleine Rest wird per Blocksatz
-        in die Lücke zwischen den Wörtern verteilt, sodass beide Ränder exakt bündig sind.
-        whitespace-nowrap verhindert einen Umbruch, falls es doch minimal zu breit wird.
-      */}
       <h2 className="w-full whitespace-nowrap px-[6.5vw] text-justify font-display text-[15vw] uppercase leading-[0.85] tracking-tight text-accent [text-align-last:justify]">
         Christoph Renz
       </h2>
 
       <div className="relative mt-[1vw]">
-        {/*
-          top-[-7vw]: Porträt ragt in den Namen hinein.
-          mask-image: Bild läuft nach unten in Transparenz aus – ab 60 % der Höhe
-          wird es weicher, am unteren Rand ist es komplett unsichtbar.
-        */}
         <Image
           src="/images/christoph-portrait.png"
           alt="Christoph Renz"

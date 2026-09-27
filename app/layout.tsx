@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
   title: {
     default: `${siteName} – Webentwickler & Frontend Developer`,
-    template: `%s | ${siteName}`, // Unterseiten: "Impressum | Christoph Renz"
+    template: `%s | ${siteName}`,
   },
 
   description: siteDescription,
