@@ -7,42 +7,40 @@ const contacts: {
   value: string;
   Icon: IconType;
   color: string;
-  /** Optional: Ziel des Links – ohne href ist die Zeile nicht klickbar */
   href?: string;
 }[] = [
   {
     label: "TikTok",
     value: "Tiktok.Com/@FactoryLNG",
     Icon: FaTiktok,
-    color: "#EE1D52", // TikTok-Rosa
+    color: "#EE1D52",
     href: "https://www.tiktok.com/@factoryLNG",
   },
   {
     label: "GitHub",
     value: "Github.Com/CRzneR",
     Icon: FaGithub,
-    color: "#181717", // offizielles GitHub-Schwarz (GitHub hat keine "bunte" Markenfarbe)
+    color: "#181717",
     href: "https://github.com/CRzneR",
   },
   {
     label: "LinkedIn",
     value: "Linkedin.Com/In/ChristophRenz",
     Icon: FaLinkedin,
-    color: "#0A66C2", // offizielles LinkedIn-Blau
+    color: "#0A66C2",
     href: "https://www.linkedin.com/in/christophrenz/",
   },
   {
     label: "E-Mail",
     value: "kontakt@ChristophRenz.de",
     Icon: FaEnvelope,
-    color: "#EA4335", // generisches "Mail-Rot", keine echte Marke dahinter
+    color: "#EA4335",
     href: "mailto:kontakt@christophrenz.de",
   },
   {
     label: "Cults",
     value: "Https://Cults3d.Com/En/Users/FactoryLNG/3d-Models",
-    // Cults3D hat kein Icon in gängigen Icon-Sets — Cube als thematischer Ersatz
-    // (3D-Druck-Plattform). Farbe ist eine eigene Wahl, keine verifizierte Markenfarbe.
+
     Icon: FaCube,
     color: "#FF7A30",
     href: "https://cults3d.com/en/users/FactoryLNG/3d-models",
@@ -52,10 +50,6 @@ const contacts: {
 const rowClass =
   "group flex items-center gap-4 self-start md:gap-[8.6vw] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent";
 
-/*
-  Mobil: Größen in rem, damit Icons und Text auf kleinen Screens gut lesbar sind.
-  Ab md: die bisherigen vw-Werte.
-*/
 export default function ContactList() {
   return (
     <section id="kontakt" className="py-12 md:py-[4vw]">
@@ -75,7 +69,7 @@ export default function ContactList() {
               >
                 <Icon className="h-6 w-6 text-[#4A4A4A] transition-colors duration-300 group-hover:text-[color:var(--hover-color)] md:h-[2.2vw] md:w-[2.2vw]" />
               </div>
-              {/* min-w-0 + break-words: lange URLs (z. B. Cults) brechen mobil um statt über den Rand zu laufen */}
+
               <div className="min-w-0">
                 <p className="font-display text-lg uppercase text-white md:text-[1.3vw]">
                   {contact.label}
@@ -87,7 +81,6 @@ export default function ContactList() {
             </>
           );
 
-          // Ohne Link: normale Zeile
           if (!contact.href) {
             return (
               <div key={contact.label} className={rowClass}>
@@ -96,7 +89,6 @@ export default function ContactList() {
             );
           }
 
-          // Externe Seiten im neuen Tab, mailto: im selben Fenster (öffnet das Mailprogramm)
           const isExternal = contact.href.startsWith("http");
 
           return (
