@@ -1,26 +1,14 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
-const siteUrl = "https://www.christophrenz.de";
+// Beim Static Export wird sitemap.xml einmalig beim Build erzeugt
+export const dynamic = "force-static";
+
+const baseUrl = "https://christophrenz.de";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    {
-      url: siteUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1.0,
-    },
-    {
-      url: `${siteUrl}/impressum`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
-    {
-      url: `${siteUrl}/datenschutz`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+    { url: `${baseUrl}/`, changeFrequency: "monthly", priority: 1 },
+    { url: `${baseUrl}/impressum/`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/datenschutz/`, changeFrequency: "yearly", priority: 0.3 },
   ];
 }
