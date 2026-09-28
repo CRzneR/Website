@@ -1,107 +1,171 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
 import { FaTiktok, FaGithub, FaLinkedin, FaEnvelope, FaCube } from "react-icons/fa";
 import type { IconType } from "react-icons";
+import Reveal from "@/components/Effects/Reveal";
 
-const contacts: {
+type Contact = {
   label: string;
+  /** Kurzform, die in der "Code-Liste" in Anführungszeichen steht */
   value: string;
   Icon: IconType;
+  /** Farbe des Icons beim Hovern */
   color: string;
-  href?: string;
-}[] = [
+  href: string;
+};
+
+const contacts: Contact[] = [
   {
     label: "TikTok",
-    value: "Tiktok.Com/@FactoryLNG",
+    value: "TikTok/FactoryLNG",
     Icon: FaTiktok,
     color: "#EE1D52",
     href: "https://www.tiktok.com/@factoryLNG",
   },
   {
     label: "GitHub",
-    value: "Github.Com/CRzneR",
+    value: "GitHub/CRzneR",
     Icon: FaGithub,
-    color: "#181717",
+    color: "#FFFFFF", // GitHub-Schwarz wäre auf dem dunklen Hintergrund unsichtbar
     href: "https://github.com/CRzneR",
   },
   {
     label: "LinkedIn",
-    value: "Linkedin.Com/In/ChristophRenz",
+    value: "LinkedIn/ChristophRenz",
     Icon: FaLinkedin,
     color: "#0A66C2",
     href: "https://www.linkedin.com/in/christophrenz/",
   },
   {
     label: "E-Mail",
-    value: "kontakt@ChristophRenz.de",
+    value: "kontakt@christophrenz.de",
     Icon: FaEnvelope,
     color: "#EA4335",
     href: "mailto:kontakt@christophrenz.de",
   },
   {
     label: "Cults",
-    value: "Https://Cults3d.Com/En/Users/FactoryLNG/3d-Models",
-
+    value: "FactoryLNG",
     Icon: FaCube,
     color: "#FF7A30",
     href: "https://cults3d.com/en/users/FactoryLNG/3d-models",
   },
 ];
 
-const rowClass =
-  "group flex items-center gap-4 self-start md:gap-[8.6vw] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent";
+/* Externe Seiten im neuen Tab, mailto: im selben Fenster */
+const linkProps = (href: string) =>
+  href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
+const panel =
+  "rounded-2xl border border-accent/20 bg-white/[0.02] shadow-[0_0_40px_-20px_rgba(245,252,123,0.25)]";
+const focus =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent";
 
 export default function ContactList() {
   return (
-    <section id="kontakt" className="py-12 md:py-[4vw]">
-      <h2 className="px-5 text-base font-regular uppercase text-accent md:px-0 md:pl-[10.8vw] md:text-[1.5vw]">
-        // Kontakt List
-      </h2>
+    <section id="kontakt-liste" className="px-5 py-20 md:px-[6.5vw] md:py-28">
+      {/* ---------- Kopfbereich ---------- */}
+      <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="relative pl-5 pt-3">
+          <span
+            aria-hidden="true"
+            className="absolute left-0 top-0 h-12 w-6 border-l border-t border-accent/60"
+          />
+          <p className="text-sm text-accent">{"// 07"}</p>
+          <h2 className="mt-1 font-display text-4xl uppercase leading-none text-white md:text-5xl lg:text-6xl">
+            Kontakt Liste <span className="text-accent">{"{"}</span>
+          </h2>
+        </div>
 
-      <div className="mt-8 flex flex-col gap-6 px-5 md:mt-[6vw] md:gap-[3.6vw] md:px-0 md:pl-[27.3vw]">
-        {contacts.map((contact) => {
-          const Icon = contact.Icon;
+        <p className="max-w-xs text-sm leading-relaxed text-soft md:mb-1 md:text-right">
+          <span className="text-accent">{"// "}</span>
+          Lass uns ein Projekt starten oder einfach vernetzen.
+        </p>
+      </Reveal>
 
-          const content: ReactNode = (
-            <>
-              <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#D9D9D9] md:h-[5vw] md:w-[5vw]"
-                style={{ "--hover-color": contact.color } as CSSProperties}
+      <div className="mt-10 grid gap-5 md:mt-14 lg:grid-cols-[1.5fr_1fr]">
+        {/* ---------- Links: Liste im Code-Stil ---------- */}
+        <Reveal className={`${panel} p-6 md:p-10`}>
+          <ul className="flex flex-col gap-4 md:gap-5">
+            {contacts.map((contact, i) => (
+              <li key={contact.label}>
+                <a
+                  href={contact.href}
+                  {...linkProps(contact.href)}
+                  className={`group grid grid-cols-1 items-baseline gap-x-4 gap-y-0.5 rounded-md text-base md:grid-cols-[2.5rem_6rem_3.5rem_1.25rem_1fr] md:text-lg ${focus}`}
+                >
+                  <span className="hidden text-muted md:inline">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-white">{contact.label}</span>
+                  <span className="hidden whitespace-pre text-soft md:inline">
+                    [ <span className="text-accent">{i}</span> ]
+                  </span>
+                  <span className="hidden text-soft md:inline">=</span>
+                  <span className="min-w-0 break-words text-sm text-soft transition-colors duration-300 group-hover:text-accent md:text-lg">
+                    &quot;{contact.value}&quot;
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p aria-hidden="true" className="mt-5 text-lg text-white md:text-xl">
+            {"}"}
+          </p>
+        </Reveal>
+
+        {/* ---------- Rechts ---------- */}
+        <div className="flex flex-col gap-5">
+          {/* Icon-Leiste */}
+          <Reveal
+            as="div"
+            stagger={0.08}
+            distance={20}
+            className={`${panel} flex items-center justify-between gap-2 p-5 md:gap-3 md:p-6`}
+          >
+            {contacts.map(({ label, href, Icon, color }) => (
+              <a
+                key={label}
+                href={href}
+                {...linkProps(href)}
+                aria-label={label}
+                title={label}
+                style={{ "--hover-color": color } as CSSProperties}
+                className={`group flex h-11 w-11 shrink-0 items-center justify-center rounded-full md:h-14 md:w-14 border border-white/15 bg-white/[0.03] transition-[border-color,box-shadow] duration-300 hover:border-accent/70 hover:shadow-[0_0_20px_-4px_rgba(245,252,123,0.5)] ${focus}`}
               >
-                <Icon className="h-6 w-6 text-[#4A4A4A] transition-colors duration-300 group-hover:text-[color:var(--hover-color)] md:h-[2.2vw] md:w-[2.2vw]" />
-              </div>
+                <Icon className="h-5 w-5 text-white md:h-6 md:w-6 transition-colors duration-300 group-hover:text-[color:var(--hover-color)]" />
+              </a>
+            ))}
+          </Reveal>
 
-              <div className="min-w-0">
-                <p className="font-display text-lg uppercase text-white md:text-[1.3vw]">
-                  {contact.label}
-                </p>
-                <p className="break-words text-sm text-soft transition-colors duration-300 group-hover:text-white md:text-[1.1vw]">
-                  {contact.value}
-                </p>
-              </div>
-            </>
-          );
+          {/* Verfügbarkeit + Button */}
+          <Reveal delay={0.15} className={`${panel} flex-1 p-6 md:p-8`}>
+            <p className="flex items-center gap-2 text-xs uppercase tracking-[0.08em] text-accent">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:animate-none" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              {"// Available for new projects"}
+            </p>
+            <p className="mt-4 text-xl leading-snug text-white md:text-2xl">
+              Lass uns gemeinsam
+              <br />
+              <span className="text-accent">etwas Großartiges bauen.</span>
+            </p>
 
-          if (!contact.href) {
-            return (
-              <div key={contact.label} className={rowClass}>
-                {content}
-              </div>
-            );
-          }
-
-          const isExternal = contact.href.startsWith("http");
-
-          return (
             <a
-              key={contact.label}
-              href={contact.href}
-              {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className={rowClass}
+              href="mailto:kontakt@christophrenz.de"
+              className={`group mt-8 inline-flex items-center gap-6 rounded-xl border border-accent/70 px-7 py-4 text-sm text-white shadow-[0_0_30px_-10px_rgba(245,252,123,0.5)] transition-colors duration-300 hover:bg-accent hover:text-[#151515] ${focus}`}
             >
-              {content}
+              Kontakt aufnehmen
+              <span
+                aria-hidden="true"
+                className="text-accent transition-[transform,color] duration-300 group-hover:translate-x-1 group-hover:text-[#151515]"
+              >
+                →
+              </span>
             </a>
-          );
-        })}
+          </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, type CSSProperties, type ReactNode } from "re
 import gsap from "gsap";
 import styles from "./LogoHero.module.css";
 
+// Pfade aus CR.svg – gemeinsames Koordinatensystem 430 × 493
 const VIEWBOX = "0 0 430 493";
 const W = 430;
 const H = 493;
@@ -50,6 +51,8 @@ const MAX_Y = 22; // Grad links/rechts
 const MAX_X = 14; // Grad oben/unten
 const MAX_SPLIT = 5; // max. Versatz der Farbanteile (Lichtbrechung)
 const CENTER = { x: W / 2, y: H / 2 };
+
+const SERVICES = ["Webdesign", "Entwicklung", "Web Apps", "SEO"];
 
 // Licht-Typen: Radius (Logo-Einheiten) + Stops [offset, farbe, max. deckkraft]
 type LightType = "core" | "dispA" | "dispB" | "side" | "face";
@@ -98,6 +101,9 @@ const LIGHTS: Record<LightType, { r: number; stops: LightStop[] }> = {
   },
 };
 
+/* Radialer Licht-Verlauf. Er liegt bewusst IN jeder Schicht:
+   Verläufe aus einem anderen SVG würden die 3D-Ebenen nicht neu zeichnen.
+   cx/cy und stop-opacity werden imperativ im Effekt gesetzt (kein React-Re-Render pro Frame). */
 function LightGradient({ id, type }: { id: string; type: LightType }) {
   const cfg = LIGHTS[type];
   return (
@@ -239,7 +245,7 @@ export default function LogoHero() {
   const heroRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
-  const uid = useId().replace(/:/g, "");
+  const uid = useId().replace(/:/g, ""); // Doppelpunkte sind in url(#…) problematisch
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -391,6 +397,33 @@ export default function LogoHero() {
 
   return (
     <section ref={heroRef} className={styles.hero}>
+      {/* Dünne Leiste links als Akzent (ab md) */}
+      <span aria-hidden="true" className={styles.rail} />
+
+      {/* ---------- Text links ---------- */}
+      <div className={styles.intro}>
+        <p className={styles.eyebrow}>
+          <span className={styles.eyebrowIndex}>{"// 01"}</span>
+          Digital Development
+        </p>
+        <h1 className={styles.title}>
+          Digitale
+          <br />
+          <span className={styles.titleAccent}>Lösungen.</span>
+        </h1>
+        <p className={styles.text}>
+          Ich entwickle performante Websites und digitale Erlebnisse – authentisch im Konzept,
+          sauber im Code und mit Fokus auf echte Ergebnisse.
+        </p>
+        <a href="#portfolio" className={styles.cta}>
+          Projekte entdecken
+          <span aria-hidden="true" className={styles.ctaArrow}>
+            →
+          </span>
+        </a>
+      </div>
+
+      {/* ---------- 3D-Logo ---------- */}
       <div ref={logoRef} className={styles.logo} role="img" aria-label="Logo Christoph Renz">
         <div ref={sceneRef} className={styles.scene}>
           <div className={styles.floor} />
@@ -399,26 +432,35 @@ export default function LogoHero() {
         </div>
       </div>
 
-      <div className={styles.intro}>
-        <p className={styles.eyebrow}>{"// Digital Development"}</p>
-        <h1 className={styles.title}>
-          Digitale
-          <br />
-          Lösungen.
-        </h1>
-        <p className={styles.text}>
-          Ich entwickle performante Websites und digitale Erlebnisse – durchdacht im Konzept, sauber
-          im Code.
-        </p>
-      </div>
+      {/* ---------- Leistungen unten links ---------- */}
+      <ul className={styles.services} aria-label="Leistungen">
+        {SERVICES.map((service, i) => (
+          <li key={service} className={styles.service}>
+            {service}
+            <span className={styles.serviceIndex}>{String(i + 1).padStart(2, "0")}</span>
+          </li>
+        ))}
+      </ul>
 
-      <ol className={styles.steps} aria-label="Arbeitsweise">
-        <li>Think</li>
-        <li>Design</li>
-        <li>Develop</li>
-        <li>Deploy</li>
-        <li>Repeat</li>
-      </ol>
+      {/* ---------- Spalte rechts (ab md) ---------- */}
+      <div className={styles.aside}>
+        <ol className={styles.steps} aria-label="Arbeitsweise">
+          <li>Think</li>
+          <li>Design</li>
+          <li>Develop</li>
+          <li>Deploy</li>
+          <li>Repeat</li>
+        </ol>
+        <p className={styles.system}>
+          System / 001
+          <br />
+          Christoph Renz
+        </p>
+        <a href="#about" className={styles.scroll}>
+          <span className={styles.scrollLabel}>Scroll</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
     </section>
   );
 }

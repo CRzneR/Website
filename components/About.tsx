@@ -1,14 +1,6 @@
 import Image from "next/image";
 import ScrollWords from "@/components/Scrollwords";
 
-const certificates = [
-  { name: "iSAQB® CPSA-F Foundation Level", src: "/certificates/isaqb.png" },
-  { name: "CompTIA Tech+", src: "/certificates/comptia-techplus.png" },
-  { name: "Microsoft Certified Fundamentals", src: "/certificates/ms-fundamentals.png" },
-  { name: "OpenEDG JS Institute — WDE", src: "/certificates/openedg-wde.png" },
-  { name: "OpenEDG JS Institute — JSE", src: "/certificates/openedg-jse.png" },
-];
-
 export default function About() {
   return (
     <section id="about" className="pb-[6vw] pt-[2vw]">
@@ -28,34 +20,12 @@ export default function About() {
 
         <ScrollWords
           dimColor="#151515"
-          className="relative z-10 pl-[39vw] pr-[6.5vw] pt-[10.7vw] text-[3.2vw] font-extrabold uppercase leading-[1.55] text-white"
+          className="relative z-10 min-h-[53vw] pl-[39vw] pr-[6.5vw] pt-[10.7vw] text-[3.2vw] font-extrabold uppercase leading-[1.55] text-white"
         >
           Ich liebe es, aus einer Idee etwas Greifbares zu machen. Dabei verbinde ich kreatives
           Design mit sauberer Entwicklung und entwickle Websites und Webanwendungen, die klar,
           intuitiv und ein bisschen anders sind.
         </ScrollWords>
-
-        <h3 className="relative z-10 mt-[3.5vw] pl-[31.4vw] font-display text-[1.7vw] text-accent">
-          Zertifikate
-        </h3>
-
-        <div className="relative z-10 mt-[1.4vw] flex gap-[2.4vw] pl-[31.4vw]">
-          {certificates.map((cert) => (
-            <div
-              key={cert.name}
-              className="w-[10.4vw] shrink-0 overflow-hidden rounded-[0.9vw] bg-card-badge"
-              title={cert.name}
-            >
-              <Image
-                src={cert.src}
-                alt={cert.name}
-                width={173}
-                height={198}
-                className="h-auto w-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

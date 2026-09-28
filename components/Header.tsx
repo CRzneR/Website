@@ -45,22 +45,29 @@ export default function Header() {
     };
   }, []);
 
+  /*
+    Feste Größen statt vw:
+    - Mobil:     Logo 28 px, Text 14 px
+    - ab md:     Logo 32 px, Text 14 px
+    - ab lg:     Logo 40 px, Text 16 px (Desktop)
+    Der seitliche Abstand bleibt ab md bei 6.5vw, damit der Header bündig mit den Sections ist.
+  */
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between bg-[#151515]/80 px-[6.5vw] py-[1vw] backdrop-blur-md">
+    <header className="sticky top-0 z-50 flex items-center justify-between bg-[#151515]/80 px-5 py-3 backdrop-blur-md md:px-[6.5vw] lg:py-4">
       <Image
         src="/logo.png"
         alt="Christoph Renz Logo"
         width={45}
         height={49}
-        className="h-[2vw] w-auto min-h-[22px]"
+        className="h-7 w-auto md:h-8 lg:h-10"
         priority
       />
-      <nav className="flex items-center gap-[2.4vw]">
+      <nav className="flex items-center gap-5 md:gap-7 lg:gap-10">
         {navItems.map((item) => (
           <a
             key={item.label}
             href={item.href}
-            className="text-[0.95vw] text-muted transition-colors hover:text-white"
+            className="text-sm text-muted transition-colors hover:text-white lg:text-base"
           >
             {item.label}
           </a>

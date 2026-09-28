@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-/* Wiederkehrende Styles an einer Stelle */
 const section = "border-t border-white/10 py-8 md:py-10";
 const h2 = "mb-4 font-display text-xl uppercase tracking-wide text-white md:text-2xl";
 const h3 = "mb-2 mt-6 text-sm font-bold uppercase tracking-[0.08em] text-accent";
