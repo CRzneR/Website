@@ -1,16 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Effects/Reveal";
 
 type Certificate = {
   title: string;
-
   category: string;
-
   fullName: string;
   src: string;
+  pdf?: string;
 };
 
 const certificates: Certificate[] = [
@@ -19,38 +18,44 @@ const certificates: Certificate[] = [
     category: "Architektur",
     fullName: "iSAQB® CPSA-F Foundation Level",
     src: "/certificates/isaqb.png",
+    pdf: "/certificates/pdf/isaqb.pdf",
   },
   {
     title: "CompTIA\nTech+",
     category: "IT-Grundlagen",
     fullName: "CompTIA Tech+",
     src: "/certificates/comptia-techplus.png",
+    pdf: "/certificates/pdf/CompTIA.pdf",
   },
   {
     title: "Microsoft Certified\nFundamentals",
     category: "Cloud",
     fullName: "Microsoft Certified Fundamentals",
     src: "/certificates/ms-fundamentals.png",
+    pdf: "/certificates/pdf/Azure-900.png",
   },
   {
     title: "OpenEDG JS Institute\nWDE",
     category: "Web",
     fullName: "OpenEDG JS Institute — WDE",
     src: "/certificates/openedg-wde.png",
+    pdf: "/certificates/pdf/WebDeveloper.pdf",
   },
   {
     title: "OpenEDG JS Institute\nJSE",
     category: "JavaScript",
     fullName: "OpenEDG JS Institute — JSE",
     src: "/certificates/openedg-jse.png",
+    pdf: "/certificates/pdf/openedg-jse.pdf",
   },
 ];
 
 export default function Certificates() {
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const [canScroll, setCanScroll] = useState(false);
+  const [canScroll, setCanScroll] = useState(false); // passt die Reihe nicht in die Breite?
   const [atEnd, setAtEnd] = useState(false);
 
+  // Prüfen, ob die Reihe überläuft und ob das Ende erreicht ist
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -71,6 +76,7 @@ export default function Certificates() {
     };
   }, []);
 
+  // Weiterblättern – am Ende zurück an den Anfang
   const scrollNext = () => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -107,39 +113,66 @@ export default function Certificates() {
 
       {/* ---------- Karten ---------- */}
       <div className="relative mt-10 md:mt-14">
+        {/* Äußeres div scrollt horizontal, Reveal darin blendet die Karten nacheinander ein */}
         <div
           ref={scrollerRef}
           className="snap-x snap-mandatory overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           <Reveal as="div" stagger={0.1} distance={30} className="flex w-max gap-4">
-            {certificates.map((cert, i) => (
-              <div
-                key={cert.fullName}
-                title={cert.fullName}
-                className={`group relative flex w-44 shrink-0 snap-start flex-col items-center rounded-2xl border bg-white/[0.03] px-4 pb-6 pt-8 text-center transition-[border-color,box-shadow] duration-500 hover:border-accent/60 hover:shadow-[0_0_40px_-12px_rgba(245,252,123,0.35)] lg:w-52 ${
-                  i === 0 ? "border-accent/40" : "border-white/10"
-                }`}
-              >
-                <div className="relative h-20 w-20 lg:h-24 lg:w-24">
-                  <Image
-                    src={cert.src}
-                    alt={cert.fullName}
-                    fill
-                    sizes="96px"
-                    className="object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
+            {certificates.map((cert, i) => {
+              const cardClass = `group relative flex w-44 shrink-0 snap-start flex-col items-center rounded-2xl border bg-white/[0.03] px-4 pb-6 pt-8 text-center transition-[border-color,box-shadow] duration-500 hover:border-accent/60 hover:shadow-[0_0_40px_-12px_rgba(245,252,123,0.35)] lg:w-52 ${
+                i === 0 ? "border-accent/40" : "border-white/10"
+              }`;
 
-                <p className="mt-6 whitespace-pre-line text-sm leading-snug text-white lg:text-base">
-                  {cert.title}
-                </p>
-                <p className="mt-3 text-xs text-muted">{cert.category}</p>
-              </div>
-            ))}
+              const content: ReactNode = (
+                <>
+                  <div className="relative h-20 w-20 lg:h-24 lg:w-24">
+                    <Image
+                      src={cert.src}
+                      alt={cert.fullName}
+                      fill
+                      sizes="96px"
+                      className="object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <p className="mt-6 whitespace-pre-line text-sm leading-snug text-white lg:text-base">
+                    {cert.title}
+                  </p>
+                  <p className="mt-3 text-xs text-muted">{cert.category}</p>
+
+                  {cert.pdf && (
+                    <span className="mt-4 inline-flex items-center gap-1 text-xs text-accent/70 transition-colors duration-300 group-hover:text-accent">
+                      PDF ansehen
+                      <span aria-hidden="true">↗</span>
+                    </span>
+                  )}
+                </>
+              );
+
+              // Mit PDF: Karte ist ein Link und bleibt direktes Kind von Reveal (für stagger)
+              return cert.pdf ? (
+                <a
+                  key={cert.fullName}
+                  href={cert.pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={`${cert.fullName} – PDF öffnen`}
+                  aria-label={`${cert.fullName} – Zertifikat als PDF öffnen (neues Fenster)`}
+                  className={`${cardClass} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent`}
+                >
+                  {content}
+                </a>
+              ) : (
+                <div key={cert.fullName} title={cert.fullName} className={cardClass}>
+                  {content}
+                </div>
+              );
+            })}
           </Reveal>
         </div>
 
-        {/* Weiter-Button*/}
+        {/* Weiter-Button: nur sichtbar, wenn die Reihe breiter als der Bildschirm ist */}
         {canScroll && (
           <div className="pointer-events-none absolute inset-y-0 right-0 flex w-24 items-center justify-end bg-gradient-to-l from-[#151515] to-transparent">
             <button

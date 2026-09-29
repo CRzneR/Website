@@ -33,7 +33,7 @@ const contacts: Contact[] = [
     value: "LinkedIn/ChristophRenz",
     Icon: FaLinkedin,
     color: "#0A66C2",
-    href: "https://www.linkedin.com/in/christophrenz/",
+    href: "https://www.linkedin.com/in/christoph-renz-806822388",
   },
   {
     label: "E-Mail",
@@ -46,7 +46,7 @@ const contacts: Contact[] = [
     label: "Cults",
     value: "FactoryLNG",
     Icon: FaCube,
-    color: "#FF7A30",
+    color: "#8D27FF",
     href: "https://cults3d.com/en/users/FactoryLNG/3d-models",
   },
 ];
