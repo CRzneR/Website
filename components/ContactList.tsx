@@ -5,10 +5,8 @@ import Reveal from "@/components/Effects/Reveal";
 
 type Contact = {
   label: string;
-  /** Kurzform, die in der "Code-Liste" in Anführungszeichen steht */
   value: string;
   Icon: IconType;
-  /** Farbe des Icons beim Hovern */
   color: string;
   href: string;
 };
@@ -51,7 +49,6 @@ const contacts: Contact[] = [
   },
 ];
 
-/* Externe Seiten im neuen Tab, mailto: im selben Fenster */
 const linkProps = (href: string) =>
   href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
@@ -70,7 +67,7 @@ export default function ContactList() {
             aria-hidden="true"
             className="absolute left-0 top-0 h-12 w-6 border-l border-t border-accent/60"
           />
-          <p className="text-sm text-accent">{"// 07"}</p>
+          <p className="text-sm text-accent">{"// 06"}</p>
           <h2 className="mt-1 font-display text-4xl uppercase leading-none text-white md:text-5xl lg:text-6xl">
             Kontakt Liste <span className="text-accent">{"{"}</span>
           </h2>

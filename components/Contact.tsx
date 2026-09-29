@@ -27,7 +27,7 @@ export default function Contact() {
               aria-hidden="true"
               className="h-5 w-5 rounded-full border border-accent/70 shadow-[0_0_12px_rgba(245,252,123,0.4)]"
             />
-            <p className="text-sm text-accent">{"// 06"}</p>
+            <p className="text-sm text-accent">{"// 07"}</p>
           </div>
 
           <p className="mt-5 font-display text-3xl text-white md:text-4xl lg:text-5xl">

@@ -14,11 +14,19 @@ type Certificate = {
 
 const certificates: Certificate[] = [
   {
-    title: "iSAQB CPSA-F\nFoundation Level",
+    title: "iSAQB CPSA-F\nSoftware Architecture",
     category: "Architektur",
-    fullName: "iSAQB® CPSA-F Foundation Level",
+    fullName: "iSAQB® CPSA-F Software Architecture – Foundation Level",
     src: "/certificates/isaqb.png",
     pdf: "/certificates/pdf/isaqb.pdf",
+  },
+
+  {
+    title: "Microsoft Certified\nFundamentals",
+    category: "Cloud",
+    fullName: "Microsoft Certified Fundamentals",
+    src: "/certificates/ms-fundamentals.png",
+    pdf: "/certificates/pdf/Azure-900.png",
   },
   {
     title: "CompTIA\nTech+",
@@ -26,13 +34,6 @@ const certificates: Certificate[] = [
     fullName: "CompTIA Tech+",
     src: "/certificates/comptia-techplus.png",
     pdf: "/certificates/pdf/CompTIA.pdf",
-  },
-  {
-    title: "Microsoft Certified\nFundamentals",
-    category: "Cloud",
-    fullName: "Microsoft Certified Fundamentals",
-    src: "/certificates/ms-fundamentals.png",
-    pdf: "/certificates/pdf/Azure-900.png",
   },
   {
     title: "OpenEDG JS Institute\nWDE",
@@ -52,10 +53,9 @@ const certificates: Certificate[] = [
 
 export default function Certificates() {
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const [canScroll, setCanScroll] = useState(false); // passt die Reihe nicht in die Breite?
+  const [canScroll, setCanScroll] = useState(false);
   const [atEnd, setAtEnd] = useState(false);
 
-  // Prüfen, ob die Reihe überläuft und ob das Ende erreicht ist
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -76,7 +76,6 @@ export default function Certificates() {
     };
   }, []);
 
-  // Weiterblättern – am Ende zurück an den Anfang
   const scrollNext = () => {
     const el = scrollerRef.current;
     if (!el) return;
@@ -89,7 +88,7 @@ export default function Certificates() {
       {/* ---------- Kopfbereich ---------- */}
       <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:gap-10">
         <div className="relative shrink-0 pl-5 pt-3">
-          {/* Eckige Klammer oben links als Akzent */}
+          {/* Eckige Klammer  */}
           <span
             aria-hidden="true"
             className="absolute left-0 top-0 h-12 w-6 border-l border-t border-accent/60"
@@ -100,7 +99,7 @@ export default function Certificates() {
           </h2>
         </div>
 
-        {/* Linie, die nach rechts ausläuft */}
+        {/* Linie */}
         <span
           aria-hidden="true"
           className="mb-4 hidden h-px flex-1 bg-gradient-to-r from-accent/70 via-white/20 to-transparent md:block"
@@ -113,7 +112,6 @@ export default function Certificates() {
 
       {/* ---------- Karten ---------- */}
       <div className="relative mt-10 md:mt-14">
-        {/* Äußeres div scrollt horizontal, Reveal darin blendet die Karten nacheinander ein */}
         <div
           ref={scrollerRef}
           className="snap-x snap-mandatory overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
