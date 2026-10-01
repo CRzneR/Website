@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anton, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -15,26 +15,29 @@ const inter = Inter({
   variable: "--font-body",
 });
 
-// ─── Metadata ────────────────────────────────────────────────────────────────
+// ─── Basisdaten ──────────────────────────────────────────────────────────────
 
 const siteUrl = "https://www.christophrenz.de";
 const siteName = "Christoph Renz";
 const siteDescription =
-  "Portfolio von Christoph Renz – Webentwickler & Frontend Developer für moderne Websites und Web-Apps mit Next.js, React, TailwindCSS und TypeScript.";
+  "Christoph Renz – Webentwickler aus München für moderne Websites, Web-Apps und SEO. Next.js, React, Tailwind CSS und TypeScript – durchdacht im Konzept, sauber im Code.";
+
+const profiles = [
+  "https://github.com/CRzneR",
+  "https://www.linkedin.com/in/christoph-renz-806822388/",
+];
+
+// ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: `${siteName} – Webentwickler & Frontend Developer`,
+    default: `${siteName} – Webentwickler aus München`,
     template: `%s | ${siteName}`,
   },
 
   description: siteDescription,
-
-  alternates: {
-    canonical: "/",
-  },
 
   robots: {
     index: true,
@@ -50,8 +53,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    url: siteUrl,
-    title: `${siteName} – Webentwickler & Frontend Developer`,
+    title: `${siteName} – Webentwickler aus München`,
     description: siteDescription,
     siteName,
     locale: "de_DE",
@@ -68,24 +70,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} – Webentwickler & Frontend Developer`,
+    title: `${siteName} – Webentwickler aus München`,
     description: siteDescription,
     images: ["/og.jpg"],
   },
-
-  keywords: [
-    "Christoph Renz",
-    "Webentwickler",
-    "Frontend Developer",
-    "Next.js Entwickler",
-    "React Entwickler",
-    "Tailwind CSS",
-    "TypeScript",
-    "Webentwicklung Deutschland",
-    "Portfolio Webentwickler",
-    "moderne Websites",
-    "Web-App Entwicklung",
-  ],
 
   authors: [{ name: siteName, url: siteUrl }],
   creator: siteName,
@@ -99,24 +87,66 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── JSON-LD Structured Data ─────────────────────────────────────────────────
+// Färbt auf dem Handy die Browserleiste passend zur Seite
+export const viewport: Viewport = {
+  themeColor: "#151515",
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: siteName,
-  url: siteUrl,
-  jobTitle: "Webentwickler & Frontend Developer",
-  description: siteDescription,
-  image: `${siteUrl}/og.jpg`,
-  sameAs: ["https://github.com/crzner", "https://www.linkedin.com/in/christoph-renz-806822388/"],
-  knowsAbout: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Web Development"],
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: siteName,
+      url: siteUrl,
+      image: `${siteUrl}/og.jpg`,
+      jobTitle: "Webentwickler & Frontend Developer",
+      email: "mailto:kontakt@christophrenz.de",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "München",
+        addressCountry: "DE",
+      },
+      sameAs: profiles,
+      knowsAbout: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Webdesign", "SEO"],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#service`,
+      name: `${siteName} – Webentwicklung`,
+      url: siteUrl,
+      image: `${siteUrl}/og.jpg`,
+      description: siteDescription,
+      founder: { "@id": `${siteUrl}/#person` },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "München",
+        addressCountry: "DE",
+      },
+      areaServed: "DE",
+      serviceType: ["Webdesign", "Webentwicklung", "Web Apps", "SEO"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: siteName,
+      inLanguage: "de-DE",
+      publisher: { "@id": `${siteUrl}/#person` },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
       <body className={`${anton.variable} ${inter.variable} bg-bg font-sans text-white`}>
+        {/* Strukturierte Daten für Google – "<" wird maskiert, damit nichts aus dem Script ausbrechen kann */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        />
         <Header />
         {children}
         <Footer />

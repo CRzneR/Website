@@ -101,9 +101,6 @@ const LIGHTS: Record<LightType, { r: number; stops: LightStop[] }> = {
   },
 };
 
-/* Radialer Licht-Verlauf. Er liegt bewusst IN jeder Schicht:
-   Verläufe aus einem anderen SVG würden die 3D-Ebenen nicht neu zeichnen.
-   cx/cy und stop-opacity werden imperativ im Effekt gesetzt (kein React-Re-Render pro Frame). */
 function LightGradient({ id, type }: { id: string; type: LightType }) {
   const cfg = LIGHTS[type];
   return (
@@ -245,7 +242,7 @@ export default function LogoHero() {
   const heroRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
-  const uid = useId().replace(/:/g, ""); // Doppelpunkte sind in url(#…) problematisch
+  const uid = useId().replace(/:/g, "");
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -282,7 +279,6 @@ export default function LogoHero() {
       }
       for (const s of stops) s.el.setAttribute("stop-opacity", (s.max * light.i).toFixed(3));
 
-      // Richtung Licht → Logo-Mitte bestimmt, wie weit sich die Farben aufspalten
       const vx = CENTER.x - light.x;
       const vy = CENTER.y - light.y;
       const len = Math.hypot(vx, vy) || 1;
