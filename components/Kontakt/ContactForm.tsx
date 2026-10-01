@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { FiEdit2, FiMail, FiUser } from "react-icons/fi";
-import { CONTACT_EMAIL } from "./Contacts";
+import { CONTACT_EMAIL } from "./contacts";
 
 const ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
 
