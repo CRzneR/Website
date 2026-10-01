@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -118,6 +119,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${anton.variable} ${inter.variable} bg-bg font-sans text-white`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

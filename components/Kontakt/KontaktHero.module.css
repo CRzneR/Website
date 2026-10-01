@@ -1,0 +1,32 @@
+/* Sanftes Schweben der Icon-Panels – jedes Panel mit eigenem Versatz */
+@keyframes float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.delay1 {
+  animation-delay: -1.5s;
+}
+
+.delay2 {
+  animation-delay: -3s;
+}
+
+.delay3 {
+  animation-delay: -4.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float {
+    animation: none;
+  }
+}

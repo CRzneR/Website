@@ -2,11 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navItems = [
-  { label: "Über Mich", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Startseite", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Über Mich", href: "/about" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export default function Header() {
@@ -45,32 +48,29 @@ export default function Header() {
     };
   }, []);
 
-  /*
-    Feste Größen statt vw:
-    - Mobil:     Logo 28 px, Text 14 px
-    - ab md:     Logo 32 px, Text 14 px
-    - ab lg:     Logo 40 px, Text 16 px (Desktop)
-    Der seitliche Abstand bleibt ab md bei 6.5vw, damit der Header bündig mit den Sections ist.
-  */
   return (
     <header className="sticky top-0 z-50 flex items-center justify-between bg-[#151515]/80 px-5 py-3 backdrop-blur-md md:px-[6.5vw] lg:py-4">
-      <Image
-        src="/logo.png"
-        alt="Christoph Renz Logo"
-        width={45}
-        height={49}
-        className="h-7 w-auto md:h-8 lg:h-10"
-        priority
-      />
+      {/* Logo führt zurück zur Startseite */}
+      <Link href="/" aria-label="Zur Startseite">
+        <Image
+          src="/logo.png"
+          alt="Christoph Renz Logo"
+          width={45}
+          height={49}
+          className="h-7 w-auto md:h-8 lg:h-10"
+          priority
+        />
+      </Link>
+
       <nav className="flex items-center gap-5 md:gap-7 lg:gap-10">
         {navItems.map((item) => (
-          <a
+          <Link
             key={item.label}
             href={item.href}
             className="text-sm text-muted transition-colors hover:text-white lg:text-base"
           >
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
