@@ -2,19 +2,12 @@ import type { CSSProperties, ReactNode } from "react";
 import styles from "./GlowPanel.module.css";
 
 type GlowPanelProps = {
-  /** Position und Größe, z. B. "left-[10%] top-[20%] h-1/2 w-1/3" */
   className?: string;
   children?: ReactNode;
-  /** Sanft schweben lassen */
   float?: boolean;
-  /** Versatz der Schwebe-Animation in Sekunden (damit Panels nicht synchron schweben) */
   floatDelay?: number;
 };
 
-/**
- * Leuchtendes Glas-Panel in Akzentfarbe mit sichtbarer Materialstärke.
- * Wird absolut positioniert – der Eltern-Container braucht "relative".
- */
 export default function GlowPanel({
   className = "",
   children,

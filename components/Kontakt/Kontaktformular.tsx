@@ -1,7 +1,7 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import Reveal from "@/components/Effects/Reveal";
-import ContactForm from "./ContactForm";
-import { contacts, linkProps } from "./contacts";
+import { contacts, linkProps } from "./Contacts";
+import ContactForm from "./Contactform";
 
 const panel =
   "relative rounded-2xl border border-accent/25 bg-white/[0.02] shadow-[0_0_50px_-25px_rgba(245,252,123,0.35)]";

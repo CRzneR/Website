@@ -12,11 +12,8 @@ export const metadata: Metadata = {
 export default function KontaktPage() {
   return (
     <main className="bg-[#151515]">
-      {/* 1. Einstieg mit Headline und 3D-Visual */}
       <KontaktHero />
-      {/* 2. Formular, Kontaktliste und Direktkontakt */}
       <KontaktFormular />
-      {/* 3. Standort mit Globus und Claim */}
       <KontaktStandort />
     </main>
   );

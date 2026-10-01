@@ -2,15 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import { FiEdit2, FiMail, FiUser } from "react-icons/fi";
-import { CONTACT_EMAIL } from "./contacts";
+import { CONTACT_EMAIL } from "./Contacts";
 
-/*
-  Versand:
-  - Ist NEXT_PUBLIC_CONTACT_ENDPOINT gesetzt (z. B. ein Formspree-Endpoint), wird das
-    Formular per fetch dorthin geschickt.
-  - Ohne Endpoint öffnet sich das Mailprogramm mit vorausgefüllter Nachricht (mailto).
-  Die Seite ist ein Static Export – einen eigenen Server gibt es nicht.
-*/
 const ENDPOINT = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
 
 type Status = "idle" | "sending" | "success" | "error";
