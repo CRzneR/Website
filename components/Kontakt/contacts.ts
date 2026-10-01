@@ -3,15 +3,12 @@ import type { IconType } from "react-icons";
 
 export type Contact = {
   label: string;
-  /** Kurzform, die in der Code-Liste in Anführungszeichen steht */
   value: string;
   Icon: IconType;
   href: string;
-  /** In der Icon-Leiste "Direkt kontaktieren" anzeigen? */
   quick?: boolean;
 };
 
-/** Zentrale Kontaktdaten – hier ändern, gilt überall auf der Kontaktseite */
 export const CONTACT_EMAIL = "kontakt@christophrenz.de";
 
 export const contacts: Contact[] = [
@@ -51,6 +48,5 @@ export const contacts: Contact[] = [
   },
 ];
 
-/** Externe Seiten im neuen Tab, mailto: im selben Fenster */
 export const linkProps = (href: string) =>
   href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {};
