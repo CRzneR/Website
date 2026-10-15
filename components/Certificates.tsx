@@ -47,7 +47,7 @@ const certificates: Certificate[] = [
     category: "JavaScript",
     fullName: "OpenEDG JS Institute — JSE",
     src: "/certificates/openedg-jse.png",
-    pdf: "/certificates/pdf/openedg-jse.pdf",
+    pdf: "/certificates/pdf/JSE.pdf",
   },
 ];
 
